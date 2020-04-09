@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        app:navigationIcon="@drawable/logotext_src"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/taustaColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fillColor"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:id="@+id/mainbuttons1"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_button_3_layerlist"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="3dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="health_intent"
+                android:id="@+id/terveysButton"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_button_2_layerlist"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="entertainment_intent"
+                android:id="@+id/viihdeButton"/>
+
+             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:id="@+id/mainbuttons2"
+            android:background="@color/fillColor"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_button_4_layerlist"
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="3dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="food_intent"
+                android:id="@+id/ruokaButton"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_button_1_layerlist"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="work_intent"
+                android:id="@+id/tyoButton"/>
+
+            </LinearLayout>
+         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:id="@+id/gamebuttons"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/ruokagame"
+        />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/maitogame"
+        android:onClick="food_game_intent"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/liikuntagame"
+        android:onClick="sport_game_intent"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/vesigame"
+        android:onClick="water_intent"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:id="@+id/progressbarLayout"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/heart"/>
+
+    <ProgressBar
+        android:layout_width="280dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="15dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/palkki"
+        android:progressTint="@color/punainen"
+        />
+
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
