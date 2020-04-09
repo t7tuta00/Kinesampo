@@ -70,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="60dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
     <Button
@@ -97,4 +97,16 @@
             android:layout_marginLeft="50dp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/fingerPrintButton"
+        android:layout_gravity="center"
+        style="?android:attr/borderlessButtonStyle"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/fingerprint_src"
+        android:layout_marginTop="15dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
 </LinearLayout>
