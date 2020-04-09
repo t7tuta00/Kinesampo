@@ -1,2 +1,0 @@
-# Kinesampo1
-Sovellus
