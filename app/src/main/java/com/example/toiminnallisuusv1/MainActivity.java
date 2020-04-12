@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         salasanaButton = findViewById(R.id.signInButton);
+        salasanaButton.setVisibility(View.GONE);
 
         final EditText salasanaEdit = (EditText) findViewById(R.id.password);
         salasanaEdit.addTextChangedListener(new TextWatcher() {
@@ -38,34 +36,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 salasanaButton.setVisibility(View.VISIBLE);
+                findViewById(R.id.textView).setVisibility(View.GONE);
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 salasanaButton.setVisibility(View.VISIBLE);
+                findViewById(R.id.textView).setVisibility(View.GONE);
             }
         });
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.miLogOut:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                return true;
-            case R.id.action_tili:
-                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     public void uusiKayttajaIntent(View view) {

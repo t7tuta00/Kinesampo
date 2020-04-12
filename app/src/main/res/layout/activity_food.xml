@@ -1,10 +1,9 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".FoodActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,37 +18,78 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:text="Ruoka"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/headerText" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ruoka"
-            android:textSize="30sp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/headerText" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Takaisin"
+        android:layout_gravity="center"
+        android:layout_below="@+id/headerText"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/takaisinButton"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Takaisin"
-            android:layout_gravity="center"
-            android:id="@+id/takaisinButton"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@+id/takaisinButton"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView1"
+        android:text="Päivän kalorit: "/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kalorilaskin"
-            android:layout_gravity="center"
-            android:onClick="kalorilaskin_intent"
-            android:id="@+id/kaloriLaskin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_below="@+id/takaisinButton"
+        android:layout_marginTop="20dp"
+        android:id="@+id/dayKcal"
+        android:text="0"/>
 
-    </LinearLayout>
-</LinearLayout>
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/addKcal"
+        android:layout_marginTop="40dp"
+        android:inputType="number"
+        android:hint="Kcal"
+        android:gravity="center"
+        android:layout_below="@+id/dayKcal"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lisää kaloreita"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/addKcal"
+        android:layout_below="@+id/dayKcal"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="kalorilaskuri_intent"
+        android:id="@+id/kaloriLaskuri"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KALORILASKIN!! :)"
+        android:layout_gravity="center"
+        android:layout_below="@+id/kaloriLaskuri"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="kalorilaskin_intent"
+        android:id="@+id/kaloriLaskin"/>
+
+</RelativeLayout>

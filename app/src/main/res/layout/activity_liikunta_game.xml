@@ -35,6 +35,8 @@
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:id="@+id/liikuntakentta"
+        android:gravity="center"
+        android:inputType="number"
         android:layout_gravity="center"/>
 
     <Button

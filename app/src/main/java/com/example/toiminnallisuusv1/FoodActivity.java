@@ -54,4 +54,13 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         Intent laskinIntent = new Intent(this, KaloriLaskinActivity.class);
         startActivity(laskinIntent);
     }
+
+    public void kalorilaskuri_intent(View view) {
+
+
+        //KESKEN!!!!!!
+
+
+
+    }
 }
