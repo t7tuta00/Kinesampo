@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TiliAsetuksetActivity"></activity>
+        <activity android:name=".LisaaTreeniActivity"></activity>
+        <activity android:name=".LisaaAteriaActivity" />
+        <activity android:name=".RuokaTietokantaActivity" />
+        <activity android:name=".Recipe1Activity" />
+        <activity android:name=".Recipe" />
+        <activity android:name=".LiikuntaGetLayout" />
+        <activity android:name=".activity_ruoka_get_layout" />
+        <activity android:name=".TiliAsetuksetActivity" />
         <activity android:name=".KaloriLaskinActivity" />
         <activity android:name=".NewUserActivity2" />
         <activity
