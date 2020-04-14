@@ -94,15 +94,4 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LiikuntaGameActivity.class);
         startActivity(intent);
     }
-
-
-
-
-   /*@Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.vesigame) {
-            Intent intent = new Intent(this, VesiActivity.class);
-            startActivity(intent);
-        }
-    }*/
 }

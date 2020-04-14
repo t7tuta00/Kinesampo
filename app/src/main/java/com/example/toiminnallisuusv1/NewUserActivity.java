@@ -55,16 +55,6 @@ public class NewUserActivity extends AppCompatActivity {
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.okButton) {
-
-            //
-            //https://localhost4000/addNewUser
-            //INSERT INTO Kayttaja(Kayttajanimi,Etunimi,Sukunimi,Salasana,Sormenjalki,Sposti,Lisaysaika)
-            //VALUES('Kilpikalevi','Taneli','Turpeinen','salasana','Sormenjalki','tt@gmail.com',TIME);
-
-            String PostEmail;
-            String PostUser;
-            String PostPassw;
-
             Intent okIntent = new Intent(NewUserActivity.this, MenuActivity.class);
             startActivity(okIntent);
         }

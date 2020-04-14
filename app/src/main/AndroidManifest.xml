@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.toiminnallisuusv1">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_ruoka_get_layout"></activity>
-        <activity android:name=".LiikuntaGetLayout" />
-        <activity android:name=".TiliAsetuksetActivity" />
+        <activity android:name=".TiliAsetuksetActivity"></activity>
         <activity android:name=".KaloriLaskinActivity" />
         <activity android:name=".NewUserActivity2" />
         <activity

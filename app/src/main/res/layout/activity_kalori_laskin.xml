@@ -1,10 +1,9 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".KaloriLaskinActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,163 +18,157 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/kohdistus"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="">
+    </TextView>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:text="Kalorilaskin"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/headerText" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kalorilaskin"
-            android:textSize="30dp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/headerText" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Helppo tapa laskea paljonko ruoka sisältää kaloreita"
+        android:textSize="14dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/headerText"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/infoText" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Helppo tapa laskea paljonko ruoka sisältää kaloreita"
-            android:textSize="14dp"
-            android:textColor="@android:color/black"
-            android:gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/infoText" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="50dp">
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="50dp">
+                android:text="Kcal / 100 g:"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_below="@+id/infoText"
+                android:layout_toLeftOf="@id/kohdistus"
+                android:id="@+id/kcalText" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kcal / 100 g:"
-                    android:textSize="20dp"
-                    android:textColor="@android:color/black"
-                    android:gravity="center"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/kcalText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ruoan määrä (g):"
-                    android:textSize="20dp"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/amountText" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="50dp">
+                android:text="Ruoan määrä (g):"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_below="@+id/kcalText"
+                android:layout_toLeftOf="@id/kohdistus"
+                android:id="@+id/amountText" />
 
-                <EditText
-                    android:id="@+id/kcalEditText"
-                    android:layout_width="120dp"
-                    android:layout_height="45dp"
-                    android:hint=""
-                    android:layout_marginTop="-15dp"
-                    android:gravity="center"
-                    android:textColorHint="@color/hintColor"
-                    android:inputType="number"/>
+            <EditText
+                android:id="@+id/kcalEditText"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:hint=""
+                android:layout_marginTop="-15dp"
+                android:gravity="center"
+                android:layout_below="@+id/infoText"
+                android:layout_toRightOf="@id/kohdistus"
+                android:textColorHint="@color/hintColor"
+                android:inputType="number"/>
 
-                <EditText
-                    android:id="@+id/amountEditText"
-                    android:layout_width="120dp"
-                    android:layout_height="45dp"
-                    android:hint=""
-                    android:layout_marginTop="-5dp"
-                    android:gravity="center"
-                    android:textColorHint="@color/hintColor"
-                    android:inputType="number"/>
+            <EditText
+                android:id="@+id/amountEditText"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:hint=""
+                android:layout_marginTop="-5dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:layout_below="@+id/kcalEditText"
+                android:layout_toRightOf="@id/kohdistus"
+                android:textColorHint="@color/hintColor"
+                android:inputType="number"/>
 
-            </LinearLayout>
-        </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tulos: "
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_below="@id/amountEditText"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:id="@+id/tulosText2" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/tulosText" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tyhjennä"
-                android:layout_gravity="center"
-                android:visibility="invisible"
-                android:onClick="clearClick"
-                android:id="@+id/clearButton"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:text="Lisää syödyksi"
-                android:layout_gravity="center"
-                android:visibility="invisible"
-                android:onClick="addClick"
-                android:id="@+id/addButton"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="70dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_below="@id/amountEditText"
+        android:layout_toRightOf="@id/kohdistus"
+        android:id="@+id/tulosText" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="Takaisin"
-            android:layout_gravity="center"
-            android:onClick="takaisinIntent"
-            android:id="@+id/takaisinButton"/>
+            android:text="Lisää syödyksi"
+            android:layout_toRightOf="@id/tulosText"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_below="@id/amountEditText"
+            android:layout_marginLeft="15dp"
+            android:onClick="addClick"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:background="@color/colorAccent"
+            style="?android:textAppearanceSmall"
+            android:id="@+id/addButton"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:text="Laske"
-                android:onClick="laskeClick"
-                android:layout_gravity="center"
-                android:id="@+id/laskeButton"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:text="Takaisin"
+        android:onClick="takaisinIntent"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:layout_marginBottom="280dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:background="@color/colorAccent"
+        style="?android:textAppearanceSmall"
+        android:id="@+id/takaisinButton"/>
 
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="Laske"
+        android:onClick="laskeClick"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/kohdistus"
+        android:layout_marginBottom="280dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:background="@color/colorAccent"
+        style="?android:textAppearanceSmall"
+        android:id="@+id/laskeButton"/>
+
+</RelativeLayout>
