@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void afterTextChanged(Editable s) {
                 salasanaButton.setVisibility(View.VISIBLE);
+                textView.setVisibility(View.GONE);
             }
         });
     }
