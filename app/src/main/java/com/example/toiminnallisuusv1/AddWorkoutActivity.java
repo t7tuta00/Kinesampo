@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class LisaaTreeniActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddWorkoutActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lisaa_treeni);
+        setContentView(R.layout.activity_add_workout);
 
         findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.tallennaButton).setOnClickListener(this);
@@ -20,7 +20,7 @@ public class LisaaTreeniActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(LisaaTreeniActivity.this, HealthActivity.class);
+            Intent takaisinIntent = new Intent(AddWorkoutActivity.this, HealthActivity.class);
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.tallennaButton) {

@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class TiliAsetuksetActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class TiliAsetuksetActivity extends AppCompatActivity implements View.OnC
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_tili:
-                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -61,11 +61,11 @@ public class TiliAsetuksetActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(TiliAsetuksetActivity.this, NewUserActivity.class);
+            Intent takaisinIntent = new Intent(SettingsActivity.this, NewUserActivity.class);
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.okButton) {
-            Intent okIntent = new Intent(TiliAsetuksetActivity.this, MenuActivity.class);
+            Intent okIntent = new Intent(SettingsActivity.this, MenuActivity.class);
             startActivity(okIntent);
         }
     }

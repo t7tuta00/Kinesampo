@@ -36,7 +36,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_tili:
-                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -50,7 +50,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.lisaaTreeni) {
-            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, LisaaTreeniActivity.class);
+            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, AddWorkoutActivity.class);
             startActivity(lisaaTreeniIntent);
         }
     }

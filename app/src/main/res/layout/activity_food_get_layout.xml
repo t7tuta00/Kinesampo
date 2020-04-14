@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_ruoka_get_layout">
+    tools:context=".activity_food_get_layout">
 
     <LinearLayout
         android:id="@+id/line1"

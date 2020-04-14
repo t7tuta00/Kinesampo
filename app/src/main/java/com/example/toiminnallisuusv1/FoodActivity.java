@@ -46,7 +46,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_tili:
-                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -60,11 +60,11 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(takaisinIntent);
         }
         else if (v.getId()==R.id.ruokaTietokanta) {
-            Intent tietokantaIntent = new Intent (FoodActivity.this, RuokaTietokantaActivity.class);
+            Intent tietokantaIntent = new Intent (FoodActivity.this, FoodDatabaseActivity.class);
             startActivity(tietokantaIntent);
         }
         else if (v.getId()==R.id.lisaaAteria) {
-            Intent lisaaAteriaIntent = new Intent (FoodActivity.this, LisaaAteriaActivity.class);
+            Intent lisaaAteriaIntent = new Intent (FoodActivity.this, AddMealActivity.class);
             startActivity(lisaaAteriaIntent);
         }
         else if (v.getId() == R.id.reseptit) {
@@ -74,7 +74,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void kalorilaskin_intent(View view) {
-        Intent laskinIntent = new Intent(this, KaloriLaskinActivity.class);
+        Intent laskinIntent = new Intent(this, CalorieCalculatorActivity.class);
         startActivity(laskinIntent);
     }
 

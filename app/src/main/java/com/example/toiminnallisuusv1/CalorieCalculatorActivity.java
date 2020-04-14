@@ -8,12 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class KaloriLaskinActivity extends AppCompatActivity {
+public class CalorieCalculatorActivity extends AppCompatActivity {
 
     Button add;
     TextView tulos, tulos2;
@@ -52,7 +51,7 @@ public class KaloriLaskinActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_tili:
-                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

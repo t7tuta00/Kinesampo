@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LiikuntaGetLayout extends AppCompatActivity {
+public class ExerciseGetLayout extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liikunta_get_layout);
+        setContentView(R.layout.activity_exercise_get_layout);
     }
 }

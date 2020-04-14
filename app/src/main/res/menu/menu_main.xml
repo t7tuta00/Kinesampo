@@ -13,7 +13,7 @@
     <item
         android:id="@+id/action_tili"
         android:orderInCategory="10"
-        android:title="Tiliasetukset"
+        android:title="Asetukset"
         app:showAsAction="never"
         android:visible="true" />
 

@@ -11,7 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
-public class LiikuntaGameActivity extends AppCompatActivity {
+public class ExerciseGameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

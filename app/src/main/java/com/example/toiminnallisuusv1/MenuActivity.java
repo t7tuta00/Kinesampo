@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MenuActivity extends AppCompatActivity {
@@ -53,7 +51,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_tili:
-                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -81,17 +79,17 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void water_intent(View view) {
-        Intent intent = new Intent(this, VesiActivity.class);
+        Intent intent = new Intent(this, WaterActivity.class);
         startActivity(intent);
     }
 
     public void food_game_intent(View view) {
-        Intent intent = new Intent(this, VesiActivity.class);
+        Intent intent = new Intent(this, WaterActivity.class);
         startActivity(intent);
     }
 
     public void sport_game_intent(View view) {
-        Intent intent = new Intent(this, LiikuntaGameActivity.class);
+        Intent intent = new Intent(this, ExerciseGameActivity.class);
         startActivity(intent);
     }
 }

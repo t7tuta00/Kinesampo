@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class RuokaTietokantaActivity extends AppCompatActivity implements View.OnClickListener{
+public class FoodDatabaseActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ruoka_tietokanta);
+        setContentView(R.layout.activity_food_database);
 
         Spinner kategoriaSpinner  = findViewById(R.id.kategoriatSpinner);
         String[] items = new String[]{"Hedelmät ja vihannekset", "Liha ja kala", "Valmisruoka", "Juomat", "Pakasteet", "Makeiset"};
@@ -28,7 +28,7 @@ public class RuokaTietokantaActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(RuokaTietokantaActivity.this, FoodActivity.class);
+            Intent takaisinIntent = new Intent(FoodDatabaseActivity.this, FoodActivity.class);
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.listaButton) {

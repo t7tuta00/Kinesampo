@@ -16,7 +16,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class httpKayttajaPost extends Activity implements View.OnClickListener {
+public class httpUserPost extends Activity implements View.OnClickListener {
 
     TextView content;
     EditText email, login, pass;

@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_ruoka_get_layout"></activity>
-        <activity android:name=".LiikuntaGetLayout" />
+        <activity android:name=".activity_food_get_layout"></activity>
+        <activity android:name=".ExerciseGetLayout" />
         <activity android:name=".Recipe1Activity" />
         <activity android:name=".Recipe" />
-        <activity android:name=".TiliAsetuksetActivity" />
-        <activity android:name=".KaloriLaskinActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".CalorieCalculatorActivity" />
         <activity android:name=".NewUserActivity2" />
         <activity
-            android:name=".LiikuntaGameActivity"
+            android:name=".ExerciseGameActivity"
             android:label="@string/title_activity_liikunta_game"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RuokaGameActivity"
+            android:name=".FoodGameActivity"
             android:label="@string/title_activity_ruoka_game"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EntertainmentActivity" />
@@ -29,18 +29,18 @@
         <activity android:name=".FoodActivity" />
         <activity android:name=".WorkActivity" />
         <activity
-            android:name=".MaitoActivity"
+            android:name=".MilkActivity"
             android:label="@string/title_activity_maito"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".VesiActivity"
+            android:name=".WaterActivity"
             android:label="@string/title_activity_vesi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewUserActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".RuokaTietokantaActivity" />
-        <activity android:name=".LisaaAteriaActivity" />
-        <activity android:name=".LisaaTreeniActivity" />
+        <activity android:name=".FoodDatabaseActivity" />
+        <activity android:name=".AddMealActivity" />
+        <activity android:name=".AddWorkoutActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
