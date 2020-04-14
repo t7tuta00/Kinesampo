@@ -8,8 +8,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class FoodActivity extends AppCompatActivity implements View.OnClickListener{
+public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
+
+    EditText addKcal;
+    TextView dayKcal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,9 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        addKcal = findViewById(R.id.addKcal);
+        dayKcal = findViewById(R.id.dayKcal);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,11 +64,14 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void kalorilaskuri_intent(View view) {
+        String message = addKcal.getText().toString();
+        int eatenAmount = Integer.parseInt(message);
+        String message2 = dayKcal.getText().toString();
+        int eatenAmount2 = Integer.parseInt(message2);
 
-
-        //KESKEN!!!!!!
-
-
-
+        int finalAmount = eatenAmount + eatenAmount2;
+        String tulosString = String.valueOf(finalAmount);
+        dayKcal.setText(tulosString);
+        addKcal.setText("");
     }
 }

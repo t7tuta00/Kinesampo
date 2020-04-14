@@ -19,15 +19,14 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:id="@+id/kohdistus"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
-        android:background="@color/fillColor"
-        android:orientation="horizontal">
-    </LinearLayout>
+        android:text="">
+    </TextView>
 
     <Button
         android:id="@+id/terveysButton"
