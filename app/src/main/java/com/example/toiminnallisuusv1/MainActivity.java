@@ -41,8 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        salasanaButton = (Button)findViewById(R.id.Login);
-        textView = (TextView)findViewById(R.id.Login);
+        salasanaButton = findViewById(R.id.signInButton);
+        salasanaButton.setVisibility(View.GONE);
+
+        salasanaButton = (Button)findViewById(R.id.signInButton);
 
         final EditText salasanaEdit = (EditText) findViewById(R.id.password);
         salasanaEdit.addTextChangedListener(new TextWatcher() {
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 salasanaButton.setVisibility(View.VISIBLE);
+                textView.setVisibility(View.GONE);
             }
 
             @Override
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v)
     {
-        if ( v.getId() ==R.id.Login)
+        if ( v.getId() ==R.id.signInButton)
         {
             EditText asd = (EditText)findViewById(R.id.editText);
             EditText asd2 = (EditText)findViewById(R.id.password);
