@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Kinesampo1-master-ToiminnallisuusV1.iml" filepath="$PROJECT_DIR$/../Kinesampo1-master-ToiminnallisuusV1.iml" group="ToiminnallisuusV1" />
-      <module fileurl="file://$PROJECT_DIR$/Kinesampo1-master-app.iml" filepath="$PROJECT_DIR$/Kinesampo1-master-app.iml" group="ToiminnallisuusV1/app" />
       <module fileurl="file://$PROJECT_DIR$/../ToiminnallisuusV1.iml" filepath="$PROJECT_DIR$/../ToiminnallisuusV1.iml" group="ToiminnallisuusV1" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="ToiminnallisuusV1/app" />
     </modules>
