@@ -11,7 +11,7 @@
     </item>
 
     <item
-        android:id="@+id/action_tili"
+        android:id="@+id/action_account"
         android:orderInCategory="10"
         android:title="Asetukset"
         app:showAsAction="never"

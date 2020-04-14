@@ -1,21 +1,22 @@
 package com.example.toiminnallisuusv1;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
-public class WorkActivity extends AppCompatActivity implements View.OnClickListener{
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+public class ChangePasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_work);
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
+        setContentView(R.layout.activity_change_password);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -42,11 +43,13 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(WorkActivity.this, MenuActivity.class);
-            startActivity(takaisinIntent);
-        }
+    public void cancelIntent(View view) {
+        Intent newIntent = new Intent(ChangePasswordActivity.this, SettingsActivity.class);
+        startActivity(newIntent);
+    }
+
+    public void changePasswordIntent(View view) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Salasana vaihdettu", Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

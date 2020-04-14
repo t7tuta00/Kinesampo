@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_food_get_layout"></activity>
+        <activity android:name=".UserSettingsActivity"></activity>
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".activity_food_get_layout" />
         <activity android:name=".ExerciseGetLayout" />
         <activity android:name=".Recipe1Activity" />
         <activity android:name=".Recipe" />

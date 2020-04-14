@@ -5,36 +5,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user2);
 
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
-        findViewById(R.id.okButton).setOnClickListener(this);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
-
-        String[] categories = new String[] {
-                "Mies", "Nainen", "-" };
-
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
-        spinner.setAdapter(dataAdapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,7 +34,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             case R.id.miLogOut:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
-            case R.id.action_tili:
+            case R.id.action_account:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:
@@ -58,24 +42,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(SettingsActivity.this, NewUserActivity.class);
-            startActivity(takaisinIntent);
-        }
-        else if (v.getId() == R.id.okButton) {
-            Intent okIntent = new Intent(SettingsActivity.this, MenuActivity.class);
-            startActivity(okIntent);
-        }
+    public void changePasswordIntent(View view) {
+        Intent newIntent = new Intent(SettingsActivity.this, ChangePasswordActivity.class);
+        startActivity(newIntent);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String item = parent.getItemAtPosition(position).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void userSettingsIntent(View view) {
+        Intent newIntent = new Intent(SettingsActivity.this, UserSettingsActivity.class);
+        startActivity(newIntent);
     }
 }

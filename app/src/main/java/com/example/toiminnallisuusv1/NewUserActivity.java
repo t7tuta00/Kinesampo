@@ -35,7 +35,7 @@ public class NewUserActivity extends AppCompatActivity {
             case R.id.miLogOut:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
-            case R.id.action_tili:
+            case R.id.action_account:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
             default:

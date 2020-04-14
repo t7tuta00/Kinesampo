@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -140,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(kirjauduIntent);
 
             }else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Väärä salasana", Toast.LENGTH_SHORT);
+                toast.show();
                 //Salasana ei täsmää,yritä uudelleen eri salasanalla
             }
 
