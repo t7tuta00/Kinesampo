@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         salasanaButton = (Button)findViewById(R.id.Login);
         textView = (TextView)findViewById(R.id.Login);
 
@@ -61,6 +65,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 salasanaButton.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.miLogOut:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            case R.id.action_tili:
+                startActivity(new Intent(getApplicationContext(), TiliAsetuksetActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void uusiKayttajaIntent(View view) {
@@ -148,3 +173,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 }
+

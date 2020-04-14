@@ -29,6 +29,8 @@
         app:layout_constraintTop_toBottomOf="@id/line1"
         android:background="@color/colorPrimaryDark"
         >
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -43,11 +45,15 @@
             android:layout_height="wrap_content"
             android:text="Listview:"/>
 
+
         <ListView
             android:id="@+id/Liikuntalista"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Liikunta2"/>
+
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

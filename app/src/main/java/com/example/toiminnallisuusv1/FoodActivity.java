@@ -21,6 +21,9 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
         findViewById(R.id.takaisinButton).setOnClickListener(this);
+        findViewById(R.id.ruokaTietokanta).setOnClickListener(this);
+        findViewById(R.id.lisaaAteria).setOnClickListener(this);
+        findViewById(R.id.reseptit).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -55,6 +58,18 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId()==R.id.takaisinButton) {
             Intent takaisinIntent = new Intent(FoodActivity.this, MenuActivity.class);
             startActivity(takaisinIntent);
+        }
+        else if (v.getId()==R.id.ruokaTietokanta) {
+            Intent tietokantaIntent = new Intent (FoodActivity.this, RuokaTietokantaActivity.class);
+            startActivity(tietokantaIntent);
+        }
+        else if (v.getId()==R.id.lisaaAteria) {
+            Intent lisaaAteriaIntent = new Intent (FoodActivity.this, LisaaAteriaActivity.class);
+            startActivity(lisaaAteriaIntent);
+        }
+        else if (v.getId() == R.id.reseptit) {
+            Intent reseptitIntent = new Intent(FoodActivity.this, Recipe.class);
+            startActivity(reseptitIntent);
         }
     }
 
