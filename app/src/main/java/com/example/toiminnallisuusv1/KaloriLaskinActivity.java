@@ -15,8 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 
 public class KaloriLaskinActivity extends AppCompatActivity {
 
-    Button add;
-    TextView tulos, tulos2;
+    Button add, clear;
+    TextView tulos;
     EditText kcalEdit, amountEdit;
 
     @Override
@@ -29,13 +29,10 @@ public class KaloriLaskinActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         add = findViewById(R.id.addButton);
+        clear = findViewById(R.id.clearButton);
         tulos = findViewById(R.id.tulosText);
-        tulos2 = findViewById(R.id.tulosText2);
         kcalEdit = findViewById(R.id.kcalEditText);
         amountEdit = findViewById(R.id.amountEditText);
-
-        add.setVisibility(View.INVISIBLE);
-        tulos2.setVisibility(View.INVISIBLE);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,16 +71,18 @@ public class KaloriLaskinActivity extends AppCompatActivity {
         String tulosString = String.valueOf(laskuTulos);
 
         add.setVisibility(View.VISIBLE);
-        tulos2.setVisibility(View.VISIBLE);
+        clear.setVisibility(View.VISIBLE);
         tulos.setText(tulosString);
+    }
+
+    public void clearClick(View view) {
+        add.setVisibility(View.INVISIBLE);
+        clear.setVisibility(View.INVISIBLE);
+        tulos.setText("");
         kcalEdit.setText("");
         amountEdit.setText("");
     }
 
     public void addClick(View view) {
-        //täältä päivittyy tietokantaan, jotta näkyy lisättynä ruokanäkymään päivän kaloreihin
-        tulos.setText("");
-        add.setVisibility(View.INVISIBLE);
-        tulos2.setVisibility(View.INVISIBLE);
     }
 }

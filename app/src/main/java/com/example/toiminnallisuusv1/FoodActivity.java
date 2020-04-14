@@ -8,28 +8,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
-public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
-
-    EditText addKcal;
-    TextView dayKcal;
+public class FoodActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
         findViewById(R.id.takaisinButton).setOnClickListener(this);
-        findViewById(R.id.ruokaTietokanta).setOnClickListener(this);
-        findViewById(R.id.lisaaAteria).setOnClickListener(this);
-        findViewById(R.id.reseptit).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        addKcal = findViewById(R.id.addKcal);
-        dayKcal = findViewById(R.id.dayKcal);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,34 +48,10 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
             Intent takaisinIntent = new Intent(FoodActivity.this, MenuActivity.class);
             startActivity(takaisinIntent);
         }
-        else if (v.getId()==R.id.ruokaTietokanta) {
-            Intent tietokantaIntent = new Intent (FoodActivity.this, RuokaTietokantaActivity.class);
-            startActivity(tietokantaIntent);
-        }
-        else if (v.getId()==R.id.lisaaAteria) {
-            Intent lisaaAteriaIntent = new Intent (FoodActivity.this, LisaaAteriaActivity.class);
-            startActivity(lisaaAteriaIntent);
-        }
-        else if (v.getId() == R.id.reseptit) {
-            Intent reseptitIntent = new Intent(FoodActivity.this, Recipe.class);
-            startActivity(reseptitIntent);
-        }
     }
 
     public void kalorilaskin_intent(View view) {
         Intent laskinIntent = new Intent(this, KaloriLaskinActivity.class);
         startActivity(laskinIntent);
-    }
-
-    public void kalorilaskuri_intent(View view) {
-        String message = addKcal.getText().toString();
-        int eatenAmount = Integer.parseInt(message);
-        String message2 = dayKcal.getText().toString();
-        int eatenAmount2 = Integer.parseInt(message2);
-
-        int finalAmount = eatenAmount + eatenAmount2;
-        String tulosString = String.valueOf(finalAmount);
-        dayKcal.setText(tulosString);
-        addKcal.setText("");
     }
 }
