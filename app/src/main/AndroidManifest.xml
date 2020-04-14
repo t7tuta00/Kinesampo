@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TiliAsetuksetActivity"></activity>
+        <activity android:name=".Recipe1Activity"></activity>
+        <activity android:name=".Recipe" />
+        <activity android:name=".TiliAsetuksetActivity" />
         <activity android:name=".KaloriLaskinActivity" />
         <activity android:name=".NewUserActivity2" />
         <activity
@@ -34,6 +36,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewUserActivity" />
         <activity android:name=".MenuActivity" />
+        <activity android:name=".RuokaTietokantaActivity" />
+        <activity android:name=".LisaaAteriaActivity" />
+        <activity android:name=".LisaaTreeniActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

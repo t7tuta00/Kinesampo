@@ -87,9 +87,38 @@
         android:text="KALORILASKIN!! :)"
         android:layout_gravity="center"
         android:layout_below="@+id/kaloriLaskuri"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:onClick="kalorilaskin_intent"
         android:id="@+id/kaloriLaskin"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="tietokanta"
+        android:layout_below="@id/kaloriLaskin"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ruokaTietokanta"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="lisää ateria"
+        android:layout_below="@id/ruokaTietokanta"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lisaaAteria"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="reseptit"
+        android:layout_below="@id/lisaaAteria"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/reseptit"/>
 
 </RelativeLayout>

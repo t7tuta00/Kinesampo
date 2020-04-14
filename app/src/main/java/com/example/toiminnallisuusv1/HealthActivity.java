@@ -16,6 +16,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health);
         findViewById(R.id.takaisinButton).setOnClickListener(this);
+        findViewById(R.id.lisaaTreeni).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -47,6 +48,10 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
         if (v.getId() == R.id.takaisinButton) {
             Intent takaisinIntent = new Intent(HealthActivity.this, MenuActivity.class);
             startActivity(takaisinIntent);
+        }
+        else if (v.getId() == R.id.lisaaTreeni) {
+            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, LisaaTreeniActivity.class);
+            startActivity(lisaaTreeniIntent);
         }
     }
 }
