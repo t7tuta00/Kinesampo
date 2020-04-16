@@ -10,17 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
         android:theme="@style/AppTheme">
-        <activity android:name=".ChangeUserSettingsActivity">
-        </activity>
+        <activity android:name=".ChangeUserSettingsActivity"/>
         <activity android:name=".ChangePasswordActivity"/>
-=======
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".UserSettingsActivity" />
-        <activity android:name=".ChangePasswordActivity" />
->>>>>>> f1a9d3ce8af53f94b6d9848f235d900baef09e99
         <activity android:name=".activity_food_get_layout" />
         <activity android:name=".ExerciseGetLayout" />
         <activity android:name=".Recipe1Activity" />

@@ -69,7 +69,4 @@
             android:text="Liikunta2"/>
 
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

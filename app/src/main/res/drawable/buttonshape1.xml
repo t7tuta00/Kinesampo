@@ -7,6 +7,7 @@
         android:centerColor="@color/buttonFourGradient"
         android:startColor="@color/buttonFourGradient"
         android:endColor="@color/buttonFour"
+        android:angle="270"
         android:type="linear"
         />
     <padding
