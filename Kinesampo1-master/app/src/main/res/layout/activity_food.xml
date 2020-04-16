@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FoodActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        app:navigationIcon="@drawable/logotext_src"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ruoka"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/headerText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Takaisin"
+        android:layout_gravity="center"
+        android:layout_below="@+id/headerText"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/takaisinButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@+id/takaisinButton"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView1"
+        android:text="Päivän kalorit: "/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_below="@+id/takaisinButton"
+        android:layout_marginTop="20dp"
+        android:id="@+id/dayKcal"
+        android:text="0"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/addKcal"
+        android:layout_marginTop="40dp"
+        android:inputType="number"
+        android:hint="Kcal"
+        android:gravity="center"
+        android:layout_below="@+id/dayKcal"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lisää kaloreita"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/addKcal"
+        android:layout_below="@+id/dayKcal"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="kalorilaskuri_intent"
+        android:id="@+id/kaloriLaskuri"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kalorilaskin"
+        android:layout_gravity="center"
+        android:layout_below="@+id/kaloriLaskuri"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="kalorilaskin_intent"
+        android:id="@+id/kaloriLaskin"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="tietokanta"
+        android:layout_below="@id/kaloriLaskin"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ruokaTietokanta"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="lisää ateria"
+        android:layout_below="@id/ruokaTietokanta"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lisaaAteria"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="reseptit"
+        android:layout_below="@id/lisaaAteria"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/reseptit"/>
+
+</RelativeLayout>

@@ -1,0 +1,2 @@
+rootProject.name='ToiminnallisuusV1'
+include ':app'
