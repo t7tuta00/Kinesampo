@@ -5,11 +5,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -79,14 +81,25 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void kalorilaskuri_intent(View view) {
-        String message = addKcal.getText().toString();
-        int eatenAmount = Integer.parseInt(message);
-        String message2 = dayKcal.getText().toString();
-        int eatenAmount2 = Integer.parseInt(message2);
+        if(addKcal.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Lisää ensin lisättävät kalorit", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            String message = addKcal.getText().toString();
+            int eatenAmount = Integer.parseInt(message);
+            String message2 = dayKcal.getText().toString();
+            int eatenAmount2 = Integer.parseInt(message2);
 
-        int finalAmount = eatenAmount + eatenAmount2;
-        String tulosString = String.valueOf(finalAmount);
-        dayKcal.setText(tulosString);
-        addKcal.setText("");
+            int finalAmount = eatenAmount + eatenAmount2;
+            String tulosString = String.valueOf(finalAmount);
+            dayKcal.setText(tulosString);
+            addKcal.setText("");
+        }
+    }
+
+    public void toMainView(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
 }
