@@ -10,10 +10,16 @@
     <color name="buttonTwoGradient">#BF64EF</color>
     <color name="buttonThree">#46AAA7</color>
     <color name="buttonThreeGradient">#64F1ED</color>
-    <color name="buttonFour">#FFCC32</color>
+    <color name="buttonThreeDark">#3B918F</color>
+    <color name="buttonFour">#FFC927</color>
     <color name="buttonFourGradient">#FFDB6E</color>
+    <color name="buttonFourDark">#DFA023</color>
     <color name="buttonStrokeColor">#000000</color>
     <color name="fillColor">#FAFAFA</color>
+
+    <color name="commonButtonColor1">#7cdb00</color>
+    <color name="commonButtonShadowColor1">#67B501</color>
+    <color name="commonButtonBorderColor1">#599E00</color>
 
     <color name="punainen">#FA2D1E</color>
     <color name="hintColor">#454545</color>

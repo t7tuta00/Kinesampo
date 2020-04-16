@@ -21,11 +21,13 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kalori_laskin);
+        setContentView(R.layout.activity_calorie_calculator);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getActionBar().setHomeButtonEnabled(true);
 
         add = findViewById(R.id.addButton);
         tulos = findViewById(R.id.tulosText);

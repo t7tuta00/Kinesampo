@@ -48,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void userSettingsIntent(View view) {
-        Intent newIntent = new Intent(SettingsActivity.this, UserSettingsActivity.class);
+        Intent newIntent = new Intent(SettingsActivity.this, ChangeUserSettingsActivity.class);
         startActivity(newIntent);
     }
 }

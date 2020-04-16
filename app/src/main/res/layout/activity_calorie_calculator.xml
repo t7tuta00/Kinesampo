@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         app:navigationIcon="@drawable/logotext_src"
-        android:background="?attr/colorPrimary"
+        android:background="@color/buttonFour"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
 
@@ -80,6 +80,7 @@
                 android:id="@+id/kcalEditText"
                 android:layout_width="120dp"
                 android:layout_height="45dp"
+                android:maxLines="1"
                 android:hint=""
                 android:layout_marginTop="-15dp"
                 android:gravity="center"
@@ -92,6 +93,7 @@
                 android:id="@+id/amountEditText"
                 android:layout_width="120dp"
                 android:layout_height="45dp"
+                android:maxLines="1"
                 android:hint=""
                 android:layout_marginTop="-5dp"
                 android:layout_marginBottom="20dp"
@@ -126,8 +128,8 @@
         android:id="@+id/tulosText" />
 
         <Button
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
             android:text="Lisää syödyksi"
             android:layout_toRightOf="@id/tulosText"
             android:layout_marginTop="20dp"
@@ -137,13 +139,13 @@
             android:onClick="addClick"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:background="@color/colorAccent"
+            android:background="@drawable/buttonshape1"
             style="?android:textAppearanceSmall"
             android:id="@+id/addButton"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
         android:layout_marginRight="30dp"
         android:text="Takaisin"
         android:onClick="takaisinIntent"
@@ -152,13 +154,13 @@
         android:layout_marginBottom="280dp"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttonshape1"
         style="?android:textAppearanceSmall"
         android:id="@+id/takaisinButton"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="30dp"
         android:text="Laske"
         android:onClick="laskeClick"
@@ -167,7 +169,7 @@
         android:layout_marginBottom="280dp"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttonshape1"
         style="?android:textAppearanceSmall"
         android:id="@+id/laskeButton"/>
 

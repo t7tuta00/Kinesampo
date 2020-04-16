@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".UserSettingsActivity">
+    tools:context=".ChangeUserSettingsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -118,7 +118,7 @@
         style="?android:textAppearanceSmall"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttonshape0"
         android:layout_width="120dp"
         android:layout_height="45dp"
         android:layout_below="@+id/painoEditText"
@@ -132,7 +132,7 @@
         style="?android:textAppearanceSmall"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttonshape0"
         android:layout_width="120dp"
         android:layout_height="45dp"
         android:layout_below="@+id/painoEditText"

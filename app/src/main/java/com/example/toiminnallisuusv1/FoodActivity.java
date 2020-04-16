@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,8 +31,8 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        addKcal = findViewById(R.id.addKcal);
         dayKcal = findViewById(R.id.dayKcal);
+        addKcal = findViewById(R.id.addKcal);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,6 +48,10 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.miLogOut:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
+            /*case android.R.id.home:
+                // ProjectsActivity is my 'home' activity
+                startActivityAfterCleanup(MenuActivity.class);
+                return true;*/
             case R.id.action_account:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;

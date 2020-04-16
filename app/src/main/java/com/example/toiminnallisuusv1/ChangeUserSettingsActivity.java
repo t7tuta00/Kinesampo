@@ -13,12 +13,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class UserSettingsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class ChangeUserSettingsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_settings);
+        setContentView(R.layout.activity_change_user_settings);
 
         findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.okButton).setOnClickListener(this);
@@ -62,7 +62,7 @@ public class UserSettingsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(UserSettingsActivity.this, SettingsActivity.class);
+            Intent takaisinIntent = new Intent(ChangeUserSettingsActivity.this, SettingsActivity.class);
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.okButton) {
