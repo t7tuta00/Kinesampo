@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +26,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.ruokaTietokanta).setOnClickListener(this);
         findViewById(R.id.lisaaAteria).setOnClickListener(this);
         findViewById(R.id.reseptit).setOnClickListener(this);
+        findViewById(R.id.kaikkienruuat).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -78,6 +78,10 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
             Intent reseptitIntent = new Intent(FoodActivity.this, Recipe.class);
             startActivity(reseptitIntent);
         }
+        else if (v.getId() == R.id.kaikkienruuat) {
+            Intent everybodysIntent = new Intent(FoodActivity.this, activity_food_get_layout.class);
+            startActivity(everybodysIntent);
+        }
     }
 
     public void kalorilaskin_intent(View view) {
@@ -86,25 +90,14 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void kalorilaskuri_intent(View view) {
-        if(addKcal.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Lisää ensin lisättävät kalorit", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else {
-            String message = addKcal.getText().toString();
-            int eatenAmount = Integer.parseInt(message);
-            String message2 = dayKcal.getText().toString();
-            int eatenAmount2 = Integer.parseInt(message2);
+        String message = addKcal.getText().toString();
+        int eatenAmount = Integer.parseInt(message);
+        String message2 = dayKcal.getText().toString();
+        int eatenAmount2 = Integer.parseInt(message2);
 
-            int finalAmount = eatenAmount + eatenAmount2;
-            String tulosString = String.valueOf(finalAmount);
-            dayKcal.setText(tulosString);
-            addKcal.setText("");
-        }
-    }
-
-    public void toMainView(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
+        int finalAmount = eatenAmount + eatenAmount2;
+        String tulosString = String.valueOf(finalAmount);
+        dayKcal.setText(tulosString);
+        addKcal.setText("");
     }
 }

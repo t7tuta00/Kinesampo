@@ -1,14 +1,12 @@
 package com.example.toiminnallisuusv1;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Object> Userlist = new ArrayList<>();
     String Login;
     String Password;
+    String msg = "ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    String msg2 = "VIRHE2222222222222222222222222222222222222";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         salasanaButton = findViewById(R.id.signInButton);
+        salasanaButton.setOnClickListener(this);
         salasanaButton.setVisibility(View.GONE);
 
         final EditText salasanaEdit = (EditText) findViewById(R.id.password);
@@ -71,43 +73,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(uusiKayttajaIntent);
     }
 
-    public void kirjauduIntent(View view) {
+    /*public void kirjauduIntent(View view) {
         Intent kirjauduIntent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(kirjauduIntent);
-    }
+    }*/
 
     @Override
-    public void onClick(View v)
-    {
-        if ( v.getId() ==R.id.signInButton)
-        {
-            EditText asd = (EditText)findViewById(R.id.editText);
-            EditText asd2 = (EditText)findViewById(R.id.password);
+    public void onClick(View v) {
+        if (v.getId() == R.id.signInButton) {
+            EditText asd = (EditText) findViewById(R.id.editText);
+            EditText asd2 = (EditText) findViewById(R.id.password);
+
 
             Login = asd.getText().toString();
             Password = asd2.getText().toString();
 
+
+
             Queue = Volley.newRequestQueue(this);
-            GetUsers();
-            CheckLogin();
+            GetUser();
+
+
+
+
         }
     }
 
     //Get-metodi, jolla tuodaan Kayttajatiedot tietokannasta Arraylistaan Userlist
-    private void GetUsers()
-    {
-        String url = "ec2-3-91-81-187.compute-1.amazonaws.com/Kayttaja";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>(){
+    private void GetUser () {
+        Log.d(msg, Login);
+        Log.d(msg2, Password);
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/login?Kayttajanimi=" + Login + "&Salasana=" + Password;
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
+
                         try {
-                            JSONArray jsonArray = response.getJSONArray("");
+                            //JSONArray jsonArrayalku = response.getJSONArray("areas")
+
+                            JSONArray jsonArray = response;
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject o = jsonArray.getJSONObject(i);
-                                Userlist.add(o);
+                                if (jsonArray.toString() == "[]") {
+                                    Log.d(msg, "Ei pääsyä, yritä uudestaan.");
 
+                                }
+                                else {
+                                    int id = o.getInt("idKayttaja");
+                                    String username = o.getString("KayttajaNimi");
+                                    String firstname = o.getString("Etunimi");
+                                    String lastname = o.getString("Sukunimi");
+                                    String password = o.getString("Salasana");
+                                    String fingerprint = o.getString("Sormenjalki");
+                                    String email = o.getString("Sposti");
+                                    String addtime = o.getString("Lisaysaika");
+
+                                    Intent kirjauduIntent = new Intent(MainActivity.this, MenuActivity.class);
+                                    startActivity(kirjauduIntent);
+                                }
 
                             }
                         } catch (JSONException e) {
@@ -122,35 +148,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         Queue.add(request);
-    }
-
-    //tarkista sisäänkirjautuminen
-    private void CheckLogin()
-    {
-        if (Userlist.contains(Login)) {
-            //Kayttaja on olemassa, haetaan sen id.
-            int index = Userlist.indexOf(Login);
-            Object Userinformation = Userlist.get(index);
-            String Userinfo = Userinformation.toString();
-
-            //jsonparse pitää lisätä!!!
-            if (Userinfo == Login+Password)
-            {
-                //kirjaudu sisään
-                Intent kirjauduIntent = new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(kirjauduIntent);
-
-            }else {
-                Toast toast = Toast.makeText(getApplicationContext(), "Väärä salasana", Toast.LENGTH_SHORT);
-                toast.show();
-                //Salasana ei täsmää,yritä uudelleen eri salasanalla
-            }
-
-        }
-        else {
-            //Kayttajaa ei ole olemassa, Luo uusi kayttaja?
-        }
-
     }
 }
 

@@ -78,7 +78,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/buttonshape0"
-        android:onClick="kirjauduIntent"
         android:text="Kirjaudu"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
@@ -87,7 +86,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signInButton"
+        android:layout_below="@id/signInButton"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
@@ -105,7 +104,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
         android:background="@drawable/fingerprint_src"
-        android:onClick="kirjauduIntent"
         android:textColor="@android:color/black"
         android:textStyle="bold"/>
 

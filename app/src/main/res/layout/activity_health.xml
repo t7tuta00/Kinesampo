@@ -49,8 +49,21 @@
             android:layout_marginTop="20dp"/>
 
         <Button
+<<<<<<< HEAD
             android:layout_width="120dp"
             android:layout_height="45dp"
+=======
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Treenit"
+            android:layout_gravity="center"
+            android:id="@+id/treeniButton"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+>>>>>>> f1a9d3ce8af53f94b6d9848f235d900baef09e99
             android:text="Takaisin"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
