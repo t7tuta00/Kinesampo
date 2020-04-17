@@ -3,7 +3,9 @@ package com.example.toiminnallisuusv1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,8 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Object> Userlist = new ArrayList<>();
     String Login;
     String Password;
-    String msg = "ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-    String msg2 = "VIRHE2222222222222222222222222222222222222";
+    String CheckLogin="";
+    String CheckPassword="";
+
+    String msg = "Kayttis";
+    String msg2 = "Salis";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,36 +77,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(uusiKayttajaIntent);
     }
 
-    /*public void kirjauduIntent(View view) {
-        Intent kirjauduIntent = new Intent(MainActivity.this, MenuActivity.class);
+    public void kirjauduIntent(View view) {
+        Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
         startActivity(kirjauduIntent);
-    }*/
+    }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.signInButton) {
             EditText asd = (EditText) findViewById(R.id.editText);
             EditText asd2 = (EditText) findViewById(R.id.password);
-
-
             Login = asd.getText().toString();
             Password = asd2.getText().toString();
-
-
 
             Queue = Volley.newRequestQueue(this);
             GetUser();
 
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 
-
+                    if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
+                    {
+                        Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
+                        startActivity(kirjauduIntent);
+                    }
+                    else{
+                        Toast toast = Toast.makeText(getApplicationContext(), "Kirjautuminen epäonnistui, yrita uudelleen", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
+            }, 1000);
 
         }
     }
 
     //Get-metodi, jolla tuodaan Kayttajatiedot tietokannasta Arraylistaan Userlist
     private void GetUser () {
-        Log.d(msg, Login);
-        Log.d(msg2, Password);
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/login?Kayttajanimi=" + Login + "&Salasana=" + Password;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -115,13 +129,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject o = jsonArray.getJSONObject(i);
-                                if (jsonArray.toString() == "[]") {
-                                    Log.d(msg, "Ei pääsyä, yritä uudestaan.");
 
-                                }
-                                else {
                                     int id = o.getInt("idKayttaja");
-                                    String username = o.getString("KayttajaNimi");
+                                    String username = o.getString("Kayttajanimi");
                                     String firstname = o.getString("Etunimi");
                                     String lastname = o.getString("Sukunimi");
                                     String password = o.getString("Salasana");
@@ -129,11 +139,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     String email = o.getString("Sposti");
                                     String addtime = o.getString("Lisaysaika");
 
-                                    Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-                                    startActivity(kirjauduIntent);
-                                }
+                                    CheckLogin = username;
+                                    CheckPassword = password;
 
-                            }
+                                }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
