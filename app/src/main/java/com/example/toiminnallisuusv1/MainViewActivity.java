@@ -10,12 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MenuActivity extends AppCompatActivity {
+public class MainViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_main_view);
 
         ImageView kuva1 = findViewById(R.id.heart);
         kuva1.setImageResource(R.drawable.heart);
@@ -91,5 +91,10 @@ public class MenuActivity extends AppCompatActivity {
     public void sport_game_intent(View view) {
         Intent intent = new Intent(this, ExerciseGameActivity.class);
         startActivity(intent);
+    }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
     }
 }

@@ -47,7 +47,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(HealthActivity.this, MenuActivity.class);
+            Intent takaisinIntent = new Intent(HealthActivity.this, MainViewActivity.class);
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.lisaaTreeni) {
@@ -58,5 +58,10 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
             Intent treenitIntent = new Intent(HealthActivity.this, ExerciseGetLayout.class);
             startActivity(treenitIntent);
         }
+    }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
     }
 }

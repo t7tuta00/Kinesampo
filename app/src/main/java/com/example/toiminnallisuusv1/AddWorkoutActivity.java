@@ -27,4 +27,9 @@ public class AddWorkoutActivity extends AppCompatActivity implements View.OnClic
             //tallenna treeni johonkin
         }
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

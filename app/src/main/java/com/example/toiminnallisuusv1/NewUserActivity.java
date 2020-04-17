@@ -49,7 +49,7 @@ public class NewUserActivity extends AppCompatActivity {
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.okButton) {
-            Intent okIntent = new Intent(NewUserActivity.this, MenuActivity.class);
+            Intent okIntent = new Intent(NewUserActivity.this, MainViewActivity.class);
             startActivity(okIntent);
         }
     }

@@ -5,8 +5,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,10 +46,6 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.miLogOut:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
-            /*case android.R.id.home:
-                // ProjectsActivity is my 'home' activity
-                startActivityAfterCleanup(MenuActivity.class);
-                return true;*/
             case R.id.action_account:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
@@ -63,7 +57,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(FoodActivity.this, MenuActivity.class);
+            Intent takaisinIntent = new Intent(FoodActivity.this, MainViewActivity.class);
             startActivity(takaisinIntent);
         }
         else if (v.getId()==R.id.ruokaTietokanta) {
@@ -99,5 +93,10 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         String tulosString = String.valueOf(finalAmount);
         dayKcal.setText(tulosString);
         addKcal.setText("");
+    }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
     }
 }

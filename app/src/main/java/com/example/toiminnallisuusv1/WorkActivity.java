@@ -45,8 +45,13 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(WorkActivity.this, MenuActivity.class);
+            Intent takaisinIntent = new Intent(WorkActivity.this, MainViewActivity.class);
             startActivity(takaisinIntent);
         }
+    }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
     }
 }

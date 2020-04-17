@@ -51,9 +51,13 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(WaterActivity.this, MenuActivity.class);
+            Intent takaisinIntent = new Intent(WaterActivity.this, MainViewActivity.class);
             startActivity(takaisinIntent);
         }
     }
 
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

@@ -11,14 +11,20 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        app:navigationIcon="@drawable/logo_v1"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@android:color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="-120dp"
+            android:onClick="toMainView"
+            android:src="@drawable/logotext_src" />
+    </androidx.appcompat.widget.Toolbar>
 
 
 
@@ -38,12 +44,15 @@
         android:layout_gravity="center"/>
 
     <Button
-        android:layout_width="250dp"
-        android:layout_height="40dp"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        style="?android:textAppearanceSmall"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/buttonshape0"
         android:text="LISÄÄ SYÖMÄSI RUOAN TIEDOT"
         android:layout_gravity="center"
         android:id="@+id/ruokanappi"/>
-
-
 
 </LinearLayout>

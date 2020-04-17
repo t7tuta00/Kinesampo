@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".AddMealActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/buttonFour"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="-120dp"
+            android:onClick="toMainView"
+            android:src="@drawable/logotext_src" />
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,8 +33,9 @@
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:id="@+id/headerText"/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,16 +96,26 @@
         app:layout_constraintTop_toBottomOf="@id/hiilihydraatitText"
         android:id="@+id/rasvaaText"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        style="?android:textAppearanceSmall"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/buttonshape1"
         android:text="Takaisin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/tallennaButton"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/takaisinButton"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        style="?android:textAppearanceSmall"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/buttonshape1"
         android:text="Tallenna"
         app:layout_constraintLeft_toRightOf="@id/takaisinButton"
         app:layout_constraintRight_toRightOf="parent"

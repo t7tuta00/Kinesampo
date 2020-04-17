@@ -27,4 +27,9 @@ public class AddMealActivity extends AppCompatActivity implements View.OnClickLi
             // tallentaa aterian jonnekkin
         }
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

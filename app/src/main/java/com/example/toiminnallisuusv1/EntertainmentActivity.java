@@ -45,8 +45,13 @@ public class EntertainmentActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(EntertainmentActivity.this, MenuActivity.class);
+            Intent takaisinIntent = new Intent(EntertainmentActivity.this, MainViewActivity.class);
             startActivity(takaisinIntent);
         }
+    }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
     }
 }

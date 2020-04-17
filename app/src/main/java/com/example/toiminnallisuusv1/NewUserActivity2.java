@@ -65,7 +65,7 @@ public class NewUserActivity2 extends AppCompatActivity implements View.OnClickL
             startActivity(takaisinIntent);
         }
         else if (v.getId() == R.id.okButton) {
-            Intent okIntent = new Intent(NewUserActivity2.this, MenuActivity.class);
+            Intent okIntent = new Intent(NewUserActivity2.this, MainViewActivity.class);
             startActivity(okIntent);
         }
     }

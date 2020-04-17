@@ -79,4 +79,9 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

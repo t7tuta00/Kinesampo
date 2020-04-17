@@ -52,4 +52,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Salasana vaihdettu", Toast.LENGTH_SHORT);
         toast.show();
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

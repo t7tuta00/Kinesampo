@@ -38,4 +38,9 @@ public class FoodDatabaseActivity extends AppCompatActivity implements View.OnCl
             //lisää tuotteen listalle
         }
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

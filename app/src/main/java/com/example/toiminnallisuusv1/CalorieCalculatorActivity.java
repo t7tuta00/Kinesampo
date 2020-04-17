@@ -87,4 +87,9 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         add.setVisibility(View.INVISIBLE);
         tulos2.setVisibility(View.INVISIBLE);
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }

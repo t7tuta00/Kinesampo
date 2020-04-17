@@ -41,7 +41,7 @@
             android:label="@string/title_activity_vesi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewUserActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MainViewActivity" />
         <activity android:name=".FoodDatabaseActivity" />
         <activity android:name=".AddMealActivity" />
         <activity android:name=".AddWorkoutActivity" />

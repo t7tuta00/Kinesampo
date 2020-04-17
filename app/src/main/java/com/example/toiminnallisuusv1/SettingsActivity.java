@@ -51,4 +51,9 @@ public class SettingsActivity extends AppCompatActivity {
         Intent newIntent = new Intent(SettingsActivity.this, ChangeUserSettingsActivity.class);
         startActivity(newIntent);
     }
+
+    public void toMainView(View view) {
+        Intent mainViewIntent = new Intent(this, MainViewActivity.class);
+        startActivity(mainViewIntent);
+    }
 }
