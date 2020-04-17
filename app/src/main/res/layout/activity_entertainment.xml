@@ -42,12 +42,5 @@
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/headerText" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Takaisin"
-            android:layout_gravity="center"
-            android:id="@+id/takaisinButton"/>
-
     </LinearLayout>
 </LinearLayout>

@@ -9,13 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class EntertainmentActivity extends AppCompatActivity implements View.OnClickListener{
+public class EntertainmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entertainment);
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -39,14 +38,6 @@ public class EntertainmentActivity extends AppCompatActivity implements View.OnC
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(EntertainmentActivity.this, MainViewActivity.class);
-            startActivity(takaisinIntent);
         }
     }
 

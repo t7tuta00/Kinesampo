@@ -42,7 +42,7 @@
                 android:id="@+id/etunimiEditText"
                 android:layout_width="120dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginRight="15dp"
                 android:gravity="center"
                 android:layout_below="@+id/palkki"
@@ -80,7 +80,7 @@
                 android:id="@+id/sukunimiEditText"
                 android:layout_width="120dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginLeft="15dp"
                 android:hint="@string/sukunimi"
                 android:gravity="center"
@@ -123,7 +123,7 @@
         android:layout_toLeftOf="@id/kohdistus"
         android:layout_marginTop="70dp"
         android:layout_marginRight="15dp"
-        android:text="@string/takaisin"/>
+        android:text="Edellinen"/>
 
     <Button
         android:id="@+id/okButton"

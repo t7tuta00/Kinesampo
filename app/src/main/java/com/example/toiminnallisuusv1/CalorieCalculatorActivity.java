@@ -27,7 +27,8 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         add = findViewById(R.id.addButton);
         tulos = findViewById(R.id.tulosText);
@@ -35,6 +36,35 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         kcalEdit = findViewById(R.id.kcalEditText);
         amountEdit = findViewById(R.id.amountEditText);
 
+        add.setVisibility(View.INVISIBLE);
+        tulos2.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    public void laskeClick(View view) {
+        String message = amountEdit.getText().toString();
+        int eatenAmount = Integer.parseInt(message);
+
+        String message2 = kcalEdit.getText().toString();
+        int kcalAmount = Integer.parseInt(message2);
+        int laskuTulos = kcalAmount * eatenAmount / 100;
+        String tulosString = String.valueOf(laskuTulos);
+
+        add.setVisibility(View.VISIBLE);
+        tulos2.setVisibility(View.VISIBLE);
+        tulos.setText(tulosString);
+        kcalEdit.setText("");
+        amountEdit.setText("");
+    }
+
+    public void addClick(View view) {
+        //tänne tehtävä koodia jolla päivittyy tietokantaan, jotta näkyy lisättynä ruokanäkymään päivän kaloreihin
+        tulos.setText("");
         add.setVisibility(View.INVISIBLE);
         tulos2.setVisibility(View.INVISIBLE);
     }
@@ -58,34 +88,6 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void takaisinIntent(View view) {
-        Intent takaisinIntent = new Intent(this, FoodActivity.class);
-        startActivity(takaisinIntent);
-    }
-
-    public void laskeClick(View view) {
-        String message = amountEdit.getText().toString();
-        int eatenAmount = Integer.parseInt(message);
-
-        String message2 = kcalEdit.getText().toString();
-        int kcalAmount = Integer.parseInt(message2);
-        int laskuTulos = kcalAmount * eatenAmount / 100;
-        String tulosString = String.valueOf(laskuTulos);
-
-        add.setVisibility(View.VISIBLE);
-        tulos2.setVisibility(View.VISIBLE);
-        tulos.setText(tulosString);
-        kcalEdit.setText("");
-        amountEdit.setText("");
-    }
-
-    public void addClick(View view) {
-        //täältä päivittyy tietokantaan, jotta näkyy lisättynä ruokanäkymään päivän kaloreihin
-        tulos.setText("");
-        add.setVisibility(View.INVISIBLE);
-        tulos2.setVisibility(View.INVISIBLE);
     }
 
     public void toMainView(View view) {

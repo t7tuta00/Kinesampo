@@ -25,6 +25,15 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
 
         ImageView lasi = findViewById(R.id.vesilasi);
         lasi.setImageResource(R.drawable.tyhja_lasi);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -20,7 +20,6 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.ruokaTietokanta).setOnClickListener(this);
         findViewById(R.id.lisaaAteria).setOnClickListener(this);
         findViewById(R.id.reseptit).setOnClickListener(this);
@@ -56,11 +55,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v.getId()==R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(FoodActivity.this, MainViewActivity.class);
-            startActivity(takaisinIntent);
-        }
-        else if (v.getId()==R.id.ruokaTietokanta) {
+        if (v.getId()==R.id.ruokaTietokanta) {
             Intent tietokantaIntent = new Intent (FoodActivity.this, FoodDatabaseActivity.class);
             startActivity(tietokantaIntent);
         }

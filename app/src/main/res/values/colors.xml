@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#24c200</color>
     <color name="colorAccent">#7cdb00</color>
 
+    <color name="toolbarUpColor">#353535</color>
+
     <color name="buttonOne">#3D913F</color>
     <color name="buttonOneGradient">#59DA5D</color>
     <color name="buttonTwo">#7F419F</color>

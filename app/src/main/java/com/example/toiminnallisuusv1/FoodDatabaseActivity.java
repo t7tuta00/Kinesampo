@@ -20,18 +20,21 @@ public class FoodDatabaseActivity extends AppCompatActivity implements View.OnCl
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         kategoriaSpinner.setAdapter(adapter);
 
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.listaButton).setOnClickListener(this);
         findViewById(R.id.lisaaButton).setOnClickListener(this);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(FoodDatabaseActivity.this, FoodActivity.class);
-            startActivity(takaisinIntent);
-        }
-        else if (v.getId() == R.id.listaButton) {
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onClick(View v) {if (v.getId() == R.id.listaButton) {
             //tähän listaIntent
         }
         else if (v.getId() == R.id.lisaaButton) {

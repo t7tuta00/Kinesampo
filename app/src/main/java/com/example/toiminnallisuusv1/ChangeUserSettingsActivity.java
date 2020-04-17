@@ -20,12 +20,14 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_settings);
 
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.okButton).setOnClickListener(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
@@ -36,6 +38,29 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         spinner.setAdapter(dataAdapter);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.okButton) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Asetukset tallennettu", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String item = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,27 +82,6 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(ChangeUserSettingsActivity.this, SettingsActivity.class);
-            startActivity(takaisinIntent);
-        }
-        else if (v.getId() == R.id.okButton) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Asetukset tallennettu", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String item = parent.getItemAtPosition(position).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
     }
 
     public void toMainView(View view) {

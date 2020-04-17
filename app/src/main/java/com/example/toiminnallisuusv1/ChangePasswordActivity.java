@@ -20,6 +20,20 @@ public class ChangePasswordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    public void changePasswordIntent(View view) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Salasana vaihdettu", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,16 +55,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void cancelIntent(View view) {
-        Intent newIntent = new Intent(ChangePasswordActivity.this, SettingsActivity.class);
-        startActivity(newIntent);
-    }
-
-    public void changePasswordIntent(View view) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Salasana vaihdettu", Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     public void toMainView(View view) {

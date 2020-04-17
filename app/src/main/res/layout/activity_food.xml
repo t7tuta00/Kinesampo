@@ -37,24 +37,11 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/headerText" />
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="45dp"
-        android:text="Takaisin"
-        style="?android:textAppearanceSmall"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:background="@drawable/buttonshape1"
-        android:layout_gravity="center"
-        android:layout_below="@+id/headerText"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/takaisinButton"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_below="@+id/takaisinButton"
+        android:layout_below="@+id/headerText"
         android:layout_marginTop="20dp"
         android:id="@+id/textView1"
         android:text="Päivän kalorit: "/>
@@ -64,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_toRightOf="@+id/textView1"
-        android:layout_below="@+id/takaisinButton"
+        android:layout_below="@+id/headerText"
         android:layout_marginTop="20dp"
         android:id="@+id/dayKcal"
         android:text="0"/>
@@ -74,7 +61,6 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:id="@+id/addKcal"
-        android:layout_marginTop="40dp"
         android:inputType="number"
         android:hint="Kcal"
         android:gravity="center"
@@ -90,7 +76,7 @@
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
         android:layout_toRightOf="@+id/addKcal"
-        android:layout_below="@+id/dayKcal"
+        android:layout_below="@+id/headerText"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:onClick="kalorilaskuri_intent"

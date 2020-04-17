@@ -47,6 +47,7 @@
         android:background="@drawable/buttonshape0"
         android:text="Salasanan vaihto"
         android:layout_gravity="center"
+        android:layout_marginTop="70dp"
         android:layout_below="@+id/headerText"
         android:layout_centerHorizontal="true"
         android:onClick="changePasswordIntent"
@@ -62,6 +63,7 @@
         android:text="Käyttäjätiedot"
         android:layout_gravity="center"
         android:layout_below="@+id/AccountSettingsButton"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:onClick="userSettingsIntent"
         android:id="@+id/UserSettingsButton"/>

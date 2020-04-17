@@ -9,13 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class WorkActivity extends AppCompatActivity implements View.OnClickListener{
+public class WorkActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work);
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -42,13 +41,6 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(WorkActivity.this, MainViewActivity.class);
-            startActivity(takaisinIntent);
-        }
-    }
 
     public void toMainView(View view) {
         Intent mainViewIntent = new Intent(this, MainViewActivity.class);
