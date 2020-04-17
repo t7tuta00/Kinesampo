@@ -19,6 +19,7 @@ public class FoodGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_game);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         ImageView imageView = findViewById(R.id.lautanen);
         imageView.setImageResource(R.drawable.tyhja_lautanen);

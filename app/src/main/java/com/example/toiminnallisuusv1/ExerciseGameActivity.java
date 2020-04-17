@@ -19,6 +19,7 @@ public class ExerciseGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exercise_game);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         ImageView nuotio = findViewById(R.id.nuotio);
         nuotio.setImageResource(R.drawable.palava);
