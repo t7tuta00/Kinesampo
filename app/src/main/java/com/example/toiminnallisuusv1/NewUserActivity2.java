@@ -22,40 +22,15 @@ public class NewUserActivity2 extends AppCompatActivity implements View.OnClickL
         findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.okButton).setOnClickListener(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
 
         String[] categories = new String[] {
-                "Mies", "Nainen", "-" };
+                "Sukupuoli", "Mies", "Nainen", "-" };
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         spinner.setAdapter(dataAdapter);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.miLogOut:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                return true;
-            case R.id.action_account:
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     @Override

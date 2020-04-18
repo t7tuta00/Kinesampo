@@ -45,7 +45,12 @@ public class AddMealActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_account:
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+            case R.id.subPasswordChange:
+                startActivity(new Intent(getApplicationContext(), ChangePasswordActivity.class));
+                return true;
+            case R.id.subUserSettings:
+                startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

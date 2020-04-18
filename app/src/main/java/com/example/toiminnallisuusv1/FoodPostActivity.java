@@ -61,6 +61,10 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         button=findViewById(R.id.sendbtn);
         button.setOnClickListener(this);
         foodText = findViewById(R.id.nimi);
@@ -69,10 +73,17 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         carbText =findViewById(R.id.carbs);
         proteinText = findViewById(R.id.protein);
         mQueue = Volley.newRequestQueue(this);
+    }
+
 
         id2 = Integer.toString(id);
         Log.d(TAG, id+"?????????????????????????Check?????????????????????????????????");
         Log.d(TAG, id2+"?????????????????????????Check?????????????????????????????????");
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -89,7 +100,12 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_account:
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+            case R.id.subPasswordChange:
+                startActivity(new Intent(getApplicationContext(), ChangePasswordActivity.class));
+                return true;
+            case R.id.subUserSettings:
+                startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

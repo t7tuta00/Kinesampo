@@ -52,9 +52,6 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
         listView.setAdapter(adapter);
     }
 
-
-
-
     public void get_food(){
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

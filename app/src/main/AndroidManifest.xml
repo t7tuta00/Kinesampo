@@ -19,7 +19,6 @@
         <activity android:name=".ExerciseGetLayout" />
         <activity android:name=".Recipe1Activity" />
         <activity android:name=".Recipe" />
-        <activity android:name=".SettingsActivity" />
         <activity android:name=".CalorieCalculatorActivity" />
         <activity android:name=".NewUserActivity2" />
         <activity
