@@ -31,14 +31,16 @@ import java.util.Map;
 
 public class FoodPostActivity extends AppCompatActivity implements View.OnClickListener{
 
-    String TAG = "LOG: ";
+    String TAG = "LOG: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     Button button;
-    String id = "";
-    String FoodName = "";
-    String Calories = "";
-    String Fat = "";
-    String Carbs = "";
-    String Protein = "";
+    int id;
+    String id2;
+
+    String FoodName;
+    String Calories;
+    String Fat;
+    String Carbs;
+    String Protein;
     EditText foodText;
     EditText caloryText;
     EditText fatText;
@@ -46,12 +48,16 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
     EditText proteinText;
     private RequestQueue mQueue;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_post);
+
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -64,7 +70,9 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         proteinText = findViewById(R.id.protein);
         mQueue = Volley.newRequestQueue(this);
 
-
+        id2 = Integer.toString(id);
+        Log.d(TAG, id+"?????????????????????????Check?????????????????????????????????");
+        Log.d(TAG, id2+"?????????????????????????Check?????????????????????????????????");
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,22 +101,8 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         startActivity(mainViewIntent);
     }
 
-
-    public void loki() {
-
-            Intent intent = getIntent();
-            id = intent.getStringExtra("userid2");
-
-        Log.d(TAG, id + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    }
-
    public void post_food() {
        MainActivity mainActivity = new MainActivity();
-       Bundle extras = getIntent().getExtras();
-            if(extras != null) {
-                id = extras.getString("userid");
-            }
-        Log.d(TAG, id);
 
        //id2 = Integer.toString(id);
        FoodName = foodText.getText().toString();
@@ -117,37 +111,32 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
        Carbs = carbText.getText().toString();
        Protein = proteinText.getText().toString();
        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/addNewFood?RuoanNimi=" + FoodName + "&Kalorit="
-               + Calories + "&Rasva=" + Fat + "&Hiilihydraatit=" + Carbs + "&Proteiini="+ Protein + "&Kayttaja_idKayttaja=" + id;
-
+               + Calories + "&Rasva=" + Fat + "&Hiilihydraatit=" + Carbs + "&Proteiini="+ Protein + "&Kayttaja_idKayttaja=" + id2;
 
        Log.d(TAG, FoodName);
        Log.d(TAG, Calories);
        Log.d(TAG, Fat);
        Log.d(TAG, Carbs);
        Log.d(TAG, Protein);
-       Log.d(TAG, id);
+       Log.d(TAG, id2);
 
-           JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null,
-                   new Response.Listener<JSONObject>() {
+       JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST, url, null,
+               new Response.Listener<JSONArray>() {
+                   @Override
+                   public void onResponse(JSONArray response)
+                   {
+                       Log.d(TAG, "onResponse: Onnistui");
+                   }
+               }, new Response.ErrorListener()
+       {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+               Log.d(TAG, "onErrorResponse: Epäonnistui");
+           }
+       });
 
-                       @Override
-                       public void onResponse(JSONObject response) {
-
-
-                       }
-                   }, new Response.ErrorListener() {
-
-
-               @Override
-               public void onErrorResponse(VolleyError error) {
-                   error.printStackTrace();
-               }
-
-
-           });
-
-           mQueue.add(request);
-       }
+       mQueue.add(request);
+   }
 
 
 
@@ -205,9 +194,10 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
 
        @Override
        public void onClick (View v){
-           if (v.getId() == R.id.sendbtn) {
-            loki();
-            //post_food();
+           if (v.getId() == R.id.sendbtn)
+           {
+               post_food();
+               //Check();
            }
        }
 

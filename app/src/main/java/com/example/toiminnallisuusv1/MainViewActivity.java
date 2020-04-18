@@ -12,10 +12,17 @@ import android.widget.ImageView;
 
 public class MainViewActivity extends AppCompatActivity {
 
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view);
+
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
 
         ImageView kuva1 = findViewById(R.id.heart);
         kuva1.setImageResource(R.drawable.heart);
@@ -35,6 +42,7 @@ public class MainViewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,41 +68,49 @@ public class MainViewActivity extends AppCompatActivity {
 
     public void health_intent(View view) {
         Intent intent = new Intent(this, HealthActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void food_intent(View view) {
         Intent intent = new Intent(this, FoodActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void milk_intent(View view) {
         Intent intent = new Intent(this, MilkActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void work_intent(View view) {
         Intent intent = new Intent(this, WorkActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void entertainment_intent(View view) {
         Intent intent = new Intent(this, EntertainmentActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void water_intent(View view) {
         Intent intent = new Intent(this, WaterActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void food_game_intent(View view) {
         Intent intent = new Intent(this, FoodGameActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
     public void sport_game_intent(View view) {
         Intent intent = new Intent(this, ExerciseGameActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 

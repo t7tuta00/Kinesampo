@@ -34,16 +34,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button salasanaButton;
     TextView textView;
     ArrayList<Object> Userlist = new ArrayList<>();
+
     int userid;
     String Login;
     String Password;
-    String CheckLogin="";
-    String CheckPassword="";
-    String FirstName="";
-    String LastName="";
-    String Fingerprint="";
-    String Email="";
-    String Addtime="";
+    String CheckLogin;
+    String CheckPassword;
+    String FirstName;
+    String LastName;
+    String Fingerprint;
+    String Email;
+    String Addtime;
 
     String msg = "Kayttis";
     String msg2 = "Salis";
@@ -75,7 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 salasanaButton.setVisibility(View.VISIBLE);
                 findViewById(R.id.textView).setVisibility(View.GONE);
             }
+
         });
+
     }
 
     public void uusiKayttajaIntent(View view) {
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.signInButton) {
-            Log.d(msg, userid + "!!!!!!!!!!!!!!!!!!ONCLICK!!!!!!!!!!!!!!!");
+
             EditText asd = (EditText) findViewById(R.id.editText);
             EditText asd2 = (EditText) findViewById(R.id.password);
             Login = asd.getText().toString();
@@ -107,11 +110,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
                     {
-                        String userid2 = "2";
-                        Intent i = new Intent(MainActivity.this,FoodPostActivity.class);
-                        i.putExtra("userid2",userid2 );
-                        startActivity(i);
+                        Log.d(msg2, "id" +userid +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +CheckLogin +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +CheckPassword +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +FirstName +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +LastName +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +Fingerprint +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +Email +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+                        Log.d(msg2, "id" +Addtime +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+
+
                         Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
+                        kirjauduIntent.putExtra("id", userid);
                         startActivity(kirjauduIntent);
                     }
                     else{
@@ -119,9 +129,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         toast.show();
                     }
                 }
-            }, 2000);
+            }, 5000);
 
         }
+    }
+
+    public int getData()
+    {
+        return userid;
+    }
+
+    private void Check(){
+        Log.d(msg2, "id" +userid +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +CheckLogin +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +CheckPassword +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +FirstName +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +LastName +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +Fingerprint +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +Email +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+        Log.d(msg2, "id" +Addtime +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
+
+        String userid2 = "2";
+        Intent i = new Intent(MainActivity.this,FoodPostActivity.class);
+        i.putExtra("userid2",userid2 );
+        startActivity(i);
+
     }
 
 
@@ -159,6 +191,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     Email = email;
                                     Addtime = addtime;
 
+                                    Log.d(msg, "id" +userid +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +CheckLogin +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +CheckPassword +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +FirstName +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +LastName +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +Fingerprint +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +Email +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+                                    Log.d(msg, "id" +Addtime +"!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
                                 }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -172,7 +212,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         Queue.add(request);
-        Log.d(msg, "id" + userid + "login" + CheckLogin + "salasana" + CheckPassword + "etunimi" + FirstName + "sukunimi" + LastName + "sormenjalki" + Fingerprint + "sposti" + Email + "aika" + Addtime + "!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
+
+
+
+
     }
 }
 

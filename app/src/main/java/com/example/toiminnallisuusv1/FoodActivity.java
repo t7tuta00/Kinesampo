@@ -13,13 +13,21 @@ import android.widget.TextView;
 
 public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
+    int id;
     EditText addKcal;
     TextView dayKcal;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
+
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
+
         findViewById(R.id.ruokaTietokanta).setOnClickListener(this);
         findViewById(R.id.lisaaAteria).setOnClickListener(this);
         findViewById(R.id.reseptit).setOnClickListener(this);
@@ -58,22 +66,27 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId()==R.id.ruokaTietokanta) {
             Intent tietokantaIntent = new Intent (FoodActivity.this, FoodDatabaseActivity.class);
+            tietokantaIntent.putExtra("id", id);
             startActivity(tietokantaIntent);
         }
         else if (v.getId()==R.id.lisaaAteria) {
             Intent lisaaAteriaIntent = new Intent (FoodActivity.this, AddMealActivity.class);
+            lisaaAteriaIntent.putExtra("id", id);
             startActivity(lisaaAteriaIntent);
         }
         else if (v.getId() == R.id.reseptit) {
             Intent reseptitIntent = new Intent(FoodActivity.this, Recipe.class);
+            reseptitIntent.putExtra("id", id);
             startActivity(reseptitIntent);
         }
         else if (v.getId() == R.id.kaikkienruuat) {
             Intent everybodysIntent = new Intent(FoodActivity.this, activity_food_get_layout.class);
+            everybodysIntent.putExtra("id", id);
             startActivity(everybodysIntent);
         }
         else if (v.getId() == R.id.foodpost) {
             Intent everybodysIntent = new Intent(FoodActivity.this, FoodPostActivity.class);
+            everybodysIntent.putExtra("id", id);
             startActivity(everybodysIntent);
         }
     }
