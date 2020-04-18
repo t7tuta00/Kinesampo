@@ -2,18 +2,14 @@ package com.example.toiminnallisuusv1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.KeyListener;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,18 +28,24 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RequestQueue Queue;
     Button salasanaButton;
-    //EditText passwordEdit, usernameEdit;
+    TextView textView;
     ArrayList<Object> Userlist = new ArrayList<>();
+    int userid;
     String Login;
     String Password;
     String CheckLogin="";
     String CheckPassword="";
+    String FirstName="";
+    String LastName="";
+    String Fingerprint="";
+    String Email="";
+    String Addtime="";
 
-    String msg = "Käyttis";
+    String msg = "Kayttis";
     String msg2 = "Salis";
 
     @Override
@@ -55,16 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         salasanaButton.setOnClickListener(this);
         salasanaButton.setVisibility(View.GONE);
 
-        //passwordEdit = findViewById(R.id.password);
-        final EditText usernameEdit = findViewById(R.id.username);
-        final EditText passwordEdit = (EditText) findViewById(R.id.password);
-
-        //passwordEdit.setOnKeyListener(this);
-        //usernameEdit.setOnKeyListener(this);
-
-        passwordEdit.setOnKeyListener(this);
-        usernameEdit.setOnKeyListener(this);
-        passwordEdit.addTextChangedListener(new TextWatcher() {
+        final EditText salasanaEdit = (EditText) findViewById(R.id.password);
+        salasanaEdit.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -94,43 +88,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(kirjauduIntent);
     }
 
-    public void signInFunction() {
-        EditText asd = (EditText) findViewById(R.id.username);
-        EditText asd2 = (EditText) findViewById(R.id.password);
-        Login = asd.getText().toString();
-        Password = asd2.getText().toString();
-
-        Queue = Volley.newRequestQueue(this);
-        GetUser();
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                if (Password.equals("") && Login.equals("")) {
-                }
-                else if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
-                {
-                    Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-                    startActivity(kirjauduIntent);
-                }
-                else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-            }
-        }, 1000);
-    }
-
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.signInButton) {
-            signInFunction();
+            Log.d(msg, userid + "!!!!!!!!!!!!!!!!!!ONCLICK!!!!!!!!!!!!!!!");
+            EditText asd = (EditText) findViewById(R.id.editText);
+            EditText asd2 = (EditText) findViewById(R.id.password);
+            Login = asd.getText().toString();
+            Password = asd2.getText().toString();
+
+            Queue = Volley.newRequestQueue(this);
+            GetUser();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
+                    {
+                        String userid2 = "2";
+                        Intent i = new Intent(MainActivity.this,FoodPostActivity.class);
+                        i.putExtra("userid2",userid2 );
+                        startActivity(i);
+                        Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
+                        startActivity(kirjauduIntent);
+                    }
+                    else{
+                        Toast toast = Toast.makeText(getApplicationContext(), "Kirjautuminen epäonnistui, yrita uudelleen", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
+            }, 2000);
+
         }
     }
 
-    //Get-metodi, jolla tuodaan Kayttajatiedot tietokannasta Arraylistaan Userlist
+
     private void GetUser () {
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/login?Kayttajanimi=" + Login + "&Salasana=" + Password;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -156,8 +150,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     String email = o.getString("Sposti");
                                     String addtime = o.getString("Lisaysaika");
 
+                                    userid = id;
                                     CheckLogin = username;
                                     CheckPassword = password;
+                                    FirstName  = firstname;
+                                    LastName = lastname;
+                                    Fingerprint = fingerprint;
+                                    Email = email;
+                                    Addtime = addtime;
 
                                 }
                         } catch (JSONException e) {
@@ -170,26 +170,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 error.printStackTrace();
             }
         });
-        Queue.add(request);
-    }
 
-    @Override
-    public boolean onKey(View v, int keyCode, KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN)
-        {
-            switch (keyCode)
-            {
-                case KeyEvent.KEYCODE_ENTER:
-                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    View passwordEdit = findViewById(R.id.password);
-                    inputMethodManager.hideSoftInputFromWindow(passwordEdit.getWindowToken(), 0);
-                    signInFunction();
-                    return true;
-                default:
-                    break;
-            }
-        }
-        return false;
+        Queue.add(request);
+        Log.d(msg, "id" + userid + "login" + CheckLogin + "salasana" + CheckPassword + "etunimi" + FirstName + "sukunimi" + LastName + "sormenjalki" + Fingerprint + "sposti" + Email + "aika" + Addtime + "!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
     }
 }
 

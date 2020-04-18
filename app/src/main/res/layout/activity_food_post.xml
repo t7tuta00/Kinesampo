@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodPostActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/buttonFour"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@android:color/white">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_marginTop="-120dp"
+                android:onClick="toMainView"
+                android:src="@drawable/logotext_src" />
+        </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/nimi"
+        android:hint="Ruoan nimi"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/calory"
+            android:hint="Kalorit"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fat"
+            android:hint="Rasva"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/carbs"
+            android:hint="Hiilihydraatit"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/protein"
+            android:hint="Proteiinit"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        style="?android:textAppearanceSmall"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/buttonshape1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="LISÄÄ"
+        android:id="@+id/sendbtn"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

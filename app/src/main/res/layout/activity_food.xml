@@ -152,4 +152,18 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/kaikkienruuat"/>
 
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        style="?android:textAppearanceSmall"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@drawable/buttonshape1"
+        android:text="Lisää ruokia"
+        android:layout_below="@+id/kaikkienruuat"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/foodpost"/>
+
 </RelativeLayout>
