@@ -55,6 +55,10 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         button=findViewById(R.id.sendbtn);
         button.setOnClickListener(this);
         foodText = findViewById(R.id.nimi);
@@ -63,8 +67,12 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         carbText =findViewById(R.id.carbs);
         proteinText = findViewById(R.id.protein);
         mQueue = Volley.newRequestQueue(this);
+    }
 
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
