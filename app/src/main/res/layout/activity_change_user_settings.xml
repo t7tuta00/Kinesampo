@@ -48,7 +48,7 @@
 
     <EditText
         android:id="@+id/etunimiEditText"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginTop="80dp"
         android:layout_marginRight="15dp"
@@ -60,7 +60,7 @@
 
     <EditText
         android:id="@+id/ikaEditText"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:hint="@string/ika"
         android:layout_marginTop="20dp"
@@ -73,7 +73,7 @@
 
     <EditText
         android:id="@+id/pituusEditText"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:hint="@string/pituus_cm"
         android:layout_marginTop="20dp"
@@ -86,7 +86,7 @@
 
     <EditText
         android:id="@+id/sukunimiEditText"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="15dp"
@@ -98,18 +98,17 @@
         android:layout_gravity=""/>
 
     <Spinner
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
-        android:autofillHints="Sukupuoli"
         android:layout_below="@+id/sukunimiEditText"
         android:layout_toRightOf="@id/kohdistus"
         android:id="@+id/spinner"/>
 
     <EditText
         android:id="@+id/painoEditText"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginLeft="15dp"
         android:hint="@string/paino_kg"
@@ -130,7 +129,7 @@
         android:layout_below="@+id/painoEditText"
         android:layout_toRightOf="@id/kohdistus"
         android:layout_marginTop="70dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="25dp"
         android:text="Tallenna"/>
 
 </RelativeLayout>

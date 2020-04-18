@@ -13,7 +13,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ChangeUserSettingsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,9 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
         spinner.setOnItemSelectedListener(this);
 
         String[] categories = new String[] {
-                "Mies", "Nainen", "-" };
+                "Sukupuoli", "Mies", "Nainen", "-" };
+
+        final List<String> list = new ArrayList<>(Arrays.asList(categories));
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
@@ -77,7 +84,12 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_account:
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+            case R.id.subPasswordChange:
+                startActivity(new Intent(getApplicationContext(), ChangePasswordActivity.class));
+                return true;
+            case R.id.subUserSettings:
+                startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

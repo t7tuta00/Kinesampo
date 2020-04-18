@@ -54,9 +54,6 @@ public class ExerciseGetLayout extends AppCompatActivity implements View.OnClick
         listView.setAdapter(adapter);
     }
 
-
-
-
     public void get_workout(){
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

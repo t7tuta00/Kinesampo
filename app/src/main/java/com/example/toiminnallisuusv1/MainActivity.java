@@ -110,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
                 if (Password.equals("") && Login.equals("")) {
                 }
+                else if (Password.equals("") || Login.equals("")) {
+                }
                 else if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
                 {
                     Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);

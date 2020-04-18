@@ -21,6 +21,15 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,7 +46,12 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             case R.id.action_account:
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+            case R.id.subPasswordChange:
+                startActivity(new Intent(getApplicationContext(), ChangePasswordActivity.class));
+                return true;
+            case R.id.subUserSettings:
+                startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -46,11 +60,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(HealthActivity.this, MainViewActivity.class);
-            startActivity(takaisinIntent);
-        }
-        else if (v.getId() == R.id.lisaaTreeni) {
+        if (v.getId() == R.id.lisaaTreeni) {
             Intent lisaaTreeniIntent = new Intent(HealthActivity.this, AddWorkoutActivity.class);
             startActivity(lisaaTreeniIntent);
         }
