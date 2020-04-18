@@ -3,16 +3,15 @@ package com.example.toiminnallisuusv1;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class FoodActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
+public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText addKcal;
     TextView dayKcal;
@@ -25,26 +24,13 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.lisaaAteria).setOnClickListener(this);
         findViewById(R.id.reseptit).setOnClickListener(this);
         findViewById(R.id.kaikkienruuat).setOnClickListener(this);
+        findViewById(R.id.foodpost).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         dayKcal = findViewById(R.id.dayKcal);
         addKcal = findViewById(R.id.addKcal);
-
-        addKcal.setOnKeyListener(this);
-    }
-
-    public void calorieCounter() {
-        String message = addKcal.getText().toString();
-        int eatenAmount = Integer.parseInt(message);
-        String message2 = dayKcal.getText().toString();
-        int eatenAmount2 = Integer.parseInt(message2);
-
-        int finalAmount = eatenAmount + eatenAmount2;
-        String tulosString = String.valueOf(finalAmount);
-        dayKcal.setText(tulosString);
-        addKcal.setText("");
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,17 +61,24 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.ruokaTietokanta) {
-            Intent tietokantaIntent = new Intent(FoodActivity.this, FoodDatabaseActivity.class);
+        if (v.getId()==R.id.ruokaTietokanta) {
+            Intent tietokantaIntent = new Intent (FoodActivity.this, FoodDatabaseActivity.class);
             startActivity(tietokantaIntent);
-        } else if (v.getId() == R.id.lisaaAteria) {
-            Intent lisaaAteriaIntent = new Intent(FoodActivity.this, AddMealActivity.class);
+        }
+        else if (v.getId()==R.id.lisaaAteria) {
+            Intent lisaaAteriaIntent = new Intent (FoodActivity.this, AddMealActivity.class);
             startActivity(lisaaAteriaIntent);
-        } else if (v.getId() == R.id.reseptit) {
+        }
+        else if (v.getId() == R.id.reseptit) {
             Intent reseptitIntent = new Intent(FoodActivity.this, Recipe.class);
             startActivity(reseptitIntent);
-        } else if (v.getId() == R.id.kaikkienruuat) {
+        }
+        else if (v.getId() == R.id.kaikkienruuat) {
             Intent everybodysIntent = new Intent(FoodActivity.this, activity_food_get_layout.class);
+            startActivity(everybodysIntent);
+        }
+        else if (v.getId() == R.id.foodpost) {
+            Intent everybodysIntent = new Intent(FoodActivity.this, FoodPostActivity.class);
             startActivity(everybodysIntent);
         }
     }
@@ -96,27 +89,19 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void kalorilaskuri_intent(View view) {
-        calorieCounter();
+        String message = addKcal.getText().toString();
+        int eatenAmount = Integer.parseInt(message);
+        String message2 = dayKcal.getText().toString();
+        int eatenAmount2 = Integer.parseInt(message2);
+
+        int finalAmount = eatenAmount + eatenAmount2;
+        String tulosString = String.valueOf(finalAmount);
+        dayKcal.setText(tulosString);
+        addKcal.setText("");
     }
 
     public void toMainView(View view) {
         Intent mainViewIntent = new Intent(this, MainViewActivity.class);
         startActivity(mainViewIntent);
-    }
-
-    @Override
-    public boolean onKey(View v, int keyCode, KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN)
-        {
-            switch (keyCode)
-            {
-                case KeyEvent.KEYCODE_ENTER:
-                    calorieCounter();
-                    return true;
-                default:
-                    break;
-            }
-        }
-        return false;
     }
 }

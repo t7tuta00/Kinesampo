@@ -73,6 +73,11 @@ public class MainViewActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void milk_intent(View view) {
+        Intent intent = new Intent(this, MilkActivity.class);
+        startActivity(intent);
+    }
+
     public void work_intent(View view) {
         Intent intent = new Intent(this, WorkActivity.class);
         startActivity(intent);
@@ -89,7 +94,7 @@ public class MainViewActivity extends AppCompatActivity {
     }
 
     public void food_game_intent(View view) {
-        Intent intent = new Intent(this, WaterActivity.class);
+        Intent intent = new Intent(this, FoodGameActivity.class);
         startActivity(intent);
     }
 

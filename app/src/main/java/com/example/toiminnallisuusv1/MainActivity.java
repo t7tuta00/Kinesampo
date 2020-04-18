@@ -4,15 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.KeyListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,12 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private RequestQueue Queue;
     Button salasanaButton;
-    //EditText passwordEdit, usernameEdit;
+    TextView textView;
     ArrayList<Object> Userlist = new ArrayList<>();
+    int userid;
     String Login;
     String Password;
     String CheckLogin="";
     String CheckPassword="";
+    String FirstName="";
+    String LastName="";
+    String Fingerprint="";
+    String Email="";
+    String Addtime="";
 
     String msg = "Käyttis";
     String msg2 = "Salis";
@@ -58,9 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //passwordEdit = findViewById(R.id.password);
         final EditText usernameEdit = findViewById(R.id.username);
         final EditText passwordEdit = (EditText) findViewById(R.id.password);
-
-        //passwordEdit.setOnKeyListener(this);
-        //usernameEdit.setOnKeyListener(this);
 
         passwordEdit.setOnKeyListener(this);
         usernameEdit.setOnKeyListener(this);
@@ -132,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //Get-metodi, jolla tuodaan Kayttajatiedot tietokannasta Arraylistaan Userlist
+
     private void GetUser () {
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/login?Kayttajanimi=" + Login + "&Salasana=" + Password;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -158,8 +160,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     String email = o.getString("Sposti");
                                     String addtime = o.getString("Lisaysaika");
 
+                                    userid = id;
                                     CheckLogin = username;
                                     CheckPassword = password;
+                                    FirstName  = firstname;
+                                    LastName = lastname;
+                                    Fingerprint = fingerprint;
+                                    Email = email;
+                                    Addtime = addtime;
 
                                 }
                         } catch (JSONException e) {
@@ -172,7 +180,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 error.printStackTrace();
             }
         });
+
         Queue.add(request);
+        Log.d(msg, "id" + userid + "login" + CheckLogin + "salasana" + CheckPassword + "etunimi" + FirstName + "sukunimi" + LastName + "sormenjalki" + Fingerprint + "sposti" + Email + "aika" + Addtime + "!!!!!!!!!!!!!!!!!!!!!!!!GETUSERCLICK!!!!!!!!!!!!!!!!!!!!!");
     }
 
     @Override

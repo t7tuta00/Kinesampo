@@ -92,6 +92,7 @@
         android:layout_toLeftOf="@id/maitogame"
         android:layout_marginRight="10dp"
         android:id="@+id/ruokagame"
+        android:onClick="food_game_intent"
         />
 
     <ImageView
@@ -102,7 +103,7 @@
         android:layout_toLeftOf="@id/kohdistus"
         android:layout_marginRight="5dp"
         android:id="@+id/maitogame"
-        android:onClick="food_game_intent"/>
+        android:onClick="milk_intent"/>
 
     <ImageView
         android:layout_width="50dp"

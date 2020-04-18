@@ -40,7 +40,13 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         tulos2.setVisibility(View.INVISIBLE);
     }
 
-    public void calculateFunction() {
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    public void laskeClick(View view) {
         String message = amountEdit.getText().toString();
         int eatenAmount = Integer.parseInt(message);
 
@@ -54,12 +60,6 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         tulos.setText(tulosString);
         kcalEdit.setText("");
         amountEdit.setText("");
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 
     public void addClick(View view) {
@@ -98,9 +98,5 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
     public void toMainView(View view) {
         Intent mainViewIntent = new Intent(this, MainViewActivity.class);
         startActivity(mainViewIntent);
-    }
-
-    public void laskeClick(View view) {
-        calculateFunction();
     }
 }
