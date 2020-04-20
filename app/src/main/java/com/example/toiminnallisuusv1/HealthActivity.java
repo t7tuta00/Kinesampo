@@ -21,9 +21,10 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
         {
             id = getIntent().getIntExtra("id",0);
         }
-
+        
         findViewById(R.id.lisaaTreeni).setOnClickListener(this);
         findViewById(R.id.treeniButton).setOnClickListener(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
