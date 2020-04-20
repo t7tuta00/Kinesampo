@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FoodPostActivity"></activity>
+        <activity android:name=".SportPostActivity"></activity>
+        <activity android:name=".FoodPostActivity" />
         <activity android:name=".ChangeUserSettingsActivity" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".activity_food_get_layout" />

@@ -11,11 +11,17 @@ import android.view.View;
 
 public class HealthActivity extends AppCompatActivity implements View.OnClickListener{
 
+    int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health);
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
+
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
+
         findViewById(R.id.lisaaTreeni).setOnClickListener(this);
         findViewById(R.id.treeniButton).setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -24,6 +30,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 
     @Override
@@ -61,7 +68,8 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.lisaaTreeni) {
-            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, AddWorkoutActivity.class);
+            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, SportPostActivity.class);
+            lisaaTreeniIntent.putExtra("id", id);
             startActivity(lisaaTreeniIntent);
         }
         else if (v.getId() == R.id.treeniButton) {

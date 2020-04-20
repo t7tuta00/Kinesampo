@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class activity_food_get_layout extends AppCompatActivity implements View.OnClickListener {
 
-    String id = "1";
+    int id;
     String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/RuokaidKayttaja?Kayttaja_idKayttaja=" + id;
     private RequestQueue mQueue;
     ListView listView;
@@ -41,6 +41,12 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_food_get_layout);
+
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
+
         listView = findViewById(R.id.Ruokalista);
         button = findViewById(R.id.jsonbutton);
         button.setOnClickListener(this);
