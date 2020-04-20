@@ -39,15 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Object> Userlist = new ArrayList<>();
 
     int userid;
-    String Login;
-    String Password;
-    String CheckLogin;
-    String CheckPassword;
-    String FirstName;
-    String LastName;
-    String Fingerprint;
-    String Email;
-    String Addtime;
+    String Login = "a";
+    String Password = "a";
+    String CheckLogin = "a";
+    String CheckPassword = "a";
+    String FirstName = "a";
+    String LastName = "a";
+    String Fingerprint = "a";
+    String Email = "a";
+    String Addtime = "a";
 
     String msg = "Käyttis";
     String msg2 = "Salis";
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Password = asd2.getText().toString();
 
         Queue = Volley.newRequestQueue(this);
+
         GetUser();
 
         Handler handler = new Handler();
@@ -117,7 +118,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else if (Password.equals("") || Login.equals("")) {
                 }
-                else if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
+                Check();
+                Log.d(msg, "run: "+ Login + Password);
+
+                if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
                 {
                     Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
                     kirjauduIntent.putExtra("id", userid);
@@ -128,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     toast.show();
                 }
             }
-        }, 1000);
+        }, 2000);
     }
 
     @Override
@@ -173,11 +177,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public int getData()
-    {
-        return userid;
-    }
-
     private void Check(){
         Log.d(msg2, "id" +userid +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
         Log.d(msg2, "id" +CheckLogin +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
@@ -188,10 +187,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(msg2, "id" +Email +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
         Log.d(msg2, "id" +Addtime +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
 
-        String userid2 = "2";
+        /*String userid2 = "2";
         Intent i = new Intent(MainActivity.this,FoodPostActivity.class);
         i.putExtra("userid2",userid2 );
-        startActivity(i);
+        startActivity(i);*/
 
     }
 
