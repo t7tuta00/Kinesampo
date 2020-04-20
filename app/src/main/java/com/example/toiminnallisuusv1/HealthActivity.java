@@ -15,9 +15,9 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health);
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
         findViewById(R.id.lisaaTreeni).setOnClickListener(this);
         findViewById(R.id.treeniButton).setOnClickListener(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);

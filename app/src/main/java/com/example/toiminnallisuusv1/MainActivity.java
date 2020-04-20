@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,17 +41,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Object> Userlist = new ArrayList<>();
 
     int userid;
-    String Login = "a";
-    String Password = "a";
-    String CheckLogin = "a";
-    String CheckPassword = "a";
-    String FirstName = "a";
-    String LastName = "a";
-    String Fingerprint = "a";
-    String Email = "a";
-    String Addtime = "a";
+    String Login = "Empty Value";
+    String Password = "Empty Value";
+    String CheckLogin = "Empty Value";
+    String CheckPassword = "Empty Value";
+    String FirstName = "Empty Value";
+    String LastName = "Empty Value";
+    String Fingerprint = "Empty Value";
+    String Email = "Empty Value";
+    String Addtime = "Empty Value";
 
-    String msg = "Käyttis";
+    String msg = "Kayttis";
     String msg2 = "Salis";
 
     @Override
@@ -61,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         salasanaButton.setOnClickListener(this);
         salasanaButton.setVisibility(View.GONE);
 
-        //passwordEdit = findViewById(R.id.password);
         final EditText usernameEdit = findViewById(R.id.username);
         final EditText passwordEdit = (EditText) findViewById(R.id.password);
 
@@ -84,9 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 salasanaButton.setVisibility(View.VISIBLE);
                 findViewById(R.id.textView).setVisibility(View.GONE);
             }
-
         });
-
     }
 
     public void uusiKayttajaIntent(View view) {
@@ -102,6 +101,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void signInFunction() {
         EditText asd = (EditText) findViewById(R.id.username);
         EditText asd2 = (EditText) findViewById(R.id.password);
+
+        salasanaButton.setEnabled(false);
+        salasanaButton.setBackgroundResource(R.drawable.buttonshapedisabled);
+
         Login = asd.getText().toString();
         Password = asd2.getText().toString();
 
@@ -109,14 +112,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         GetUser();
 
-        Handler handler = new Handler();
+        if (Password.equals("") && Login.equals("")) {
+        }
+        else if (Password.equals("") || Login.equals("")) {
+        }
+        else if (CheckLogin.equals(Login) && CheckPassword.equals(Password)) {
+            Check();
+            Log.d(msg, "run: "+ Login + Password);
+            Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
+            kirjauduIntent.putExtra("id", userid);
+            startActivity(kirjauduIntent);
+        }
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        new CountDownTimer(2000, 2000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                salasanaButton.setEnabled(true);
+                salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
+            }
+        }.start();
+
+        /*Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                if (Password.equals("") && Login.equals("")) {
+                if (Password.equals(null) && Login.equals(null)) {
                 }
-                else if (Password.equals("") || Login.equals("")) {
+                else if (Password.equals(null) || Login.equals(null)) {
                 }
                 Check();
                 Log.d(msg, "run: "+ Login + Password);
@@ -132,48 +163,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     toast.show();
                 }
             }
-        }, 2000);
+        }, 2000);*/
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.signInButton) {
             signInFunction();
-            /*EditText asd = (EditText) findViewById(R.id.editText);
-            EditText asd2 = (EditText) findViewById(R.id.password);
-            Login = asd.getText().toString();
-            Password = asd2.getText().toString();
-
-            Queue = Volley.newRequestQueue(this);
-            GetUser();
-
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-
-                    if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
-                    {
-                        Log.d(msg2, "id" +userid +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +CheckLogin +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +CheckPassword +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +FirstName +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +LastName +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +Fingerprint +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +Email +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-                        Log.d(msg2, "id" +Addtime +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-
-
-                        Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-                        kirjauduIntent.putExtra("id", userid);
-                        startActivity(kirjauduIntent);
-                    }
-                    else{
-                        Toast toast = Toast.makeText(getApplicationContext(), "Kirjautuminen epäonnistui, yrita uudelleen", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                }
-            }, 5000);*/
         }
     }
 
@@ -186,14 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(msg2, "id" +Fingerprint +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
         Log.d(msg2, "id" +Email +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
         Log.d(msg2, "id" +Addtime +"!!!!!!!!!!!!!!!!!!!!!!!!onClick!!!!!!!!!!!!!!!!!!!!!");
-
-        /*String userid2 = "2";
-        Intent i = new Intent(MainActivity.this,FoodPostActivity.class);
-        i.putExtra("userid2",userid2 );
-        startActivity(i);*/
-
     }
-
 
     private void GetUser () {
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/login?Kayttajanimi=" + Login + "&Salasana=" + Password;
@@ -202,10 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void onResponse(JSONArray response) {
-
                         try {
                             //JSONArray jsonArrayalku = response.getJSONArray("areas")
-
                             JSONArray jsonArray = response;
 
                             for (int i = 0; i < jsonArray.length(); i++) {
@@ -248,12 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 error.printStackTrace();
             }
         });
-
         Queue.add(request);
-
-
-
-
     }
 
     @Override
@@ -266,7 +248,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     View passwordEdit = findViewById(R.id.password);
                     inputMethodManager.hideSoftInputFromWindow(passwordEdit.getWindowToken(), 0);
-                    signInFunction();
                     return true;
                 default:
                     break;

@@ -22,6 +22,9 @@
     <color name="commonButtonColor1">#7cdb00</color>
     <color name="commonButtonShadowColor1">#67B501</color>
     <color name="commonButtonBorderColor1">#599E00</color>
+    <color name="disabledButtonColor1">#A7D868</color>
+    <color name="disabledButtonShadowColor1">#8EB659</color>
+    <color name="disabledButtonBorderColor1">#7DA14F</color>
 
     <color name="punainen">#FA2D1E</color>
     <color name="hintColor">#454545</color>
