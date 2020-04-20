@@ -34,6 +34,14 @@
         android:text="">
     </TextView>
 
+    <ImageView
+        android:id="@+id/imageButton"
+        android:onClick="shop_intent"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/ic_cart_empty" />
+
     <Button
         android:id="@+id/terveysButton"
         style="?android:attr/borderlessButtonStyle"
@@ -83,6 +91,8 @@
         android:layout_toRightOf="@id/viihdeButton"
         android:onClick="work_intent"
         android:id="@+id/tyoButton"/>
+
+
 
     <ImageView
         android:layout_marginTop="380dp"
@@ -145,5 +155,7 @@
         android:layout_below="@+id/ruokagame"
         android:layout_toRightOf="@id/heart"
         android:progressTint="@color/punainen" />
+
+
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MainViewActivity extends AppCompatActivity {
@@ -38,6 +39,9 @@ public class MainViewActivity extends AppCompatActivity {
 
         ImageView vesi = findViewById(R.id.vesigame);
         vesi.setImageResource(R.drawable.water);
+
+        ImageView shop = findViewById(R.id.imageButton);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -122,5 +126,10 @@ public class MainViewActivity extends AppCompatActivity {
     public void toMainView(View view) {
         Intent mainViewIntent = new Intent(this, MainViewActivity.class);
         startActivity(mainViewIntent);
+    }
+    public void shop_intent(View view) {
+        Intent intent = new Intent(this, ShopActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
     }
 }
