@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shopbutton1"
+        android:gravity="center"/>
+    <item
+        android:drawable="@drawable/ic_cart_empty"
+        android:gravity="center"
+        android:height="55dp"
+        android:width="60dp"
+        android:right="2dp"
+        />
+
+</layer-list>

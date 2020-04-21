@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -139,31 +136,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
             }
         }.start();
-
-        /*Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                if (Password.equals(null) && Login.equals(null)) {
-                }
-                else if (Password.equals(null) || Login.equals(null)) {
-                }
-                Check();
-                Log.d(msg, "run: "+ Login + Password);
-
-                if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
-                {
-                    Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-                    kirjauduIntent.putExtra("id", userid);
-                    startActivity(kirjauduIntent);
-                }
-                else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-            }
-        }, 2000);*/
     }
 
     @Override
