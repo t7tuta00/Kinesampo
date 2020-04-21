@@ -19,18 +19,7 @@ public class ExerciseGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exercise_game);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        ImageView nuotio = findViewById(R.id.nuotio);
-        nuotio.setImageResource(R.drawable.palava);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
