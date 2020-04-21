@@ -26,9 +26,8 @@
         android:layout_height="5dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/line1"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/buttonFour"
         >
-
 
     </LinearLayout>
 
@@ -45,8 +44,9 @@
             />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="45dp"
+            android:layout_gravity="center"
             android:gravity="center"
             style="?android:textAppearanceSmall"
             android:textStyle="bold"

@@ -33,7 +33,7 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         add = findViewById(R.id.addButton);
         tulos = findViewById(R.id.tulosText);
         tulos2 = findViewById(R.id.tulosText2);
-        kcalEdit = findViewById(R.id.kcalEditText);
+        kcalEdit = findViewById(R.id.calory);
         amountEdit = findViewById(R.id.amountEditText);
 
         add.setVisibility(View.INVISIBLE);

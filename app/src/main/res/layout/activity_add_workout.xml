@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".AddWorkoutActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -25,45 +25,122 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/kohdistus"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="">
+    </TextView>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/kohdistus2"
+        android:layout_below="@+id/toolbar"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:layout_marginRight="40dp"
+        android:text="">
+    </TextView>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lisää treeni"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:textSize="30sp"
         android:textColor="@color/buttonStrokeColor"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_below="@+id/toolbar"
         android:id="@+id/headerText"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Treenin nimi tähän"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <LinearLayout
+        android:id="@+id/palkki"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/headerText"
+        android:background="@color/buttonThree"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/headerText"
-        android:id="@+id/lisaaTreeniText"
-        android:textSize="25sp"
-        android:layout_marginTop="10dp" />
+        tools:layout_editor_absoluteY="136dp"></LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kesto: "
-        android:textSize="20sp"
-        android:textColor="@color/buttonStrokeColor"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lisaaTreeniText"
-        android:id="@+id/kestoText"/>
+        android:layout_height="45dp"
+        android:text="Treenin nimi:"
+        android:textSize="30dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/palkki"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:id="@+id/nameText" />
+
+    <EditText
+        android:id="@+id/nimi"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="40dp"
+        android:maxLines="1"
+        android:hint=""
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:layout_below="@+id/palkki"
+        android:layout_toRightOf="@id/kohdistus"
+        android:textColorHint="@color/hintColor"/>
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kalorit: "
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/kestoText"
-        android:id="@+id/kaloritText"
-        android:textColor="@color/buttonStrokeColor"/>
+        android:layout_height="45dp"
+        android:text="Kulutetut kalorit:"
+        android:textSize="20dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/nameText"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:id="@+id/kcalText" />
+
+    <EditText
+        android:id="@+id/calory"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:maxLines="1"
+        android:hint=""
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:layout_below="@+id/nimi"
+        android:layout_toRightOf="@id/kcalText"
+        android:inputType="number"
+        android:textColorHint="@color/hintColor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Kesto:"
+        android:textSize="20dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_below="@+id/kcalText"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:id="@+id/durationText" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:maxLines="1"
+        android:hint="HH:MM:SS"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:layout_below="@+id/calory"
+        android:layout_toRightOf="@id/durationText"
+        android:inputType="time"
+        android:textColorHint="@color/hintColor"/>
 
     <Button
         android:layout_width="120dp"
@@ -73,10 +150,11 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape2"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
         android:text="Tallenna"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="280dp"
-        android:id="@+id/tallennaButton"/>
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/kohdistus"
+        android:id="@+id/sendbtn"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

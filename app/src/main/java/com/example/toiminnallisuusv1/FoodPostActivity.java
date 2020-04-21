@@ -17,18 +17,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class FoodPostActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -71,7 +65,7 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         foodText = findViewById(R.id.nimi);
         caloryText =findViewById(R.id.calory);
         fatText =findViewById(R.id.fat);
-        carbText =findViewById(R.id.carbs);
+        carbText =findViewById(R.id.time);
         proteinText = findViewById(R.id.protein);
         mQueue = Volley.newRequestQueue(this);
 
@@ -79,9 +73,6 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         Log.d(TAG, id+"?????????????????????????Check?????????????????????????????????");
         Log.d(TAG, id2+"?????????????????????????Check?????????????????????????????????");
     }
-
-
-
 
     @Override
     public boolean onSupportNavigateUp() {
