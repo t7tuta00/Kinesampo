@@ -85,14 +85,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    public void uusiKayttajaIntent(View view) {
+    private void uusiKayttajaIntent(View view) {
         Intent uusiKayttajaIntent = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(uusiKayttajaIntent);
     }
 
-    public void kirjauduIntent(View view) {
+    private void kirjauduIntent(View view) {
         Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
         startActivity(kirjauduIntent);
+    }
+
+    private void enableButtonFuntion() {
+        salasanaButton.setEnabled(true);
+        salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
     }
 
     public void signInFunction() {
@@ -107,12 +112,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Queue = Volley.newRequestQueue(this);
 
-        GetUser();
+        //GetUser();
+
 
         if (Password.equals("") && Login.equals("")) {
         } else if (Password.equals("") || Login.equals("")) {
         } else if (CheckLogin.equals(Login) && CheckPassword.equals(Password)) {
-            Check();
             Log.d(msg, "run: " + Login + Password);
             Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
             kirjauduIntent.putExtra("id", userid);
@@ -122,16 +127,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.show();
         }
 
-        new CountDownTimer(2000, 2000) {
+
+            new CountDownTimer(1750, 1750) {
+
 
             public void onTick(long millisUntilFinished) {
             }
 
             @Override
             public void onFinish() {
+
                 salasanaButton.setEnabled(true);
                 salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
-                Check();
+
+
+                if (Password.equals("") && Login.equals("")) {
+                    enableButtonFuntion();
+                }
+                else if (Password.equals("") || Login.equals("")) {
+                    enableButtonFuntion();
+                }
+                else if (CheckLogin.equals(Login) && CheckPassword.equals(Password)) {
+
+                    Log.d(msg, "run: "+ Login + Password);
+                    Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
+                    kirjauduIntent.putExtra("id", userid);
+                    startActivity(kirjauduIntent);
+                }
+                else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
+                    toast.show();
+                    enableButtonFuntion();
+                }
             }
         }.start();
 

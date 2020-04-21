@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
         <activity android:name=".ShopItemActivity"></activity>
         <activity android:name=".ShopActivity" />
         <activity android:name=".activity_food_get_layout" />
