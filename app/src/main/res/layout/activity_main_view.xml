@@ -156,6 +156,14 @@
         android:layout_toRightOf="@id/heart"
         android:progressTint="@color/punainen" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nappi"
+        android:text="näytä päivän tilanne"
+        android:layout_below="@id/palkki"
+        android:layout_marginTop="20dp"/>
+
 
 
 </RelativeLayout>
