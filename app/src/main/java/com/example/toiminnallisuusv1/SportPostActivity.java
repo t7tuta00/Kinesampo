@@ -106,6 +106,8 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
                 return true;
             case R.id.subUserSettings:
                 startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
+
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -118,9 +120,7 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
     }
 
     public void post_sport() {
-        MainActivity mainActivity = new MainActivity();
 
-        //id2 = Integer.toString(id);
         SportName = sportText.getText().toString();
         Calories = caloryText.getText().toString();
         Time = time.getText().toString();
@@ -149,14 +149,21 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
         mQueue.add(request);
     }
 
+    private void update_calories()
+    {
+        //haetaan nykyinen kalorimäärä tietokannasta, päivitetään se post_sport-metodin urheilukalorit lisäksi post metodilla.
+    }
+
     @Override
     public void onClick (View v){
         if (v.getId() == R.id.sendbtn)
         {
             post_sport();
-            //Check();
+            update_calories();
         }
     }
+
+
 
 
 }

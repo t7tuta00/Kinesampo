@@ -122,7 +122,6 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
    public void post_food() {
        MainActivity mainActivity = new MainActivity();
 
-       //id2 = Integer.toString(id);
        FoodName = foodText.getText().toString();
        Calories = caloryText.getText().toString();
        Fat = fatText.getText().toString();
@@ -155,8 +154,6 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
 
        mQueue.add(request);
    }
-
-
 
     /*public void post_food(){
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST, url, null,
@@ -209,18 +206,23 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
         mQueue.add(request);
     }*/
 
-
+    private void update_calories()
+    {
+        //get-metodi, joka hakee terveys-taulusta päivän kalorimäärän, vähennetään ruuan kalorit ja postaataan se takaisin post-metodilla.
+    }
        @Override
        public void onClick (View v){
            if (v.getId() == R.id.sendbtn)
            {
                post_food();
-               //Check();
+               update_calories();
            }
        }
 
 
-   }
+
+
+}
 
 
 

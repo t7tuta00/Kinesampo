@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 public class MainViewActivity extends AppCompatActivity {
 
@@ -39,6 +40,8 @@ public class MainViewActivity extends AppCompatActivity {
         ImageView vesi = findViewById(R.id.vesigame);
         vesi.setImageResource(R.drawable.water);
 
+        ProgressBar progressBar = findViewById(R.id.palkki);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -64,7 +67,10 @@ public class MainViewActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ChangePasswordActivity.class));
                 return true;
             case R.id.subUserSettings:
-                startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
+                //startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
+                Intent intent = new Intent(this, ChangeUserSettingsActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

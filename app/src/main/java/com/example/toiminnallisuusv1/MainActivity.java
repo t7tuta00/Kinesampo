@@ -140,30 +140,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }.start();
 
-        /*Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                if (Password.equals(null) && Login.equals(null)) {
-                }
-                else if (Password.equals(null) || Login.equals(null)) {
-                }
-                Check();
-                Log.d(msg, "run: "+ Login + Password);
-
-                if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
-                {
-                    Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-                    kirjauduIntent.putExtra("id", userid);
-                    startActivity(kirjauduIntent);
-                }
-                else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-            }
-        }, 2000);*/
     }
 
     @Override
@@ -192,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            //JSONArray jsonArrayalku = response.getJSONArray("areas")
                             JSONArray jsonArray = response;
 
                             for (int i = 0; i < jsonArray.length(); i++) {

@@ -85,6 +85,20 @@
         android:inputType="number"/>
 
     <EditText
+        android:id="@+id/DayCaloriesEditText"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:hint="kaloritavoite"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:layout_below="@+id/pituusEditText"
+        android:layout_toLeftOf="@+id/kohdistus"
+        android:textColorHint="@color/hintColor"
+        />
+
+    <EditText
         android:id="@+id/sukunimiEditText"
         android:layout_width="140dp"
         android:layout_height="45dp"
@@ -117,6 +131,8 @@
         android:layout_toRightOf="@id/kohdistus"
         android:textColorHint="@color/hintColor"
         android:layout_marginTop="20dp"/>
+
+
 
     <Button
         android:id="@+id/okButton"
