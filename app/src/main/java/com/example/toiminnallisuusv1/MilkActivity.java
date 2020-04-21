@@ -19,9 +19,7 @@ public class MilkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_milk);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        ImageView maitolasi = findViewById(R.id.maitolasi);
-        maitolasi.setImageResource(R.drawable.tyhja_maito);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
