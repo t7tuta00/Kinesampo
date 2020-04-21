@@ -20,6 +20,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 
@@ -64,6 +65,8 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
         editLength = findViewById(R.id.pituusEditText);
         editCalories = findViewById(R.id.DayCaloriesEditText);
 
+        mQueue = Volley.newRequestQueue(this);
+
         if (getIntent() != null)
         {
             id = getIntent().getIntExtra("id",0);
@@ -99,46 +102,52 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.okButton) {
+        if (v.getId() == R.id.okButton)
+        {
+            Log.d(TAG, "\n"+ "onClick: "+id2+"\n");
+            Firstname = editFirstName.getText().toString();
+            Lastname = editLastName.getText().toString();
+            CaloryGoal = editCalories.getText().toString();
+
+            Log.d(TAG, "\n"+ "onClick: "+Firstname+"\n");
+            Log.d(TAG, "\n"+ "onClick: "+Lastname+"\n");
+            Log.d(TAG, "\n"+ "onClick: "+CaloryGoal+"\n");
+
             EditUser();
-            Log.d(TAG, "onClick:!!!!!!!!!!!! "+id);
+            EditCalories();
+
             Toast toast = Toast.makeText(getApplicationContext(), "Asetukset tallennettu", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
 
-    private void PostCalories()
+    private void EditCalories()
     {
-        //Weight
-        //Calories
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/EditHealthKalorit?Kalorit="+ CaloryGoal +"&Kayttaja_idKayttaja="+id2;
 
-        //EditHealth PUT-metodi:
-        //http://ec2-35-172-199-159.compute-1.amazonaws.com/EditHealth?Uni=10&Paino=90&Kalorit=2000&Paivan_tavoite=1800&Kayttaja_idKayttaja=1
+       JsonArrayRequest request = new JsonArrayRequest(Request.Method.PUT, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response)
+                    {
+                        Log.d(TAG, "onResponse: Onnistui");
+                    }
+                }, new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d(TAG, "onErrorResponse: Epäonnistui");
+            }
+        });
 
-        //EditKayttaja PUT-metodi
-        //http://ec2-35-172-199-159.compute-1.amazonaws.com/
-        // EditKayttaja?Kayttajanimi=Kilpipoika&Etunimi=poika&Sukunimi=pojanpoika&Salasana=poika&Sormenjalki=sormenjalki10&Sposti=poika@mail.com&idKayttaja=1
-
-        //Otetaan paino ja kalorit talteen käyttäjältä ja tallennetaan ne post metodilla terveys-tauluun.
-        //Kaloritavoitteen päivittäminen nollaa päivän kalorit.
-
-
-        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/addNewHealth?Uni="+ Sleep +"&Paino="+ Weight +"&Kalorit="+
-                Calories +"&Kayttaja_idKayttaja="+ id2 +"&Paivan_tavoite="+ CaloryGoal;
+        mQueue.add(request);
     }
 
-    private void EditUser() {
+    private void EditUser()
+    {
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/EditKayttajaEtuSuku?Etunimi="+ Firstname +"&Sukunimi="+ Lastname +"&idKayttaja="+id2;
 
-        //Otetaan Nimi ja sukunimi talteen ja päivitetään ne käyttäjätietoihin idKayttaja perusteella. Post metodi.
-
-        EditText editText;
-        String Firstname;
-        String Lastname;
-
-        String url = "";
-
-
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST, url, null,
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.PUT, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response)

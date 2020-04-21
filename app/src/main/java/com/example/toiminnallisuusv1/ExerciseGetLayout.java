@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ExerciseGetLayout extends AppCompatActivity implements View.OnClickListener {
-    String id = "1";
+    String id;
     String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja?Kayttaja_idKayttaja=" + id;
     //String url2 = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja";
     private RequestQueue mQueue;

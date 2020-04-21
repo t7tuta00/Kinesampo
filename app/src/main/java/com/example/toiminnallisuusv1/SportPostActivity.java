@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -149,21 +152,97 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
         mQueue.add(request);
     }
 
-    private void update_calories()
+    private void get_calories()
     {
-        //haetaan nykyinen kalorimäärä tietokannasta, päivitetään se post_sport-metodin urheilukalorit lisäksi post metodilla.
+        Log.d(TAG, "update_calories: Get-vaihe Alkaa nyt!!!!!!!!!!!");
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/TerveysId?Kayttaja_idKayttaja=" + id2;
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        try {
+                            //JSONArray jsonArrayalku = response.getJSONArray("areas")
+
+                            JSONArray jsonArray = response;
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject o = jsonArray.getJSONObject(i);
+
+                                int idHealth = o.getInt("idTerveys");
+                                int Sleep = o.getInt("Uni");
+                                int Weight = o.getInt("Paino");
+                                int Calories2 = o.getInt("Kalorit");
+                                int id3 = o.getInt("Kayttaja_idKayttaja");
+                                int CalorieGoal = o.getInt("Paivan_tavoite");
+
+                                int AddCalories = Calories2 + Integer.parseInt(Calories);
+                                Calories = String.valueOf(AddCalories);
+
+                                Log.d(TAG, "!!!!!!!!!!!Saadut kalorit"+Calories2);
+                                Log.d(TAG, "!!!!!!!!!!!CaloritTotal"+Calories);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+    }
+
+    private void updateCaloris()
+    {
+        Log.d(TAG, "!!!!!!!!!!!updateCaloris alussa"+Calories);
+        Log.d(TAG, "update_calories: PUT-vaihe alkaa nyt!!!!!!!!!!!");
+        String url2 = "http://ec2-35-172-199-159.compute-1.amazonaws.com/EditHealthKalorit?Kalorit="+ Calories +"&Kayttaja_idKayttaja="+id2;
+
+        JsonArrayRequest request2 = new JsonArrayRequest(Request.Method.PUT, url2, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response)
+                    {
+                        Log.d(TAG, "onResponse: PUT:Onnistui");
+                    }
+                }, new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d(TAG, "onErrorResponse: PUT:Epäonnistui");
+            }
+        });
+
+        mQueue.add(request2);
     }
 
     @Override
-    public void onClick (View v){
+    public void onClick (View v)
+    {
         if (v.getId() == R.id.sendbtn)
         {
             post_sport();
-            update_calories();
+            get_calories();
+
+            new CountDownTimer(2000, 2000) {
+
+                public void onTick(long millisUntilFinished) {
+                }
+
+                @Override
+                public void onFinish() {
+                    updateCaloris();
+                }
+            }.start();
         }
     }
-
-
-
-
 }
+
+
+
+
