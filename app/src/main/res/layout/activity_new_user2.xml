@@ -34,7 +34,7 @@
     </TextView>
 
             <EditText
-                android:id="@+id/etunimiEditText"
+                android:id="@+id/kaloriEditText"
                 android:layout_width="140dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="70dp"
@@ -43,7 +43,7 @@
                 android:layout_below="@+id/palkki"
                 android:layout_toLeftOf="@id/kohdistus"
                 android:textColorHint="@color/hintColor"
-                android:hint="@string/etunimi"/>
+                android:hint="Kaloritavoite"/>
 
             <EditText
                 android:id="@+id/ikaEditText"
@@ -52,7 +52,7 @@
                 android:hint="@string/ika"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
-                android:layout_below="@+id/etunimiEditText"
+                android:layout_below="@+id/kaloriEditText"
                 android:layout_toLeftOf="@id/kohdistus"
                 android:gravity="center"
                 android:textColorHint="@color/hintColor"
@@ -72,12 +72,12 @@
                 android:inputType="number"/>
 
             <EditText
-                android:id="@+id/sukunimiEditText"
+                android:id="@+id/urheiluEditText"
                 android:layout_width="140dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="70dp"
                 android:layout_marginLeft="15dp"
-                android:hint="@string/sukunimi"
+                android:hint="Urheilutavoite"
                 android:gravity="center"
                 android:layout_below="@+id/palkki"
                 android:layout_toRightOf="@id/kohdistus"
@@ -90,7 +90,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="15dp"
                 android:autofillHints="Sukupuoli"
-                android:layout_below="@+id/sukunimiEditText"
+                android:layout_below="@+id/urheiluEditText"
                 android:layout_toRightOf="@id/kohdistus"
                 android:id="@+id/spinner"/>
 

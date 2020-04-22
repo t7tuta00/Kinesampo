@@ -24,40 +24,67 @@
         android:orientation="horizontal">
     </LinearLayout>
 
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="70dp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/palkki"
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/hintColor"
-            android:hint="Sähköposti"/>
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:id="@+id/firstNameEditText"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:layout_below="@+id/palkki"
+        android:inputType="text"
+        android:hint="Etunimi"
+        android:textColorHint="@color/hintColor"
+        android:layout_marginLeft="45dp"/>
 
-        <EditText
-            android:id="@+id/etunimiEditText"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/emailEditText"
-            android:textColorHint="@color/hintColor"
-            android:hint="Käyttäjänimi"/>
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_toRightOf="@id/firstNameEditText"
+        android:id="@+id/lastNameEditText"
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/palkki"
+        android:inputType="text"
+        android:hint="Sukunimi"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="10dp"
+        android:textColorHint="@color/hintColor"/>
 
-        <EditText
-            android:id="@+id/sukunimiEditText"
-            android:layout_width="150dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/etunimiEditText"
-            android:hint="Salasana"
-            android:inputType="textPassword"
-            android:gravity="center"
-            android:textColorHint="@color/hintColor"/>
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_toRightOf="@id/etunimiEditText"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/lastNameEditText"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/hintColor"
+        android:hint="Sähköposti"/>
+
+    <EditText
+        android:id="@+id/etunimiEditText"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_marginLeft="45dp"
+        android:layout_below="@+id/firstNameEditText"
+        android:textColorHint="@color/hintColor"
+        android:hint="Käyttäjänimi"/>
+
+    <EditText
+        android:id="@+id/sukunimiEditText"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etunimiEditText"
+        android:hint="Salasana"
+        android:inputType="textPassword"
+        android:gravity="center"
+        android:textColorHint="@color/hintColor"/>
 
     <TextView
         android:layout_width="0dp"
@@ -95,7 +122,6 @@
             android:layout_marginLeft="15dp"
             android:layout_width="120dp"
             android:layout_height="45dp"
-            android:text="Seuraava"
-            android:onClick="seuraavaIntent"/>
+            android:text="Seuraava" />
 
 </RelativeLayout>
