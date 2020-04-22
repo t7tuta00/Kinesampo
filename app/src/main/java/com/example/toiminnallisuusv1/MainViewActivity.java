@@ -38,6 +38,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
     Button button;
     String Timer;
     int burntCalories;
+    ProgressBar simpleProgressBar;
 
 
     @Override
@@ -55,7 +56,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         button = findViewById(R.id.nappi);
         button.setOnClickListener(this);
 
-        ProgressBar simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
+        simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
         simpleProgressBar.setMax(60);
         mQueue = Volley.newRequestQueue(this);
 
@@ -136,6 +137,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
 
                                 progress = Minutes;
 
+                                simpleProgressBar.setProgress(progress);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
