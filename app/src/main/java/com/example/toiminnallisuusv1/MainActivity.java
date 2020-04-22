@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GetUser();
 
         new CountDownTimer(1750, 1750) {
-
             public void onTick(long millisUntilFinished) {
             }
 
@@ -145,7 +144,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }.start();
-
     }
 
     @Override

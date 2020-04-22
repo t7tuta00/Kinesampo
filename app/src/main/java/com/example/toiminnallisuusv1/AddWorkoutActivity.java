@@ -16,7 +16,7 @@ public class AddWorkoutActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_workout);
 
-        findViewById(R.id.tallennaButton).setOnClickListener(this);
+        findViewById(R.id.sendbtn).setOnClickListener(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,7 +60,7 @@ public class AddWorkoutActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.tallennaButton) {
+        if (v.getId() == R.id.sendbtn) {
             //tallenna treeni johonkin
         }
     }
