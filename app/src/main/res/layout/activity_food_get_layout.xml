@@ -6,58 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".activity_food_get_layout">
 
-    <LinearLayout
-        android:id="@+id/line1"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/buttonFour"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="-120dp"
+            android:onClick="toMainView"
+            android:src="@drawable/logotext_src" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/headerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ruoka"/>
-
-    </LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Omat ateriat"
+        android:textColor="@color/buttonStrokeColor"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <LinearLayout
         android:id="@+id/line2"
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/line1"
-        android:background="@color/buttonFour"
-        >
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/headerText"
+        android:background="@color/buttonFour">
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/line2"
-        >
+        app:layout_constraintTop_toBottomOf="@id/line2">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Listview:"
-            />
-
-
+            android:textColor="@android:color/black"
+            android:text="Listview:" />
 
         <TextView
+            android:id="@+id/kentta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/kentta"
             android:scrollbars="vertical"
-            android:textColor="@color/buttonStrokeColor"/>
+            android:textColor="@color/buttonStrokeColor" />
 
         <ListView
             android:id="@+id/Ruokalista"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Liikunta2"/>
+            android:text="Liikunta2" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

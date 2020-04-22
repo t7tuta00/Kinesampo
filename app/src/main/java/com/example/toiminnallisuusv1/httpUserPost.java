@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -33,11 +32,11 @@ public class httpUserPost extends Activity implements View.OnClickListener {
         //content    =   (TextView)findViewById( R.id.content );
 
         email   =   (EditText)findViewById(R.id.emailEditText);
-        login   =   (EditText)findViewById(R.id.etunimiEditText);
-        pass    =   (EditText)findViewById(R.id.sukunimiEditText);
+        login   =   (EditText)findViewById(R.id.userNameEditText);
+        pass    =   (EditText)findViewById(R.id.passwordEditText);
         Finger  =   "FingerprintFromSensor";
-        FirstName   =   (EditText)findViewById(R.id.etunimiEditText);
-        SecondName  =   (EditText)findViewById(R.id.sukunimiEditText);
+        FirstName   =   (EditText)findViewById(R.id.userNameEditText);
+        SecondName  =   (EditText)findViewById(R.id.passwordEditText);
         Age =   (EditText)findViewById(R.id.ikaEditText);
         Lenght  =   (EditText)findViewById(R.id.pituusEditText);
         Weight  =   (EditText)findViewById(R.id.painoEditText);

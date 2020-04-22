@@ -46,7 +46,6 @@
         <activity android:name=".NewUserActivity" />
         <activity android:name=".MainViewActivity" />
         <activity android:name=".FoodDatabaseActivity" />
-        <activity android:name=".AddWorkoutActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

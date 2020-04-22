@@ -58,8 +58,8 @@ public class ChangeUserSettingsActivity extends AppCompatActivity implements Vie
         setContentView(R.layout.activity_change_user_settings);
         findViewById(R.id.okButton).setOnClickListener(this);
 
-        editFirstName = findViewById(R.id.etunimiEditText);
-        editLastName = findViewById(R.id.sukunimiEditText);
+        editFirstName = findViewById(R.id.userNameEditText);
+        editLastName = findViewById(R.id.passwordEditText);
         editAge = findViewById(R.id.ikaEditText);
         editWeight = findViewById(R.id.painoEditText);
         editLength = findViewById(R.id.pituusEditText);

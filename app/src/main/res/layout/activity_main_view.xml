@@ -42,7 +42,7 @@
         android:layout_below="@+id/kohdistus"
         android:layout_toLeftOf="@id/kohdistus"
         android:layout_gravity="center"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="110dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/main_button_3_layerlist"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="110dp"
         android:layout_marginBottom="4dp"
         android:layout_below="@+id/kohdistus"
         android:layout_toRightOf="@id/terveysButton"
@@ -82,12 +82,12 @@
         android:layout_below="@+id/ruokaButton"
         android:layout_toRightOf="@id/viihdeButton"
         android:onClick="work_intent"
+        android:layout_marginBottom="40dp"
         android:id="@+id/tyoButton"/>
 
 
     <ImageView
-        android:layout_marginTop="380dp"
-        android:layout_below="@+id/kohdistus"
+        android:layout_below="@+id/tyoButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@id/maitogame"
@@ -100,8 +100,7 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="380dp"
-        android:layout_below="@+id/kohdistus"
+        android:layout_below="@+id/tyoButton"
         android:layout_toLeftOf="@id/kohdistus"
         android:layout_marginRight="5dp"
         android:id="@+id/maitogame"
@@ -112,8 +111,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="380dp"
-        android:layout_below="@+id/kohdistus"
+        android:layout_below="@+id/tyoButton"
         android:layout_toRightOf="@id/kohdistus"
         android:layout_centerHorizontal="true"
         android:id="@+id/liikuntagame"
@@ -124,57 +122,97 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="380dp"
-        android:layout_below="@+id/kohdistus"
+        android:layout_below="@+id/tyoButton"
         android:layout_toRightOf="@id/liikuntagame"
         android:background="@drawable/water"
         android:id="@+id/vesigame"
         android:onClick="water_intent" />
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:layout_below="@+id/heart"
-        android:layout_toLeftOf="@id/ruokagame"
-        android:background="@drawable/food"
-        android:id="@+id/foodicon"/>
-
-    <ProgressBar
-        android:id="@+id/ruokapalkki"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="240dp"
-        android:layout_height="10dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/palkki"
-        android:layout_toRightOf="@id/foodicon"
-        android:progressTint="@color/buttonFourGradient" />
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="50dp"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/ruokagame"
         android:layout_toLeftOf="@id/ruokagame"
-        android:background="@drawable/juoksu"
-        android:id="@+id/heart"/>
+        android:background="@color/buttonThreeDark">
+
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/ruokagame"
+            android:layout_toLeftOf="@id/ruokagame"
+            android:background="@color/buttonThreeGradient">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ruokagame"
+                android:layout_toLeftOf="@id/ruokagame"
+                android:background="@drawable/gym_src"
+                android:id="@+id/heart"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/palkki"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="240dp"
-        android:layout_height="10dp"
+        android:layout_height="12dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/ruokagame"
-        android:layout_toRightOf="@id/heart"
+        android:layout_toRightOf="@id/linearLayout1"
         android:progressTint="@color/buttonThreeGradient" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_toLeftOf="@id/ruokagame"
+        android:background="@color/buttonFourDark">
 
+        <LinearLayout
+            android:id="@+id/line3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/line2"
+            android:layout_toLeftOf="@id/ruokagame"
+            android:background="@color/buttonFourGradient">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/line2"
+                android:layout_toLeftOf="@id/ruokagame"
+                android:background="@drawable/src_own_meals"
+                android:id="@+id/foodicon"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/ruokapalkki"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="240dp"
+        android:layout_height="12dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/palkki"
+        android:layout_toRightOf="@id/linearLayout2"
+        android:progressTint="@color/buttonFourGradient" />
 
     <Button
         android:id="@+id/imageButton"

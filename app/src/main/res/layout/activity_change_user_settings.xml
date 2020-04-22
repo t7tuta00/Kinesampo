@@ -56,7 +56,7 @@
     </TextView>
 
     <EditText
-        android:id="@+id/etunimiEditText"
+        android:id="@+id/userNameEditText"
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginTop="60dp"
@@ -74,7 +74,7 @@
         android:hint="@string/ika"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_below="@+id/etunimiEditText"
+        android:layout_below="@+id/userNameEditText"
         android:layout_toLeftOf="@id/kohdistus"
         android:gravity="center"
         android:textColorHint="@color/hintColor"
@@ -94,22 +94,7 @@
         android:inputType="number"/>
 
     <EditText
-        android:id="@+id/DayCaloriesEditText"
-        android:layout_width="140dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="15dp"
-        android:hint="Kaloritavoite"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        android:inputType="number"
-        android:layout_below="@+id/pituusEditText"
-        android:layout_toLeftOf="@+id/kohdistus"
-        android:textColorHint="@color/hintColor"
-        />
-
-    <EditText
-        android:id="@+id/sukunimiEditText"
+        android:id="@+id/passwordEditText"
         android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginTop="60dp"
@@ -126,7 +111,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
-        android:layout_below="@+id/sukunimiEditText"
+        android:layout_below="@+id/passwordEditText"
         android:layout_toRightOf="@id/kohdistus"
         android:id="@+id/spinner"/>
 
@@ -142,7 +127,33 @@
         android:textColorHint="@color/hintColor"
         android:layout_marginTop="20dp"/>
 
+    <EditText
+        android:id="@+id/DayCaloriesEditText"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:hint="Kaloritavoite"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:inputType="number"
+        android:layout_below="@+id/pituusEditText"
+        android:layout_toLeftOf="@+id/kohdistus"
+        android:textColorHint="@color/hintColor"
+        />
 
+    <EditText
+        android:id="@+id/urheiluEditText"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:hint="Urheilutavoite"
+        android:gravity="center"
+        android:inputType="time"
+        android:layout_below="@+id/pituusEditText"
+        android:layout_toRightOf="@+id/kohdistus"
+        android:textColorHint="@color/hintColor"/>
 
     <Button
         android:id="@+id/okButton"
@@ -156,7 +167,6 @@
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@id/kohdistus"
-        android:layout_marginTop="70dp"
         android:text="Tallenna"/>
 
 </RelativeLayout>

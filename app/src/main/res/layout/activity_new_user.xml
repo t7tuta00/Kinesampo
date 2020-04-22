@@ -25,62 +25,64 @@
     </LinearLayout>
 
     <EditText
-        android:layout_width="150dp"
+        android:id="@+id/userNameEditText"
+        android:layout_width="140dp"
         android:layout_height="45dp"
-        android:id="@+id/firstNameEditText"
         android:layout_marginTop="70dp"
         android:gravity="center"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:layout_marginRight="15dp"
         android:layout_below="@+id/palkki"
-        android:inputType="text"
-        android:hint="Etunimi"
         android:textColorHint="@color/hintColor"
-        android:layout_marginLeft="45dp"/>
-
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_toRightOf="@id/firstNameEditText"
-        android:id="@+id/lastNameEditText"
-        android:gravity="center"
-        android:layout_marginTop="70dp"
-        android:layout_below="@+id/palkki"
-        android:inputType="text"
-        android:hint="Sukunimi"
-        android:layout_marginRight="45dp"
-        android:layout_marginLeft="10dp"
-        android:textColorHint="@color/hintColor"/>
+        android:hint="Käyttäjänimi"/>
 
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
-        android:layout_toRightOf="@id/etunimiEditText"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/lastNameEditText"
+        android:layout_toRightOf="@id/kohdistus"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/palkki"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/hintColor"
         android:hint="Sähköposti"/>
 
     <EditText
-        android:id="@+id/etunimiEditText"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="45dp"
+        android:id="@+id/firstNameEditText"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_marginLeft="45dp"
-        android:layout_below="@+id/firstNameEditText"
+        android:layout_below="@+id/userNameEditText"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:inputType="text"
+        android:hint="Etunimi"
         android:textColorHint="@color/hintColor"
-        android:hint="Käyttäjänimi"/>
+        android:layout_marginRight="15dp"/>
 
     <EditText
-        android:id="@+id/sukunimiEditText"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:layout_toRightOf="@id/kohdistus"
+        android:id="@+id/lastNameEditText"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/emailEditText"
+        android:inputType="text"
+        android:hint="Sukunimi"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="15dp"
+        android:textColorHint="@color/hintColor"/>
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="140dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/etunimiEditText"
+        android:layout_below="@+id/firstNameEditText"
         android:hint="Salasana"
         android:inputType="textPassword"
         android:gravity="center"
@@ -101,14 +103,13 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:background="@drawable/buttonshape0"
-            android:layout_below="@+id/sukunimiEditText"
             android:layout_toLeftOf="@id/kohdistus"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="30dp"
             android:layout_width="120dp"
             android:layout_height="45dp"
-            android:text="Edellinen"
-            android:onClick="takaisinIntent" />
+            android:text="Edellinen"/>
 
         <Button
             android:id="@+id/okButton2"
@@ -116,10 +117,10 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:background="@drawable/buttonshape0"
-            android:layout_below="@+id/sukunimiEditText"
             android:layout_toRightOf="@id/kohdistus"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="30dp"
             android:layout_width="120dp"
             android:layout_height="45dp"
             android:text="Seuraava" />

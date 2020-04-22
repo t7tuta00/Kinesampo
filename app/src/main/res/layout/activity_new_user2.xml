@@ -42,8 +42,22 @@
                 android:gravity="center"
                 android:layout_below="@+id/palkki"
                 android:layout_toLeftOf="@id/kohdistus"
+                android:inputType="number"
                 android:textColorHint="@color/hintColor"
                 android:hint="Kaloritavoite"/>
+
+    <EditText
+        android:id="@+id/urheiluEditText"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="15dp"
+        android:hint="Urheilutavoite"
+        android:gravity="center"
+        android:inputType="time"
+        android:layout_below="@+id/palkki"
+        android:layout_toRightOf="@id/kohdistus"
+        android:textColorHint="@color/hintColor"/>
 
             <EditText
                 android:id="@+id/ikaEditText"
@@ -70,19 +84,6 @@
                 android:layout_toLeftOf="@id/kohdistus"
                 android:textColorHint="@color/hintColor"
                 android:inputType="number"/>
-
-            <EditText
-                android:id="@+id/urheiluEditText"
-                android:layout_width="140dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginLeft="15dp"
-                android:hint="Urheilutavoite"
-                android:gravity="center"
-                android:layout_below="@+id/palkki"
-                android:layout_toRightOf="@id/kohdistus"
-                android:textColorHint="@color/hintColor"
-                android:layout_gravity=""/>
 
             <Spinner
                 android:layout_width="140dp"
@@ -114,10 +115,10 @@
         android:background="@drawable/buttonshape0"
         android:layout_width="120dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/painoEditText"
         android:layout_toLeftOf="@id/kohdistus"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
         android:text="Edellinen"/>
 
     <Button
@@ -128,10 +129,10 @@
         android:background="@drawable/buttonshape0"
         android:layout_width="120dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/painoEditText"
         android:layout_toRightOf="@id/kohdistus"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
         android:text="@string/ok"/>
 
 </RelativeLayout>

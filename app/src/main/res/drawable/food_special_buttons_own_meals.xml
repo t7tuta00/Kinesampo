@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/food_special_buttons_base_3"
+        android:gravity="center"/>
+    <item
+        android:drawable="@drawable/src_own_meals"
+        android:gravity="center"
+        android:height="80dp"
+        android:width="80dp"
+        android:top="15dp"
+        />
+
+</layer-list>

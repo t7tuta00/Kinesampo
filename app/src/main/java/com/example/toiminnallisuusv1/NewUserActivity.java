@@ -1,14 +1,12 @@
 package com.example.toiminnallisuusv1;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +21,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 
 import java.sql.Date;
-import java.util.Calendar;
 
 public class NewUserActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,8 +50,8 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_new_user);
 
         emailText = findViewById(R.id.emailEditText);
-        usernameText = findViewById(R.id.etunimiEditText);
-        passwordText = findViewById(R.id.sukunimiEditText);
+        usernameText = findViewById(R.id.userNameEditText);
+        passwordText = findViewById(R.id.passwordEditText);
         firstNameText = findViewById(R.id.firstNameEditText);
         lastNameText = findViewById(R.id.lastNameEditText);
         backButton = findViewById(R.id.takaisinButton);
@@ -138,11 +135,6 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    public void takaisinIntent(View view) {
-        Intent takaisinIntent = new Intent(NewUserActivity.this, MainActivity.class);
-        startActivity(takaisinIntent);
-    }
-
     private Runnable mMyRunnable = new Runnable()
     {
         @Override
@@ -151,9 +143,4 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
             //Change state here
         }
     };
-
-    //public void seuraavaIntent(View view) {
-        //Intent takaisinIntent = new Intent(NewUserActivity.this, NewUserActivity2.class);
-        //startActivity(takaisinIntent);
-    //}
 }

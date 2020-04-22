@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <corners
+        android:radius="20dp"
+        />
+    <gradient
+        android:centerColor="@color/buttonFourGradient"
+        android:startColor="@color/buttonFourGradient"
+        android:endColor="@color/buttonFour"
+        android:angle="270"
+        android:type="linear"
+        />
+    <padding
+        android:left="0dp"
+        android:top="0dp"
+        android:right="0dp"
+        android:bottom="0dp"
+        />
+    <size
+        android:width="140dp"
+        android:height="90dp"
+        />
+    <stroke
+        android:width="2dp"
+        android:color="@color/buttonFourDark"
+        />
+</shape>

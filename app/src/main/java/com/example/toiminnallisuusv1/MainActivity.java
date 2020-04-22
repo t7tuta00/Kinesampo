@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         salasanaButton.setOnClickListener(this);
         salasanaButton.setVisibility(View.GONE);
 
-
         final EditText usernameEdit = findViewById(R.id.username);
         final EditText passwordEdit = (EditText) findViewById(R.id.password);
 
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void uusiKayttajaIntent(View view) {
+    public void uusiKayttajaIntent(View view) {
         Intent uusiKayttajaIntent = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(uusiKayttajaIntent);
     }
