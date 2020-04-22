@@ -112,8 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Queue = Volley.newRequestQueue(this);
 
-        //GetUser();
-
+        GetUser();
 
         if (Password.equals("") && Login.equals("")) {
         } else if (Password.equals("") || Login.equals("")) {
