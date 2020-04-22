@@ -134,6 +134,28 @@
     <ImageView
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_below="@+id/heart"
+        android:layout_toLeftOf="@id/ruokagame"
+        android:background="@drawable/food"
+        android:id="@+id/foodicon"/>
+
+    <ProgressBar
+        android:id="@+id/ruokapalkki"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="240dp"
+        android:layout_height="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/palkki"
+        android:layout_toRightOf="@id/foodicon"
+        android:progressTint="@color/buttonFourGradient" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/ruokagame"
         android:layout_toLeftOf="@id/ruokagame"

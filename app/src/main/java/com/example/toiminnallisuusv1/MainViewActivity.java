@@ -38,6 +38,7 @@ public class MainViewActivity extends AppCompatActivity{
     String Timer;
     int burntCalories;
     ProgressBar simpleProgressBar;
+    ProgressBar foodProgressBar;
 
 
     @Override
@@ -50,8 +51,10 @@ public class MainViewActivity extends AppCompatActivity{
             id = getIntent().getIntExtra("id",0);
         }
 
-        ProgressBar progressBar = findViewById(R.id.palkki);
 
+
+        foodProgressBar=(ProgressBar)findViewById(R.id.ruokapalkki);
+        foodProgressBar.setMax(2500);
 
 
         simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
@@ -67,6 +70,7 @@ public class MainViewActivity extends AppCompatActivity{
         Log.d(TAG, valueOf(progress));
         //Log.d(TAG, time);
         Log.d(TAG, String.valueOf(progress));
+        get_calories();
         get_time();
     }
 
@@ -98,6 +102,58 @@ public class MainViewActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public void get_calories()
+    {
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/RuokaidKayttaja?Kayttaja_idKayttaja=" + id;
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        try {
+                            //JSONArray jsonArrayalku = response.getJSONArray("areas")
+
+                            JSONArray jsonArray = response;
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject o = jsonArray.getJSONObject(i);
+
+                                int id = o.getInt("idRuoka");
+                                String food_name = o.getString("RuoanNimi");
+                                int calories = o.getInt("Kalorit");
+                                int fat = o.getInt("Rasva");
+                                int carbonhydrates = o.getInt("Hiilihydraatit");
+                                int protein = o.getInt("Proteiini");
+                                int user = o.getInt("Kayttaja_idKayttaja");
+
+                                //Food_Data food_data = new Food_Data(id,food_name,calories,fat,carbonhydrates,protein,user);
+                                //foods.add(food_data);
+
+                                foodProgressBar.setProgress(calories);
+
+                                Log.d(TAG, "Ruoan nimi: " + food_name + "\n Kalorit: " + calories + "\nRasva: " + fat + "\nHiilihydraatit: "
+                                        + carbonhydrates + "\nProteiinit: " + protein + " \n\n\n");
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+    }
+
+
+
 
     public void get_time() {
         Log.d(TAG, "get_time: Aloitetaan");
