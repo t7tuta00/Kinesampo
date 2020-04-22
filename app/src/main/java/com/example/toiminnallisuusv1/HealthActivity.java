@@ -75,6 +75,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
         }
         else if (v.getId() == R.id.treeniButton) {
             Intent treenitIntent = new Intent(HealthActivity.this, ExerciseGetLayout.class);
+            treenitIntent.putExtra("id", id);
             startActivity(treenitIntent);
         }
     }
