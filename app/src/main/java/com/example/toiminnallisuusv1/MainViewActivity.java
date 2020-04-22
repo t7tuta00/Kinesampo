@@ -29,13 +29,12 @@ import org.json.JSONObject;
 
 import static java.lang.String.valueOf;
 
-public class MainViewActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainViewActivity extends AppCompatActivity{
 
     String TAG = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     int id;
     int progress = 0;
     private RequestQueue mQueue;
-    Button button;
     String Timer;
     int burntCalories;
     ProgressBar simpleProgressBar;
@@ -53,8 +52,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
 
         ProgressBar progressBar = findViewById(R.id.palkki);
 
-        button = findViewById(R.id.nappi);
-        button.setOnClickListener(this);
+
 
         simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
         simpleProgressBar.setMax(60);
@@ -69,6 +67,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         Log.d(TAG, valueOf(progress));
         //Log.d(TAG, time);
         Log.d(TAG, String.valueOf(progress));
+        get_time();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -224,10 +223,5 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         startActivity(intent);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.nappi) {
-            get_time();
-        }
-    }
+
 }

@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ExerciseGetLayout extends AppCompatActivity implements View.OnClickListener {
+public class ExerciseGetLayout extends AppCompatActivity {
 
     int id;
     private RequestQueue mQueue;
@@ -32,7 +32,6 @@ public class ExerciseGetLayout extends AppCompatActivity implements View.OnClick
     TextView textView2;
     ArrayList<ArrayList> workouts;
     ArrayAdapter<ArrayList> adapter;
-    Button button;
     TextView textview;
     int luku = 1;
     String id2;
@@ -49,14 +48,13 @@ public class ExerciseGetLayout extends AppCompatActivity implements View.OnClick
 
         id2 = Integer.toString(id);
         listView = findViewById(R.id.Liikuntalista);
-        button = findViewById(R.id.jsonbutton);
-        button.setOnClickListener(this);
         textview = findViewById(R.id.kentta);
         textview.setMovementMethod(new ScrollingMovementMethod());
         workouts = new ArrayList<>();
         mQueue = Volley.newRequestQueue(this);
         adapter = new ArrayAdapter<ArrayList>(this, android.R.layout.simple_list_item_1, workouts);
         listView.setAdapter(adapter);
+        get_workout();
     }
 
     public void get_workout(){
@@ -102,10 +100,5 @@ public class ExerciseGetLayout extends AppCompatActivity implements View.OnClick
         mQueue.add(request);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.jsonbutton) {
-            get_workout();
-        }
-    }
+
 }

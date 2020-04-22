@@ -137,7 +137,7 @@
         android:layout_marginTop="50dp"
         android:layout_below="@+id/ruokagame"
         android:layout_toLeftOf="@id/ruokagame"
-        android:background="@drawable/heart"
+        android:background="@drawable/juoksu"
         android:id="@+id/heart"/>
 
     <ProgressBar
@@ -150,19 +150,9 @@
         android:layout_marginTop="58dp"
         android:layout_below="@+id/ruokagame"
         android:layout_toRightOf="@id/heart"
-        android:progressTint="@color/punainen" />
+        android:progressTint="@color/buttonThreeGradient" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:id="@+id/nappi"
-        android:text="näytä päivän tilanne"
-        android:layout_below="@id/palkki"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/buttonshape0"
-        android:layout_marginTop="10dp"/>
+
 
     <Button
         android:id="@+id/imageButton"

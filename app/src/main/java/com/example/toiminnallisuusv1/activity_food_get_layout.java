@@ -25,7 +25,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class activity_food_get_layout extends AppCompatActivity implements View.OnClickListener {
+public class activity_food_get_layout extends AppCompatActivity {
 
     int id;
     String id2;
@@ -33,7 +33,6 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
     ListView listView;
     ArrayList<ArrayList> foods;
     ArrayAdapter<ArrayList> adapter;
-    Button button;
     TextView textview;
     String result = "";
     String TAG="TAG";
@@ -50,8 +49,6 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
         }
 
         id2 = Integer.toString(id);
-        button = findViewById(R.id.jsonbutton);
-        button.setOnClickListener(this);
         listView = findViewById(R.id.Ruokalista);
         textview = findViewById(R.id.kentta);
         textview.setMovementMethod(new ScrollingMovementMethod());
@@ -59,6 +56,7 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
         mQueue = Volley.newRequestQueue(this);
         adapter = new ArrayAdapter<ArrayList>(this, android.R.layout.simple_list_item_1, foods);
         listView.setAdapter(adapter);
+        get_food();
     }
 
     public void get_food()
@@ -109,12 +107,5 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
         mQueue.add(request);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.jsonbutton) {
-            get_food();
-            Log.d(TAG, "onClick: "+id2);
-        }
-    }
 }
 

@@ -45,18 +45,7 @@
             android:layout_height="wrap_content"
             android:text="Listview:"/>
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:gravity="center"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:background="@drawable/buttonshape2"
-            android:layout_gravity="center"
-            android:text="PAINA"
-            android:id="@+id/jsonbutton"
-            />
+        
 
         <TextView
             android:layout_width="match_parent"
