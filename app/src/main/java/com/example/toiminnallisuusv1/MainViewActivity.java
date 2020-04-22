@@ -47,24 +47,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
             id = getIntent().getIntExtra("id",0);
         }
 
-        ImageView kuva1 = findViewById(R.id.heart);
-        kuva1.setImageResource(R.drawable.heart);
-
-        ImageView ruoka = findViewById(R.id.ruokagame);
-        ruoka.setImageResource(R.drawable.food);
-
-        ImageView liikunta = findViewById(R.id.liikuntagame);
-        liikunta.setImageResource(R.drawable.juoksu);
-
-        ImageView maito = findViewById(R.id.maitogame);
-        maito.setImageResource(R.drawable.milk);
-
-        ImageView vesi = findViewById(R.id.vesigame);
-        vesi.setImageResource(R.drawable.water);
-
-
         ProgressBar progressBar = findViewById(R.id.palkki);
-        ImageView shop = findViewById(R.id.imageButton);
 
         button = findViewById(R.id.nappi);
         button.setOnClickListener(this);
@@ -72,7 +55,6 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         ProgressBar simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
         simpleProgressBar.setMax(60);
         mQueue = Volley.newRequestQueue(this);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -82,10 +64,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         Log.d(TAG, valueOf(progress));
         //Log.d(TAG, time);
         Log.d(TAG, String.valueOf(progress));
-
     }
-
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -115,8 +94,6 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 
     public void get_time() {
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
