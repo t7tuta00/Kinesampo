@@ -39,6 +39,7 @@
         android:text="Kalorilaskin"
         android:textSize="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@android:color/black"
         android:gravity="center"
         android:layout_below="@+id/toolbar"
@@ -47,34 +48,34 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/headerText" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Helppo tapa laskea paljonko ruoka sisältää kaloreita"
-        android:textSize="14dp"
-        android:layout_marginBottom="30dp"
-        android:textColor="@android:color/black"
-        android:gravity="center"
+        android:id="@+id/palkki"
+        android:layout_height="5dp"
         android:layout_below="@+id/headerText"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/infoText" />
+        android:background="@color/buttonFour"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+    </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:text="Kcal / 100 g:"
                 android:textSize="20dp"
+                android:layout_marginRight="5dp"
                 android:textColor="@android:color/black"
                 android:gravity="center"
-                android:layout_below="@+id/infoText"
+                android:layout_below="@+id/palkki"
                 android:layout_toLeftOf="@id/kohdistus"
                 android:id="@+id/kcalText" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:text="Ruoan määrä (g):"
                 android:textSize="20dp"
+                android:layout_marginRight="5dp"
                 android:textColor="@android:color/black"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
@@ -83,14 +84,14 @@
                 android:id="@+id/amountText" />
 
             <EditText
-                android:id="@+id/kcalEditText"
+                android:id="@+id/calory"
                 android:layout_width="120dp"
                 android:layout_height="45dp"
                 android:maxLines="1"
                 android:hint=""
-                android:layout_marginTop="-15dp"
+                android:layout_marginLeft="5dp"
                 android:gravity="center"
-                android:layout_below="@+id/infoText"
+                android:layout_below="@+id/palkki"
                 android:layout_toRightOf="@id/kohdistus"
                 android:textColorHint="@color/hintColor"
                 android:inputType="number"/>
@@ -101,10 +102,10 @@
                 android:layout_height="45dp"
                 android:maxLines="1"
                 android:hint=""
-                android:layout_marginTop="-5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:layout_below="@+id/kcalEditText"
+                android:layout_below="@+id/calory"
                 android:layout_toRightOf="@id/kohdistus"
                 android:textColorHint="@color/hintColor"
                 android:inputType="number"/>
@@ -114,6 +115,7 @@
         android:layout_height="wrap_content"
         android:text="Tulos: "
         android:textSize="20dp"
+        android:layout_marginRight="5dp"
         android:textColor="@android:color/black"
         android:layout_marginTop="20dp"
         android:gravity="center"
@@ -126,6 +128,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="20dp"
+        android:layout_marginLeft="5dp"
         android:textColor="@android:color/black"
         android:layout_marginTop="20dp"
         android:gravity="center"
@@ -141,10 +144,10 @@
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@id/kohdistus"
-            android:layout_marginBottom="280dp"
             android:onClick="addClick"
             android:textColor="@android:color/black"
             android:textStyle="bold"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/buttonshape1"
             style="?android:textAppearanceSmall"
             android:id="@+id/addButton"/>
@@ -157,9 +160,9 @@
         android:onClick="laskeClick"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/kohdistus"
-        android:layout_marginBottom="280dp"
         android:textColor="@android:color/black"
         android:textStyle="bold"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/buttonshape1"
         style="?android:textAppearanceSmall"
         android:id="@+id/laskeButton"/>

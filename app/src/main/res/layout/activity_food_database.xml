@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/headerText"
+        android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
@@ -36,15 +37,26 @@
         android:textSize="30sp"
         android:gravity="center"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/palkki"
+        android:layout_height="5dp"
+        android:layout_below="@+id/headerText"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/headerText"
+        android:background="@color/buttonFour"
+        android:orientation="horizontal">
+    </LinearLayout>
+
     <EditText
         android:id="@+id/etsiEditText"
         android:layout_width="308dp"
-        android:layout_height="49dp"
+        android:layout_height="45dp"
         android:hint="Hae tuotetta"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/haeButton"
-        app:layout_constraintTop_toBottomOf="@id/headerText" />
+        app:layout_constraintTop_toBottomOf="@id/palkki" />
 
     <Button
         android:layout_width="120dp"
@@ -56,15 +68,15 @@
         android:background="@drawable/buttonshape1"
         android:text="Hae"
         android:id="@+id/haeButton"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintLeft_toRightOf="@id/etsiEditText"
-        app:layout_constraintTop_toBottomOf="@id/headerText"
+        app:layout_constraintTop_toBottomOf="@id/palkki"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
         android:id="@+id/kategoriatText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginRight="10dp"
         android:text="Kategoriat:"
         android:layout_marginTop="20dp"
@@ -76,13 +88,13 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         app:layout_constraintLeft_toRightOf="@id/kategoriatText"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/kategoriatSpinner"
         app:layout_constraintTop_toBottomOf="@id/haeButton"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:layout_width="120dp"
@@ -94,7 +106,8 @@
         android:background="@drawable/buttonshape1"
         android:text="Katso listaa"
         android:id="@+id/listaButton"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
@@ -109,7 +122,8 @@
         android:background="@drawable/buttonshape1"
         android:text="Lisää tuote listalle"
         android:id="@+id/lisaaButton"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="40dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />

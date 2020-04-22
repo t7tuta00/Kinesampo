@@ -5,14 +5,40 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
-public class MainViewActivity extends AppCompatActivity {
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static java.lang.String.valueOf;
+
+public class MainViewActivity extends AppCompatActivity{
+
+    String TAG = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     int id;
+    int progress = 0;
+    private RequestQueue mQueue;
+    String Timer;
+    int burntCalories;
+    ProgressBar simpleProgressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,25 +50,24 @@ public class MainViewActivity extends AppCompatActivity {
             id = getIntent().getIntExtra("id",0);
         }
 
-        ImageView kuva1 = findViewById(R.id.heart);
-        kuva1.setImageResource(R.drawable.heart);
+        ProgressBar progressBar = findViewById(R.id.palkki);
 
-        ImageView ruoka = findViewById(R.id.ruokagame);
-        ruoka.setImageResource(R.drawable.food);
 
-        ImageView liikunta = findViewById(R.id.liikuntagame);
-        liikunta.setImageResource(R.drawable.juoksu);
 
-        ImageView maito = findViewById(R.id.maitogame);
-        maito.setImageResource(R.drawable.milk);
+        simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
+        simpleProgressBar.setMax(60);
+        mQueue = Volley.newRequestQueue(this);
 
-        ImageView vesi = findViewById(R.id.vesigame);
-        vesi.setImageResource(R.drawable.water);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        simpleProgressBar.setProgress(progress);
+        Log.d(TAG, valueOf(progress));
+        //Log.d(TAG, time);
+        Log.d(TAG, String.valueOf(progress));
+        get_time();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,11 +89,80 @@ public class MainViewActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ChangePasswordActivity.class));
                 return true;
             case R.id.subUserSettings:
-                startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
+                //startActivity(new Intent(getApplicationContext(), ChangeUserSettingsActivity.class));
+                Intent intent = new Intent(this, ChangeUserSettingsActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void get_time() {
+        Log.d(TAG, "get_time: Aloitetaan");
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja?Kayttaja_idKayttaja=" + id;
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            JSONArray jsonArray = response;
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject o = jsonArray.getJSONObject(i);
+
+                                int id = o.getInt("idLiikunta");
+                                String timer = o.getString("Timer");
+                                int calories = o.getInt("Poltetut_kalorit");
+                                String devices = o.getString("Laitteet");
+                                String workoutStyle = o.getString("Liikuntamuodot");
+                                String date = o.getString("Paivays");
+                                String workoutName = o.getString("TreeninNimi");
+                                String time = o.getString("Kesto");
+                                int user = o.getInt("Kayttaja_idKayttaja");
+
+                                Timer = time;
+                                burntCalories = calories;
+
+                                int Days = Integer.parseInt(time.substring(0,2)); //days
+                                int Hours = Integer.parseInt(time.substring(3,5)); //Hours
+                                int Minutes = Integer.parseInt(time.substring(6,8)); //Minutes
+
+                                Days = (Days*24)*60;
+                                Hours = Hours*60;
+                                Minutes = Minutes+Hours+Days;
+
+                                progress = Minutes;
+
+                                simpleProgressBar.setProgress(progress);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d(TAG, "onResponse: error");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+
+        new CountDownTimer(1750, 1750) {
+            public void onTick(long millisUntilFinished) {
+            }
+            @Override
+            public void onFinish() {
+                Log.d(TAG, "get_time: lisätään");
+                Log.d(TAG, "!!!!!!!!!!!!!!!!::::" + valueOf(progress));
+                Log.d(TAG, "get_time: lisätään"+Timer);
+                Log.d(TAG, "get_time: lisätään"+burntCalories);
+            }
+        }.start();
     }
 
     public void health_intent(View view) {
@@ -123,4 +217,11 @@ public class MainViewActivity extends AppCompatActivity {
         Intent mainViewIntent = new Intent(this, MainViewActivity.class);
         startActivity(mainViewIntent);
     }
+    public void shop_intent(View view) {
+        Intent intent = new Intent(this, ShopActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
+
+
 }

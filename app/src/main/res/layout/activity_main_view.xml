@@ -84,6 +84,7 @@
         android:onClick="work_intent"
         android:id="@+id/tyoButton"/>
 
+
     <ImageView
         android:layout_marginTop="380dp"
         android:layout_below="@+id/kohdistus"
@@ -92,6 +93,7 @@
         android:layout_toLeftOf="@id/maitogame"
         android:layout_marginRight="10dp"
         android:id="@+id/ruokagame"
+        android:background="@drawable/food"
         android:onClick="food_game_intent"
         />
 
@@ -103,6 +105,7 @@
         android:layout_toLeftOf="@id/kohdistus"
         android:layout_marginRight="5dp"
         android:id="@+id/maitogame"
+        android:background="@drawable/milk"
         android:onClick="milk_intent"/>
 
     <ImageView
@@ -114,6 +117,7 @@
         android:layout_toRightOf="@id/kohdistus"
         android:layout_centerHorizontal="true"
         android:id="@+id/liikuntagame"
+        android:background="@drawable/juoksu"
         android:onClick="sport_game_intent"/>
 
     <ImageView
@@ -123,6 +127,7 @@
         android:layout_marginTop="380dp"
         android:layout_below="@+id/kohdistus"
         android:layout_toRightOf="@id/liikuntagame"
+        android:background="@drawable/water"
         android:id="@+id/vesigame"
         android:onClick="water_intent" />
 
@@ -132,18 +137,31 @@
         android:layout_marginTop="50dp"
         android:layout_below="@+id/ruokagame"
         android:layout_toLeftOf="@id/ruokagame"
+        android:background="@drawable/juoksu"
         android:id="@+id/heart"/>
 
     <ProgressBar
         android:id="@+id/palkki"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="250dp"
+        android:layout_width="240dp"
         android:layout_height="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="58dp"
         android:layout_below="@+id/ruokagame"
         android:layout_toRightOf="@id/heart"
-        android:progressTint="@color/punainen" />
+        android:progressTint="@color/buttonThreeGradient" />
+
+
+
+    <Button
+        android:id="@+id/imageButton"
+        android:onClick="shop_intent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shopbutton1_layerlist" />
 
 </RelativeLayout>

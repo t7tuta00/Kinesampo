@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,17 +25,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class activity_food_get_layout extends AppCompatActivity implements View.OnClickListener {
+public class activity_food_get_layout extends AppCompatActivity {
 
     int id;
-    String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/RuokaidKayttaja?Kayttaja_idKayttaja=" + id;
+    String id2;
     private RequestQueue mQueue;
     ListView listView;
     ArrayList<ArrayList> foods;
     ArrayAdapter<ArrayList> adapter;
-    Button button;
     TextView textview;
     String result = "";
+    String TAG="TAG";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,18 +48,20 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
             id = getIntent().getIntExtra("id",0);
         }
 
+        id2 = Integer.toString(id);
         listView = findViewById(R.id.Ruokalista);
-        button = findViewById(R.id.jsonbutton);
-        button.setOnClickListener(this);
         textview = findViewById(R.id.kentta);
         textview.setMovementMethod(new ScrollingMovementMethod());
         foods = new ArrayList<>();
         mQueue = Volley.newRequestQueue(this);
         adapter = new ArrayAdapter<ArrayList>(this, android.R.layout.simple_list_item_1, foods);
         listView.setAdapter(adapter);
+        get_food();
     }
 
-    public void get_food(){
+    public void get_food()
+    {
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/RuokaidKayttaja?Kayttaja_idKayttaja=" + id2;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
 
@@ -81,9 +84,11 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
                                 int protein = o.getInt("Proteiini");
                                 int user = o.getInt("Kayttaja_idKayttaja");
 
-                                /*Food_Data food_data = new Food_Data(id,food_name,calories,fat,carbonhydrates,protein,user);
-                                foods.add(food_data);*/
+                                //Food_Data food_data = new Food_Data(id,food_name,calories,fat,carbonhydrates,protein,user);
+                                //foods.add(food_data);
 
+                                Log.d(TAG, "Ruoan nimi: " + food_name + "\n Kalorit: " + calories + "\nRasva: " + fat + "\nHiilihydraatit: "
+                                        + carbonhydrates + "\nProteiinit: " + protein + " \n\n\n");
 
                                 textview.append("Ruoan nimi: " + food_name + "\n Kalorit: " + calories + "\nRasva: " + fat + "\nHiilihydraatit: "
                                         + carbonhydrates + "\nProteiinit: " + protein + " \n\n\n");
@@ -102,11 +107,5 @@ public class activity_food_get_layout extends AppCompatActivity implements View.
         mQueue.add(request);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.jsonbutton) {
-            get_food();
-        }
-    }
 }
 

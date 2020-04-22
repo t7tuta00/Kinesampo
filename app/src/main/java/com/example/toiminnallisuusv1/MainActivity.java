@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -88,14 +85,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    public void uusiKayttajaIntent(View view) {
+    private void uusiKayttajaIntent(View view) {
         Intent uusiKayttajaIntent = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(uusiKayttajaIntent);
     }
 
-    public void kirjauduIntent(View view) {
+    private void kirjauduIntent(View view) {
         Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
         startActivity(kirjauduIntent);
+    }
+
+    private void enableButtonFuntion() {
+        salasanaButton.setEnabled(true);
+        salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
     }
 
     public void signInFunction() {
@@ -112,48 +114,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         GetUser();
 
-        if (Password.equals("") && Login.equals("")) {
-        }
-        else if (Password.equals("") || Login.equals("")) {
-        }
-        else if (CheckLogin.equals(Login) && CheckPassword.equals(Password)) {
-            Check();
-            Log.d(msg, "run: "+ Login + Password);
-            Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-            kirjauduIntent.putExtra("id", userid);
-            startActivity(kirjauduIntent);
-        }
-        else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-        new CountDownTimer(2000, 2000) {
-
+        new CountDownTimer(1750, 1750) {
             public void onTick(long millisUntilFinished) {
             }
 
             @Override
             public void onFinish() {
+
                 salasanaButton.setEnabled(true);
                 salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
-            }
-        }.start();
 
-        /*Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                if (Password.equals(null) && Login.equals(null)) {
+                if (Password.equals("") && Login.equals("")) {
+                    enableButtonFuntion();
                 }
-                else if (Password.equals(null) || Login.equals(null)) {
+                else if (Password.equals("") || Login.equals("")) {
+                    enableButtonFuntion();
                 }
-                Check();
-                Log.d(msg, "run: "+ Login + Password);
+                else if (CheckLogin.equals(Login) && CheckPassword.equals(Password)) {
 
-                if (CheckLogin.equals(Login) && CheckPassword.equals(Password))
-                {
+                    Log.d(msg, "run: "+ Login + Password);
                     Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
                     kirjauduIntent.putExtra("id", userid);
                     startActivity(kirjauduIntent);
@@ -161,9 +140,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
                     toast.show();
+                    enableButtonFuntion();
                 }
             }
-        }, 2000);*/
+        }.start();
     }
 
     @Override
@@ -192,7 +172,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            //JSONArray jsonArrayalku = response.getJSONArray("areas")
                             JSONArray jsonArray = response;
 
                             for (int i = 0; i < jsonArray.length(); i++) {

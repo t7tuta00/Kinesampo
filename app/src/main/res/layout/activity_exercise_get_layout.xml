@@ -27,9 +27,8 @@
         android:layout_height="5dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/line1"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/buttonThree"
         >
-
 
     </LinearLayout>
 
@@ -46,18 +45,7 @@
             android:layout_height="wrap_content"
             android:text="Listview:"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center"
-            style="?android:textAppearanceSmall"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:background="@drawable/buttonshape2"
-            android:layout_gravity="center"
-            android:text="PAINA"
-            android:id="@+id/jsonbutton"
-            />
+        
 
         <TextView
             android:layout_width="match_parent"

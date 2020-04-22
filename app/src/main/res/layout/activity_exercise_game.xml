@@ -26,34 +26,39 @@
             android:src="@drawable/logotext_src" />
     </androidx.appcompat.widget.Toolbar>
 
-
-
-
-
-
-
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:id="@+id/nuotio"/>
+        android:layout_height="400dp"
+        android:id="@+id/nuotio"
+        android:background="@drawable/palava"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="40dp"
+        android:textSize="18dp"
+        android:text="Lisää liikuntasi määrä (min):"/>
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="30dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/liikuntakentta"
         android:gravity="center"
         android:inputType="number"
         android:layout_gravity="center"/>
 
     <Button
-        android:layout_width="160dp"
+        android:layout_width="120dp"
         android:layout_height="45dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         style="?android:textAppearanceSmall"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:background="@drawable/buttonshape2"
-        android:text="LISÄÄ LIIKUNTASI MÄÄRÄ"
+        android:background="@drawable/buttonshape0"
+        android:text="LISÄÄ"
         android:layout_gravity="center"
         android:id="@+id/liikuntanappi"/>
 

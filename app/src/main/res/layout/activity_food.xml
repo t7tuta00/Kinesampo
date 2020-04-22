@@ -25,6 +25,15 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/kohdistus"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="">
+    </TextView>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ruoka"
@@ -33,51 +42,70 @@
         android:gravity="center"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/headerText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/palkki"
+        android:layout_height="5dp"
+        android:layout_below="@+id/headerText"
+        android:layout_marginBottom="30dp"
+        android:background="@color/buttonFour"
+        android:orientation="horizontal">
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_toLeftOf="@+id/kohdistus"
         android:layout_gravity="center"
-        android:layout_below="@+id/headerText"
+        android:layout_below="@+id/palkki"
         android:layout_marginTop="20dp"
         android:id="@+id/textView1"
         android:text="Päivän kalorit: "/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@android:color/black"
+        android:textSize="22dp"
         android:layout_gravity="center"
-        android:layout_toRightOf="@+id/textView1"
-        android:layout_below="@+id/headerText"
+        android:layout_toRightOf="@+id/kohdistus"
+        android:layout_below="@+id/palkki"
         android:layout_marginTop="20dp"
         android:id="@+id/dayKcal"
         android:text="0"/>
 
     <EditText
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
         android:maxLines="1"
         android:id="@+id/addKcal"
         android:inputType="number"
         android:hint="Kcal"
         android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/kohdistus"
         android:layout_below="@+id/dayKcal"/>
 
     <Button
         android:layout_width="120dp"
         android:layout_height="45dp"
-        android:text="Lisää kaloreita"
+        android:text="Lisää"
         android:layout_gravity="center"
         style="?android:textAppearanceSmall"
+        android:layout_marginLeft="5dp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
-        android:layout_toRightOf="@+id/addKcal"
-        android:layout_below="@+id/headerText"
-        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/kohdistus"
+        android:layout_below="@+id/dayKcal"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:onClick="kalorilaskuri_intent"
         android:id="@+id/kaloriLaskuri"/>
@@ -91,8 +119,9 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
         android:layout_below="@+id/kaloriLaskuri"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:onClick="kalorilaskin_intent"
         android:id="@+id/kaloriLaskin"/>
@@ -106,23 +135,10 @@
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
         android:text="tietokanta"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/kohdistus"
         android:layout_below="@id/kaloriLaskin"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
         android:id="@+id/ruokaTietokanta"/>
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="45dp"
-        android:gravity="center"
-        style="?android:textAppearanceSmall"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:background="@drawable/buttonshape1"
-        android:text="lisää ateria"
-        android:layout_below="@id/ruokaTietokanta"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/lisaaAteria"/>
 
     <Button
         android:layout_width="120dp"
@@ -132,10 +148,10 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/kohdistus"
         android:text="reseptit"
-        android:layout_below="@id/lisaaAteria"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@id/kaloriLaskin"
         android:id="@+id/reseptit"/>
 
     <Button
@@ -146,10 +162,11 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
-        android:text="Kaikkien ruuat"
+        android:text="Omat ruoat"
         android:layout_below="@+id/reseptit"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/kohdistus"
         android:id="@+id/kaikkienruuat"/>
 
     <Button
@@ -160,10 +177,11 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:background="@drawable/buttonshape1"
-        android:text="Lisää ruokia"
-        android:layout_below="@+id/kaikkienruuat"
+        android:text="Lisää ateria"
+        android:layout_below="@+id/reseptit"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/kohdistus"
         android:id="@+id/foodpost"/>
 
 </RelativeLayout>

@@ -19,18 +19,7 @@ public class FoodGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_game);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        ImageView imageView = findViewById(R.id.lautanen);
-        imageView.setImageResource(R.drawable.tyhja_lautanen);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

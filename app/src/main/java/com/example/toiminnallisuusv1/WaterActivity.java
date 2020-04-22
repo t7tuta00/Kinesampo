@@ -12,28 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-public class WaterActivity extends AppCompatActivity implements View.OnClickListener {
+public class WaterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
-        Intent intent = getIntent();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        ImageView lasi = findViewById(R.id.vesilasi);
-        lasi.setImageResource(R.drawable.tyhja_lasi);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,14 +46,6 @@ public class WaterActivity extends AppCompatActivity implements View.OnClickList
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.takaisinButton) {
-            Intent takaisinIntent = new Intent(WaterActivity.this, MainViewActivity.class);
-            startActivity(takaisinIntent);
         }
     }
 
