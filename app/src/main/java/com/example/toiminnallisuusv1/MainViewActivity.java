@@ -117,6 +117,7 @@ public class MainViewActivity extends AppCompatActivity{
 
                             JSONArray jsonArray = response;
 
+                            int calory = 0;
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject o = jsonArray.getJSONObject(i);
 
@@ -131,7 +132,8 @@ public class MainViewActivity extends AppCompatActivity{
                                 //Food_Data food_data = new Food_Data(id,food_name,calories,fat,carbonhydrates,protein,user);
                                 //foods.add(food_data);
 
-                                foodProgressBar.setProgress(calories);
+                                calory = calory + calories;
+                                foodProgressBar.setProgress(calory);
 
                                 Log.d(TAG, "Ruoan nimi: " + food_name + "\n Kalorit: " + calories + "\nRasva: " + fat + "\nHiilihydraatit: "
                                         + carbonhydrates + "\nProteiinit: " + protein + " \n\n\n");

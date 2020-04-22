@@ -9,22 +9,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 public class Recipe extends AppCompatActivity implements View.OnClickListener {
+
+    int id;
+    private RequestQueue mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
-        findViewById(R.id.takaisinButton).setOnClickListener(this);
+        
         findViewById(R.id.ruokaButton1).setOnClickListener(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        mQueue = Volley.newRequestQueue(this);
     }
 
     @Override
