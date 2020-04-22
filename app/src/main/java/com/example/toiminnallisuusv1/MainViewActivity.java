@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
@@ -33,9 +34,11 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
     String TAG = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     int id;
     int progress = 0;
-    String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja?Kayttaja_idKayttaja=" + id;
     private RequestQueue mQueue;
     Button button;
+    String Timer;
+    int burntCalories;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         ProgressBar simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
         simpleProgressBar.setMax(60);
         mQueue = Volley.newRequestQueue(this);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -96,21 +100,20 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void get_time() {
+        Log.d(TAG, "get_time: Aloitetaan");
+        String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja?Kayttaja_idKayttaja=" + id;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
-
                         try {
-
                             JSONArray jsonArray = response;
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject o = jsonArray.getJSONObject(i);
 
                                 int id = o.getInt("idLiikunta");
-                                //String food_name = o.getString("RuoanNimi");
                                 String timer = o.getString("Timer");
                                 int calories = o.getInt("Poltetut_kalorit");
                                 String devices = o.getString("Laitteet");
@@ -120,15 +123,23 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
                                 String time = o.getString("Kesto");
                                 int user = o.getInt("Kayttaja_idKayttaja");
 
-                                progress = Integer.parseInt(time);
-                                Log.d(TAG, valueOf(progress));
-                                Log.d(TAG, time);
-                                Log.d(TAG, String.valueOf(progress));
+                                Timer = time;
+                                burntCalories = calories;
 
+                                int Days = Integer.parseInt(time.substring(0,2)); //days
+                                int Hours = Integer.parseInt(time.substring(3,5)); //Hours
+                                int Minutes = Integer.parseInt(time.substring(6,8)); //Minutes
+
+                                Days = (Days*24)*60;
+                                Hours = Hours*60;
+                                Minutes = Minutes+Hours+Days;
+
+                                progress = Minutes;
 
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Log.d(TAG, "onResponse: error");
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -139,6 +150,18 @@ public class MainViewActivity extends AppCompatActivity implements View.OnClickL
         });
 
         mQueue.add(request);
+
+        new CountDownTimer(1750, 1750) {
+            public void onTick(long millisUntilFinished) {
+            }
+            @Override
+            public void onFinish() {
+                Log.d(TAG, "get_time: lisätään");
+                Log.d(TAG, "!!!!!!!!!!!!!!!!::::" + valueOf(progress));
+                Log.d(TAG, "get_time: lisätään"+Timer);
+                Log.d(TAG, "get_time: lisätään"+burntCalories);
+            }
+        }.start();
     }
 
     public void health_intent(View view) {

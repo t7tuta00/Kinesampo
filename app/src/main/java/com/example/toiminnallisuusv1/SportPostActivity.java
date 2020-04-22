@@ -154,7 +154,6 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
 
     private void get_calories()
     {
-        Log.d(TAG, "update_calories: Get-vaihe Alkaa nyt!!!!!!!!!!!");
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/TerveysId?Kayttaja_idKayttaja=" + id2;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

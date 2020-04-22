@@ -25,9 +25,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ExerciseGetLayout extends AppCompatActivity implements View.OnClickListener {
-    int id;
 
-    //String url2 = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja";
+    int id;
     private RequestQueue mQueue;
     ListView listView;
     TextView textView2;
@@ -37,7 +36,6 @@ public class ExerciseGetLayout extends AppCompatActivity implements View.OnClick
     TextView textview;
     int luku = 1;
     String id2;
-    //String result = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
