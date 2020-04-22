@@ -112,24 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Queue = Volley.newRequestQueue(this);
 
-        //GetUser();
+        GetUser();
 
-
-        if (Password.equals("") && Login.equals("")) {
-        } else if (Password.equals("") || Login.equals("")) {
-        } else if (CheckLogin.equals(Login) && CheckPassword.equals(Password)) {
-            Log.d(msg, "run: " + Login + Password);
-            Intent kirjauduIntent = new Intent(MainActivity.this, MainViewActivity.class);
-            kirjauduIntent.putExtra("id", userid);
-            startActivity(kirjauduIntent);
-        } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Virheellinen käyttäjätunnus tai salasana", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-
-            new CountDownTimer(1750, 1750) {
-
+        new CountDownTimer(1750, 1750) {
 
             public void onTick(long millisUntilFinished) {
             }
@@ -139,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 salasanaButton.setEnabled(true);
                 salasanaButton.setBackgroundResource(R.drawable.buttonshape0);
-
 
                 if (Password.equals("") && Login.equals("")) {
                     enableButtonFuntion();
