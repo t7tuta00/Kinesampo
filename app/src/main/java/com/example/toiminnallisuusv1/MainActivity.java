@@ -225,8 +225,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 case KeyEvent.KEYCODE_ENTER:
                     InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    View usernameEdit = findViewById(R.id.username);
                     View passwordEdit = findViewById(R.id.password);
                     inputMethodManager.hideSoftInputFromWindow(passwordEdit.getWindowToken(), 0);
+                    inputMethodManager.hideSoftInputFromWindow(usernameEdit.getWindowToken(), 0);
                     return true;
                 default:
                     break;

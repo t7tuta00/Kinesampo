@@ -3,6 +3,7 @@ package com.example.toiminnallisuusv1;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -29,7 +30,7 @@ import org.json.JSONObject;
 
 import static java.lang.String.valueOf;
 
-public class MainViewActivity extends AppCompatActivity{
+public class MainViewActivity extends AppCompatActivity  {
 
     String TAG = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     int id;
@@ -46,17 +47,17 @@ public class MainViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view);
 
-        if (getIntent() != null)
-        {
-            id = getIntent().getIntExtra("id",0);
+
+        if (getIntent() != null) {
+            id = getIntent().getIntExtra("id", 0);
         }
 
-        foodProgressBar=(ProgressBar)findViewById(R.id.ruokapalkki);
-        foodProgressBar.setMax(2500);
+        foodProgressBar = (ProgressBar) findViewById(R.id.ruokapalkki);
+        foodProgressBar.setMax(350000);
 
 
-        simpleProgressBar=(ProgressBar)findViewById(R.id.palkki);
-        simpleProgressBar.setMax(60);
+        simpleProgressBar = (ProgressBar) findViewById(R.id.palkki);
+        simpleProgressBar.setMax(7500);
         mQueue = Volley.newRequestQueue(this);
 
 
@@ -101,8 +102,7 @@ public class MainViewActivity extends AppCompatActivity{
         }
     }
 
-    public void get_calories()
-    {
+    public void get_calories() {
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/RuokaidKayttaja?Kayttaja_idKayttaja=" + id;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -180,13 +180,13 @@ public class MainViewActivity extends AppCompatActivity{
                                 Timer = time;
                                 burntCalories = calories;
 
-                                int Days = Integer.parseInt(time.substring(0,2)); //days
-                                int Hours = Integer.parseInt(time.substring(3,5)); //Hours
-                                int Minutes = Integer.parseInt(time.substring(6,8)); //Minutes
+                                int Days = Integer.parseInt(time.substring(0, 2)); //days
+                                int Hours = Integer.parseInt(time.substring(3, 5)); //Hours
+                                int Minutes = Integer.parseInt(time.substring(6, 8)); //Minutes
 
-                                Days = (Days*24)*60;
-                                Hours = Hours*60;
-                                Minutes = Minutes+Hours+Days;
+                                Days = (Days * 24) * 60;
+                                Hours = Hours * 60;
+                                Minutes = Minutes + Hours + Days;
 
                                 progress = Minutes;
 
@@ -209,12 +209,13 @@ public class MainViewActivity extends AppCompatActivity{
         new CountDownTimer(1750, 1750) {
             public void onTick(long millisUntilFinished) {
             }
+
             @Override
             public void onFinish() {
                 Log.d(TAG, "get_time: lisätään");
                 Log.d(TAG, "!!!!!!!!!!!!!!!!::::" + valueOf(progress));
-                Log.d(TAG, "get_time: lisätään"+Timer);
-                Log.d(TAG, "get_time: lisätään"+burntCalories);
+                Log.d(TAG, "get_time: lisätään" + Timer);
+                Log.d(TAG, "get_time: lisätään" + burntCalories);
             }
         }.start();
     }
@@ -247,6 +248,7 @@ public class MainViewActivity extends AppCompatActivity{
         Intent mainViewIntent = new Intent(this, MainViewActivity.class);
         startActivity(mainViewIntent);
     }
+
     public void shop_intent(View view) {
         Intent intent = new Intent(this, ShopActivity.class);
         intent.putExtra("id", id);
