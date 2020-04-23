@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,11 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-public class SportPostActivity extends AppCompatActivity implements View.OnClickListener{
+public class ExercisePostActivity extends AppCompatActivity implements View.OnClickListener{
 
     String TAG = "LOG: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     Button button;
@@ -54,7 +51,7 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sport_post);
+        setContentView(R.layout.activity_exercise_post);
 
         if (getIntent() != null)
         {
@@ -236,6 +233,11 @@ public class SportPostActivity extends AppCompatActivity implements View.OnClick
                 @Override
                 public void onFinish() {
                     updateCaloris();
+                    sportText.setText("");
+                    caloryText.setText("");
+                    time.setText("");
+                    Toast toast = Toast.makeText(getApplicationContext(), "Treeni tallennettu", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }.start();
         }

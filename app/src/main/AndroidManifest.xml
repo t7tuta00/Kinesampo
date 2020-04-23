@@ -23,7 +23,7 @@
         <activity android:name=".CalorieCalculatorActivity" />
         <activity android:name=".NewUserActivity2" />
         <activity android:name=".FoodPostActivity" />
-        <activity android:name=".SportPostActivity" />
+        <activity android:name=".ExercisePostActivity" />
         <activity
             android:name=".ExerciseGameActivity"
             android:label="@string/title_activity_liikunta_game"

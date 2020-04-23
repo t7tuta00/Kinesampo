@@ -69,7 +69,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.lisaaTreeni) {
-            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, SportPostActivity.class);
+            Intent lisaaTreeniIntent = new Intent(HealthActivity.this, ExercisePostActivity.class);
             lisaaTreeniIntent.putExtra("id", id);
             startActivity(lisaaTreeniIntent);
         }

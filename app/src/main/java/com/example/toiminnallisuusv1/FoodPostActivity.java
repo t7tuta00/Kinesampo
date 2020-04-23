@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -282,6 +283,13 @@ public class FoodPostActivity extends AppCompatActivity implements View.OnClickL
                    @Override
                    public void onFinish() {
                        updateCaloris();
+                       foodText.setText("");
+                       caloryText.setText("");
+                       fatText.setText("");
+                       carbText.setText("");
+                       proteinText.setText("");
+                       Toast toast = Toast.makeText(getApplicationContext(), "Ateria tallennettu", Toast.LENGTH_SHORT);
+                       toast.show();
                    }
                }.start();
            }
