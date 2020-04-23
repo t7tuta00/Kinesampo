@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ShopItemActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".GamesActivity"></activity>
+        <activity android:name=".ShopItemActivity" />
         <activity android:name=".ShopActivity" />
         <activity android:name=".activity_food_get_layout" />
         <activity android:name=".ExerciseGetLayout" />
@@ -21,8 +22,8 @@
         <activity android:name=".ChangeUserSettingsActivity" />
         <activity android:name=".CalorieCalculatorActivity" />
         <activity android:name=".NewUserActivity2" />
-        <activity android:name=".FoodPostActivity"/>
-        <activity android:name=".SportPostActivity"/>
+        <activity android:name=".FoodPostActivity" />
+        <activity android:name=".SportPostActivity" />
         <activity
             android:name=".ExerciseGameActivity"
             android:label="@string/title_activity_liikunta_game"
@@ -49,6 +50,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

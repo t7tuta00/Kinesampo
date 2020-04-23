@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GamesActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="-120dp"
+            android:onClick="toMainView"
+            android:src="@drawable/logotext_src" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pelilliset ominaisuudet"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/headerText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/palkki"
+        android:layout_height="5dp"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@+id/headerText"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/kohdistus"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="">
+    </TextView>
+
+    <ImageView
+        android:layout_below="@+id/palkki"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@id/maitogame"
+        android:layout_marginRight="10dp"
+        android:id="@+id/ruokagame"
+        android:background="@drawable/food"
+        android:onClick="food_game_intent"
+        />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/palkki"
+        android:layout_toLeftOf="@id/kohdistus"
+        android:layout_marginRight="5dp"
+        android:id="@+id/maitogame"
+        android:background="@drawable/milk"
+        android:onClick="milk_intent"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/palkki"
+        android:layout_toRightOf="@id/kohdistus"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/liikuntagame"
+        android:background="@drawable/juoksu"
+        android:onClick="sport_game_intent"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/palkki"
+        android:layout_toRightOf="@id/liikuntagame"
+        android:background="@drawable/water"
+        android:id="@+id/vesigame"
+        android:onClick="water_intent" />
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/games_button"
+        android:gravity="center"/>
+    <item
+        android:drawable="@drawable/src_game"
+        android:gravity="center"
+        android:height="70dp"
+        android:width="70dp"
+        android:top="-4dp"
+        />
+
+</layer-list>

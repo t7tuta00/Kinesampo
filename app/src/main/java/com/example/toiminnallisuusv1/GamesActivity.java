@@ -1,35 +1,31 @@
 package com.example.toiminnallisuusv1;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 
-public class MilkActivity extends AppCompatActivity {
+public class GamesActivity extends AppCompatActivity {
+
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_milk);
+        setContentView(R.layout.activity_games);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        if (getIntent() != null)
+        {
+            id = getIntent().getIntExtra("id",0);
+        }
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,6 +52,30 @@ public class MilkActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void water_intent(View view) {
+        Intent intent = new Intent(this, WaterActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
+
+    public void food_game_intent(View view) {
+        Intent intent = new Intent(this, FoodGameActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
+
+    public void sport_game_intent(View view) {
+        Intent intent = new Intent(this, ExerciseGameActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
+
+    public void milk_intent(View view) {
+        Intent intent = new Intent(this, MilkActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
     }
 
     public void toMainView(View view) {

@@ -42,7 +42,7 @@
         android:layout_below="@+id/kohdistus"
         android:layout_toLeftOf="@id/kohdistus"
         android:layout_gravity="center"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="150dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/main_button_3_layerlist"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="4dp"
         android:layout_below="@+id/kohdistus"
         android:layout_toRightOf="@id/terveysButton"
@@ -85,58 +85,15 @@
         android:layout_marginBottom="40dp"
         android:id="@+id/tyoButton"/>
 
-
-    <ImageView
-        android:layout_below="@+id/tyoButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_toLeftOf="@id/maitogame"
-        android:layout_marginRight="10dp"
-        android:id="@+id/ruokagame"
-        android:background="@drawable/food"
-        android:onClick="food_game_intent"
-        />
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/tyoButton"
-        android:layout_toLeftOf="@id/kohdistus"
-        android:layout_marginRight="5dp"
-        android:id="@+id/maitogame"
-        android:background="@drawable/milk"
-        android:onClick="milk_intent"/>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@+id/tyoButton"
-        android:layout_toRightOf="@id/kohdistus"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/liikuntagame"
-        android:background="@drawable/juoksu"
-        android:onClick="sport_game_intent"/>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/tyoButton"
-        android:layout_toRightOf="@id/liikuntagame"
-        android:background="@drawable/water"
-        android:id="@+id/vesigame"
-        android:onClick="water_intent" />
-
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/ruokagame"
-        android:layout_toLeftOf="@id/ruokagame"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tyoButton"
+        android:layout_toLeftOf="@id/palkki"
         android:background="@color/buttonThreeDark">
 
         <LinearLayout
@@ -144,15 +101,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/ruokagame"
-            android:layout_toLeftOf="@id/ruokagame"
             android:background="@color/buttonThreeGradient">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_below="@+id/ruokagame"
-                android:layout_toLeftOf="@id/ruokagame"
                 android:background="@drawable/gym_src"
                 android:id="@+id/heart"/>
 
@@ -166,9 +119,9 @@
         android:layout_height="12dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/ruokagame"
-        android:layout_toRightOf="@id/linearLayout1"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/tyoButton"
+        android:layout_centerHorizontal="true"
         android:progressTint="@color/buttonThreeGradient" />
 
     <LinearLayout
@@ -179,7 +132,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/linearLayout1"
-        android:layout_toLeftOf="@id/ruokagame"
+        android:layout_toLeftOf="@id/ruokapalkki"
         android:background="@color/buttonFourDark">
 
         <LinearLayout
@@ -188,14 +141,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@+id/line2"
-            android:layout_toLeftOf="@id/ruokagame"
             android:background="@color/buttonFourGradient">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/line2"
-                android:layout_toLeftOf="@id/ruokagame"
                 android:background="@drawable/src_own_meals"
                 android:id="@+id/foodicon"/>
 
@@ -211,8 +162,18 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="31dp"
         android:layout_below="@+id/palkki"
-        android:layout_toRightOf="@id/linearLayout2"
+        android:layout_centerHorizontal="true"
         android:progressTint="@color/buttonFourGradient" />
+
+    <Button
+        android:id="@+id/gamesButton"
+        android:onClick="games_intent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:background="@drawable/games_button_layerlist" />
 
     <Button
         android:id="@+id/imageButton"
@@ -220,8 +181,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
         android:background="@drawable/shopbutton1_layerlist" />
 
 </RelativeLayout>

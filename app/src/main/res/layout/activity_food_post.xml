@@ -34,16 +34,6 @@
     </TextView>
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/kohdistus2"
-        android:layout_below="@+id/toolbar"
-        android:layout_toLeftOf="@id/kohdistus"
-        android:layout_marginRight="40dp"
-        android:text="">
-    </TextView>
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lisää ateria"
@@ -100,8 +90,8 @@
         android:layout_marginRight="5dp"
         android:textColor="@android:color/black"
         android:gravity="center"
+        android:layout_marginLeft="40dp"
         android:layout_below="@+id/nameText"
-        android:layout_toLeftOf="@id/kohdistus2"
         android:id="@+id/kcalText" />
 
     <EditText
@@ -113,7 +103,7 @@
         android:layout_marginLeft="5dp"
         android:gravity="center"
         android:layout_below="@+id/nimi"
-        android:layout_toRightOf="@id/kcalText"
+        android:layout_centerHorizontal="true"
         android:inputType="number"
         android:textColorHint="@color/hintColor"/>
 
@@ -126,7 +116,7 @@
         android:textColor="@android:color/black"
         android:gravity="center"
         android:layout_below="@+id/kcalText"
-        android:layout_toLeftOf="@id/kohdistus2"
+        android:layout_marginLeft="40dp"
         android:id="@+id/carbsText" />
 
     <EditText
@@ -138,7 +128,7 @@
         android:layout_marginLeft="5dp"
         android:gravity="center"
         android:layout_below="@+id/calory"
-        android:layout_toRightOf="@id/carbsText"
+        android:layout_centerHorizontal="true"
         android:inputType="number"
         android:textColorHint="@color/hintColor"/>
 
@@ -152,7 +142,7 @@
         android:gravity="center"
         android:layout_below="@+id/carbsText"
         android:inputType="number"
-        android:layout_toLeftOf="@id/kohdistus2"
+        android:layout_marginLeft="40dp"
         android:id="@+id/proteinText" />
 
     <EditText
@@ -165,7 +155,7 @@
         android:gravity="center"
         android:layout_below="@+id/time"
         android:inputType="number"
-        android:layout_toRightOf="@id/proteinText"
+        android:layout_centerHorizontal="true"
         android:textColorHint="@color/hintColor"/>
 
     <TextView
@@ -177,7 +167,7 @@
         android:textColor="@android:color/black"
         android:gravity="center"
         android:layout_below="@+id/proteinText"
-        android:layout_toLeftOf="@id/kohdistus2"
+        android:layout_marginLeft="40dp"
         android:id="@+id/fatsText" />
 
     <EditText
@@ -190,7 +180,7 @@
         android:gravity="center"
         android:layout_below="@+id/protein"
         android:inputType="number"
-        android:layout_toRightOf="@id/fatsText"
+        android:layout_centerHorizontal="true"
         android:textColorHint="@color/hintColor"/>
 
     <TextView

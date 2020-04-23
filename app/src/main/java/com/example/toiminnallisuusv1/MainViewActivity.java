@@ -51,8 +51,6 @@ public class MainViewActivity extends AppCompatActivity{
             id = getIntent().getIntExtra("id",0);
         }
 
-
-
         foodProgressBar=(ProgressBar)findViewById(R.id.ruokapalkki);
         foodProgressBar.setMax(2500);
 
@@ -155,8 +153,6 @@ public class MainViewActivity extends AppCompatActivity{
     }
 
 
-
-
     public void get_time() {
         Log.d(TAG, "get_time: Aloitetaan");
         String url = "http://ec2-35-172-199-159.compute-1.amazonaws.com/LiikuntaidKayttaja?Kayttaja_idKayttaja=" + id;
@@ -235,12 +231,6 @@ public class MainViewActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void milk_intent(View view) {
-        Intent intent = new Intent(this, MilkActivity.class);
-        intent.putExtra("id", id);
-        startActivity(intent);
-    }
-
     public void work_intent(View view) {
         Intent intent = new Intent(this, WorkActivity.class);
         intent.putExtra("id", id);
@@ -249,24 +239,6 @@ public class MainViewActivity extends AppCompatActivity{
 
     public void entertainment_intent(View view) {
         Intent intent = new Intent(this, EntertainmentActivity.class);
-        intent.putExtra("id", id);
-        startActivity(intent);
-    }
-
-    public void water_intent(View view) {
-        Intent intent = new Intent(this, WaterActivity.class);
-        intent.putExtra("id", id);
-        startActivity(intent);
-    }
-
-    public void food_game_intent(View view) {
-        Intent intent = new Intent(this, FoodGameActivity.class);
-        intent.putExtra("id", id);
-        startActivity(intent);
-    }
-
-    public void sport_game_intent(View view) {
-        Intent intent = new Intent(this, ExerciseGameActivity.class);
         intent.putExtra("id", id);
         startActivity(intent);
     }
@@ -281,5 +253,8 @@ public class MainViewActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-
+    public void games_intent(View view) {
+        Intent gamesIntent = new Intent(this, GamesActivity.class);
+        startActivity(gamesIntent);
+    }
 }
