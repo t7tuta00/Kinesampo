@@ -3,15 +3,19 @@ package com.example.toiminnallisuusv1;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class FoodActivity extends AppCompatActivity implements View.OnClickListener {
+public class FoodActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
 
     int id;
     EditText addKcal;
@@ -38,6 +42,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
         dayKcal = findViewById(R.id.dayKcal);
         addKcal = findViewById(R.id.addKcal);
+        addKcal.setOnKeyListener(this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,16 +100,50 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(laskinIntent);
     }
 
-    public void kalorilaskuri_intent(View view) {
+    public void calculateFunction() {
         String message = addKcal.getText().toString();
-        int eatenAmount = Integer.parseInt(message);
-        String message2 = dayKcal.getText().toString();
-        int eatenAmount2 = Integer.parseInt(message2);
 
-        int finalAmount = eatenAmount + eatenAmount2;
-        String tulosString = String.valueOf(finalAmount);
-        dayKcal.setText(tulosString);
-        addKcal.setText("");
+        if (message.equals("")) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Lisää syötettävät kalorit", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            String message2 = dayKcal.getText().toString();
+
+            int eatenAmount = Integer.parseInt(message);
+            int eatenAmount2 = Integer.parseInt(message2);
+
+            int finalAmount = eatenAmount + eatenAmount2;
+            String tulosString = String.valueOf(finalAmount);
+            dayKcal.setText(tulosString);
+            addKcal.setText("");
+        }
+    }
+
+    public void kalorilaskuri_intent(View view) {
+        calculateFunction();
+
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        View passwordEdit = findViewById(R.id.addKcal);
+        inputMethodManager.hideSoftInputFromWindow(passwordEdit.getWindowToken(), 0);
+    }
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN)
+        {
+            switch (keyCode)
+            {
+                case KeyEvent.KEYCODE_ENTER:
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    View passwordEdit = findViewById(R.id.addKcal);
+                    inputMethodManager.hideSoftInputFromWindow(passwordEdit.getWindowToken(), 0);
+                    calculateFunction();
+                    return true;
+                default:
+                    break;
+            }
+        }
+        return false;
     }
 
     public void toMainView(View view) {

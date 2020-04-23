@@ -1,18 +1,22 @@
 package com.example.toiminnallisuusv1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class CalorieCalculatorActivity extends AppCompatActivity {
+public class CalorieCalculatorActivity extends AppCompatActivity implements View.OnKeyListener {
 
     Button add;
     TextView tulos, tulos2;
@@ -36,6 +40,8 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
         kcalEdit = findViewById(R.id.calory);
         amountEdit = findViewById(R.id.amountEditText);
 
+        amountEdit.setOnKeyListener(this);
+
         add.setVisibility(View.INVISIBLE);
         tulos2.setVisibility(View.INVISIBLE);
     }
@@ -48,22 +54,31 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
 
     public void laskeClick(View view) {
         String message = amountEdit.getText().toString();
-        int eatenAmount = Integer.parseInt(message);
-
         String message2 = kcalEdit.getText().toString();
-        int kcalAmount = Integer.parseInt(message2);
-        int laskuTulos = kcalAmount * eatenAmount / 100;
-        String tulosString = String.valueOf(laskuTulos);
 
-        add.setVisibility(View.VISIBLE);
-        tulos2.setVisibility(View.VISIBLE);
-        tulos.setText(tulosString);
-        kcalEdit.setText("");
-        amountEdit.setText("");
+        if (message.equals("") && message2.equals("")) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Syötä tarvittavat tiedot", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else if (message.equals("") || message2.equals("")) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Syötä tarvittavat tiedot", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else {
+            int eatenAmount = Integer.parseInt(message);
+            int kcalAmount = Integer.parseInt(message2);
+            int laskuTulos = kcalAmount * eatenAmount / 100;
+            String tulosString = String.valueOf(laskuTulos);
+
+            add.setVisibility(View.VISIBLE);
+            tulos2.setVisibility(View.VISIBLE);
+            tulos.setText(tulosString);
+            kcalEdit.setText("");
+            amountEdit.setText("");
+        }
     }
 
     public void addClick(View view) {
-        //tänne tehtävä koodia jolla päivittyy tietokantaan, jotta näkyy lisättynä ruokanäkymään päivän kaloreihin
         tulos.setText("");
         add.setVisibility(View.INVISIBLE);
         tulos2.setVisibility(View.INVISIBLE);
@@ -93,6 +108,24 @@ public class CalorieCalculatorActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN)
+        {
+            switch (keyCode)
+            {
+                case KeyEvent.KEYCODE_ENTER:
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    View passwordEdit = findViewById(R.id.amountEditText);
+                    inputMethodManager.hideSoftInputFromWindow(passwordEdit.getWindowToken(), 0);
+                    return true;
+                default:
+                    break;
+            }
+        }
+        return false;
     }
 
     public void toMainView(View view) {
